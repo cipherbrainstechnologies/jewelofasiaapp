@@ -3,7 +3,7 @@ import 'package:flutter_grocery/helper/app_mode.dart';
 import 'images.dart';
 
 class AppConstants {
-  static const String appName = 'GroFresh';
+  static const String appName = 'JewelOfAsia';
   static const double appVersion = 7.2;
   static const AppMode appMode = AppMode.release;
   static const String baseUrl = 'https://phplaravel-941212-4363533.cloudwaysapps.com';
@@ -11,6 +11,8 @@ class AppConstants {
   static const String bannerUri = '/api/v1/banners';
   static const String categoryUri = '/api/v1/categories';
   static const String subCategoryUri = '/api/v1/categories/childes/';
+  static const String cities = '/api/v1/cities';
+  static const String zipcodes = '/api/v1/cities/zipcodes/';
   static const String categoryProductUri = '/api/v1/categories/products/';
   static const String dailyItemUri = '/api/v1/products/daily-needs';
   static const String searchProductUri = '/api/v1/products/details/';
@@ -86,7 +88,7 @@ class AppConstants {
   static const String userAddress = 'user_address';
 
   static const String searchAddress = 'search_address';
-  static const String topic = 'grofresh';
+  static const String topic = 'JewelOfAsia';
   static const String onBoardingSkip = 'on_boarding_skip';
   static const String placeOrderData = 'place_order_data';
   static const String cookingManagement = 'cookies_management';

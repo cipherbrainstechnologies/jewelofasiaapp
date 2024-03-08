@@ -23,6 +23,23 @@ class LocationRepo {
     }
   }
 
+  Future<ApiResponse> getCities() async {
+    try {
+      final response = await dioClient!.get(AppConstants.cities);
+      return ApiResponse.withSuccess(response);
+    } catch (e) {
+      return ApiResponse.withError(ApiErrorHandler.getMessage(e));
+    }
+  }
+  Future<ApiResponse> getZipcodes(int id) async {
+    try {
+      final response = await dioClient!.get(AppConstants.zipcodes+id.toString());
+      return ApiResponse.withSuccess(response);
+    } catch (e) {
+      return ApiResponse.withError(ApiErrorHandler.getMessage(e));
+    }
+  }
+
   Future<ApiResponse> removeAddressByID(int? id) async {
     try {
       final response = await dioClient!.post('${AppConstants.removeAddressUri}$id', data: {"_method": "delete"});

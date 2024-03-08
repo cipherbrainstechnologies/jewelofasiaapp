@@ -2,6 +2,7 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_grocery/data/model/response/address_model.dart';
+import 'package:flutter_grocery/data/model/response/city_model.dart';
 import 'package:flutter_grocery/helper/address_helper.dart';
 import 'package:flutter_grocery/helper/responsive_helper.dart';
 import 'package:flutter_grocery/helper/route_helper.dart';
@@ -48,20 +49,19 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
   final FocusNode _stateNode = FocusNode();
   final FocusNode _houseNode = FocusNode();
   final FocusNode _floorNode = FocusNode();
-
-
   String? countryCode;
 
 
   _initLoading() async {
     countryCode = CountryCode.fromCountryCode(Provider.of<SplashProvider>(context, listen: false).configModel!.country!).code;
-
     final locationProvider = Provider.of<LocationProvider>(context, listen: false);
     final AuthProvider authProvider = Provider.of<AuthProvider>(context, listen: false);
-
     final userModel =  Provider.of<ProfileProvider>(context, listen: false).userInfoModel ;
+    locationProvider.getCities();
+
     if(widget.address == null) {
       locationProvider.setAddAddressData(false);
+
     }
 
 
@@ -142,13 +142,15 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
 
-                  if(!ResponsiveHelper.isDesktop(context)) MapViewSection(
-                    isEnableUpdate: widget.isEnableUpdate,
-                    fromCheckout: widget.fromCheckout,
-                  ),
+                  // if(!ResponsiveHelper.isDesktop(context)) MapViewSection(
+                  //   isEnableUpdate: widget.isEnableUpdate,
+                  //   fromCheckout: widget.fromCheckout,
+                  // ),
 
                   // for label us
                   if(!ResponsiveHelper.isDesktop(context)) DetailsView(
+                    cityList: locationProvider.cityList,
+                    cities: locationProvider.cities!.toList(),
                     contactPersonNameController: _contactPersonNameController,
                     contactPersonNumberController: _contactPersonNumberController,
                     addressNode: _addressNode, nameNode: _nameNode,
@@ -178,6 +180,8 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                         const SizedBox(width: Dimensions.paddingSizeDefault),
 
                         Expanded(flex: 4, child: DetailsView(
+                          cityList: locationProvider.cityList,
+                          cities: locationProvider.cities!.toList(),
                           contactPersonNameController: _contactPersonNameController,
                           contactPersonNumberController: _contactPersonNumberController,
                           addressNode: _addressNode, nameNode: _nameNode,

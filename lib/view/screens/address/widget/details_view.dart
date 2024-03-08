@@ -1,6 +1,7 @@
-
+import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_grocery/data/model/response/address_model.dart';
+import 'package:flutter_grocery/data/model/response/city_model.dart';
 import 'package:flutter_grocery/helper/responsive_helper.dart';
 import 'package:flutter_grocery/localization/language_constraints.dart';
 import 'package:flutter_grocery/provider/location_provider.dart';
@@ -20,6 +21,8 @@ class DetailsView extends StatefulWidget {
   final FocusNode numberNode;
   final bool isEnableUpdate;
   final bool fromCheckout;
+  final List<CityModel>? cityList;
+  final List<String> cities;
   final AddressModel? address;
   final TextEditingController streetNumberController;
   final TextEditingController houseNumberController;
@@ -30,12 +33,12 @@ class DetailsView extends StatefulWidget {
   final String countryCode;
   final Function(String value) onValueChange;
 
-
   const DetailsView({
     Key? key,
     required this.contactPersonNameController,
     required this.contactPersonNumberController,
-    required this.addressNode, required this.nameNode,
+    required this.addressNode,
+    required this.nameNode,
     required this.numberNode,
     required this.isEnableUpdate,
     required this.fromCheckout,
@@ -47,7 +50,7 @@ class DetailsView extends StatefulWidget {
     required this.florNumberController,
     required this.florNode,
     required this.countryCode,
-    required this.onValueChange,
+    required this.onValueChange, required this.cityList,required this.cities,
   }) : super(key: key);
 
   @override
@@ -56,7 +59,6 @@ class DetailsView extends StatefulWidget {
 
 class _DetailsViewState extends State<DetailsView> {
   final TextEditingController locationTextController = TextEditingController();
-
   @override
   void dispose() {
     locationTextController.dispose();
@@ -65,20 +67,26 @@ class _DetailsViewState extends State<DetailsView> {
 
   @override
   Widget build(BuildContext context) {
-    final LocationProvider locationProvider = Provider.of<LocationProvider>(context, listen: false);
+    final LocationProvider locationProvider =
+        Provider.of<LocationProvider>(context, listen: false);
     return Container(
-      decoration: ResponsiveHelper.isDesktop(context) ?  BoxDecoration(
-          color: Theme.of(context).cardColor,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-              color: ColorResources.cartShadowColor.withOpacity(0.2),
-              blurRadius: 10,
-            )
-          ]
-      ) : const BoxDecoration(),
+      decoration: ResponsiveHelper.isDesktop(context)
+          ? BoxDecoration(
+              color: Theme.of(context).cardColor,
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                  BoxShadow(
+                    color: ColorResources.cartShadowColor.withOpacity(0.2),
+                    blurRadius: 10,
+                  )
+                ])
+          : const BoxDecoration(),
       //margin: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeSmall,vertical: Dimensions.paddingSizeLarge),
-      padding: ResponsiveHelper.isDesktop(context) ?  const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeLarge,vertical: Dimensions.paddingSizeLarge) : EdgeInsets.zero,
+      padding: ResponsiveHelper.isDesktop(context)
+          ? const EdgeInsets.symmetric(
+              horizontal: Dimensions.paddingSizeLarge,
+              vertical: Dimensions.paddingSizeLarge)
+          : EdgeInsets.zero,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -86,14 +94,16 @@ class _DetailsViewState extends State<DetailsView> {
             padding: const EdgeInsets.symmetric(vertical: 24.0),
             child: Text(
               getTranslated('delivery_address', context),
-              style:
-              Theme.of(context).textTheme.displaySmall!.copyWith(color: Theme.of(context).hintColor.withOpacity(0.6), fontSize: Dimensions.fontSizeLarge),
+              style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                  color: Theme.of(context).hintColor.withOpacity(0.6),
+                  fontSize: Dimensions.fontSizeLarge),
             ),
           ),
           // for Address Field
           Text(
             getTranslated('address_line_01', context),
-            style: poppinsRegular.copyWith(color: Theme.of(context).hintColor.withOpacity(0.6)),
+            style: poppinsRegular.copyWith(
+                color: Theme.of(context).hintColor.withOpacity(0.6)),
           ),
           const SizedBox(height: Dimensions.paddingSizeSmall),
 
@@ -104,16 +114,17 @@ class _DetailsViewState extends State<DetailsView> {
             inputAction: TextInputAction.next,
             focusNode: widget.addressNode,
             nextFocus: widget.stateNode,
-            controller: locationTextController..text = locationProvider.address ?? '',
+            controller: locationTextController
+              ..text = locationProvider.address ?? '',
           ),
           const SizedBox(height: Dimensions.paddingSizeLarge),
 
           Text(
             '${getTranslated('street', context)} ${getTranslated('number', context)}',
-            style: poppinsRegular.copyWith(color: Theme.of(context).hintColor.withOpacity(0.6)),
+            style: poppinsRegular.copyWith(
+                color: Theme.of(context).hintColor.withOpacity(0.6)),
           ),
           const SizedBox(height: Dimensions.paddingSizeSmall),
-
           CustomTextField(
             hintText: getTranslated('ex_10_th', context),
             isShowBorder: true,
@@ -126,46 +137,95 @@ class _DetailsViewState extends State<DetailsView> {
           const SizedBox(height: Dimensions.paddingSizeLarge),
 
           Text(
-            '${getTranslated('house', context)} / ${
-                getTranslated('floor', context)} ${
-                getTranslated('number', context)}',
-            style: poppinsRegular.copyWith(color: Theme.of(context).hintColor.withOpacity(0.6)),
+            '${getTranslated('house', context)} / ${getTranslated('floor', context)} ${getTranslated('number', context)}',
+            style: poppinsRegular.copyWith(
+                color: Theme.of(context).hintColor.withOpacity(0.6)),
           ),
           const SizedBox(height: Dimensions.paddingSizeSmall),
-          Row(children: [
-            Expanded(
-              child: CustomTextField(
-                hintText: getTranslated('ex_2', context),
-                isShowBorder: true,
-                inputType: TextInputType.streetAddress,
-                inputAction: TextInputAction.next,
-                focusNode: widget.houseNode,
-                nextFocus: widget.florNode,
-                controller: widget.houseNumberController,
+          Row(
+            children: [
+              Expanded(
+                child: CustomTextField(
+                  hintText: getTranslated('ex_2', context),
+                  isShowBorder: true,
+                  inputType: TextInputType.streetAddress,
+                  inputAction: TextInputAction.next,
+                  focusNode: widget.houseNode,
+                  nextFocus: widget.florNode,
+                  controller: widget.houseNumberController,
+                ),
               ),
-            ),
-
-            const SizedBox(width: Dimensions.paddingSizeLarge),
-
-            Expanded(
-              child: CustomTextField(
-                hintText: getTranslated('ex_2b', context),
-                isShowBorder: true,
-                inputType: TextInputType.streetAddress,
-                inputAction: TextInputAction.next,
-                focusNode: widget.florNode,
-                nextFocus: widget.nameNode,
-                controller: widget.florNumberController,
+              const SizedBox(width: Dimensions.paddingSizeLarge),
+              Expanded(
+                child: CustomTextField(
+                  hintText: getTranslated('ex_2b', context),
+                  isShowBorder: true,
+                  inputType: TextInputType.streetAddress,
+                  inputAction: TextInputAction.next,
+                  focusNode: widget.florNode,
+                  nextFocus: widget.nameNode,
+                  controller: widget.florNumberController,
+                ),
               ),
-            ),
-
-          ],),
+            ],
+          ),
+          const SizedBox(height: Dimensions.paddingSizeLarge),
+          Row(
+            children: [
+              Expanded(
+                child: DropdownSearch<String>(
+                  popupProps: const PopupProps.menu(
+                    showSelectedItems: true,
+                    showSearchBox: true,
+                  ),
+                  items: widget.cities,
+                  dropdownDecoratorProps: DropDownDecoratorProps(
+                    dropdownSearchDecoration: InputDecoration(
+                      hintText: "Select City",
+                      counterStyle: poppinsLight.copyWith(
+                          fontSize: Dimensions.fontSizeLarge),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Theme.of(context).hintColor.withOpacity(0.3),
+                            width: 1.0),
+                      ),
+                    ),
+                  ),
+                  onChanged: (val) {},
+                ),
+              ),
+              const SizedBox(width: Dimensions.paddingSizeLarge),
+              Expanded(
+                child: DropdownSearch<String>(
+                  popupProps: const PopupProps.menu(
+                    showSelectedItems: true,
+                    showSearchBox: true,
+                  ),
+                  items: const ["1111", "2222", "3333", '4444',"1111", "2222", "3333", '4444',"1111", "2222", "3333", '4444'],
+                  dropdownDecoratorProps: DropDownDecoratorProps(
+                    dropdownSearchDecoration: InputDecoration(
+                      counterStyle: poppinsLight.copyWith(
+                          fontSize: Dimensions.fontSizeLarge),
+                      hintText: "Select Pincode",
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Theme.of(context).hintColor.withOpacity(0.3),
+                            width: 1.0),
+                      ),
+                    ),
+                  ),
+                  onChanged: (val) {},
+                ),
+              ),
+            ],
+          ),
           const SizedBox(height: Dimensions.paddingSizeLarge),
 
           // for Contact Person Name
           Text(
             getTranslated('contact_person_name', context),
-            style: poppinsRegular.copyWith(color: Theme.of(context).hintColor.withOpacity(0.6)),
+            style: poppinsRegular.copyWith(
+                color: Theme.of(context).hintColor.withOpacity(0.6)),
           ),
           const SizedBox(height: Dimensions.paddingSizeSmall),
           CustomTextField(
@@ -183,7 +243,8 @@ class _DetailsViewState extends State<DetailsView> {
           // for Contact Person Number
           Text(
             getTranslated('contact_person_number', context),
-            style: poppinsRegular.copyWith(color: Theme.of(context).hintColor.withOpacity(0.6)),
+            style: poppinsRegular.copyWith(
+                color: Theme.of(context).hintColor.withOpacity(0.6)),
           ),
           const SizedBox(height: Dimensions.paddingSizeSmall),
 
@@ -195,20 +256,23 @@ class _DetailsViewState extends State<DetailsView> {
           ),
           const SizedBox(height: Dimensions.paddingSizeLarge),
 
-          if(ResponsiveHelper.isDesktop(context)) Padding(
-            padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeLarge),
-            child: ButtonsView(
-              isEnableUpdate: widget.isEnableUpdate,
-              fromCheckout: widget.fromCheckout,
-              contactPersonNumberController: widget.contactPersonNumberController,
-              contactPersonNameController: widget.contactPersonNameController,
-              address: widget.address,
-              streetNumberController: widget.streetNumberController,
-              houseNumberController: widget.houseNumberController,
-              floorNumberController: widget.florNumberController,
-              countryCode: widget.countryCode,
-            ),
-          )
+          if (ResponsiveHelper.isDesktop(context))
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: Dimensions.paddingSizeLarge),
+              child: ButtonsView(
+                isEnableUpdate: widget.isEnableUpdate,
+                fromCheckout: widget.fromCheckout,
+                contactPersonNumberController:
+                    widget.contactPersonNumberController,
+                contactPersonNameController: widget.contactPersonNameController,
+                address: widget.address,
+                streetNumberController: widget.streetNumberController,
+                houseNumberController: widget.houseNumberController,
+                floorNumberController: widget.florNumberController,
+                countryCode: widget.countryCode,
+              ),
+            )
         ],
       ),
     );

@@ -4,7 +4,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_grocery/data/model/response/address_model.dart';
 import 'package:flutter_grocery/data/model/response/base/api_response.dart';
+import 'package:flutter_grocery/data/model/response/city_model.dart';
 import 'package:flutter_grocery/data/model/response/response_model.dart';
+import 'package:flutter_grocery/data/model/response/zipcodes_model.dart';
 import 'package:flutter_grocery/data/repository/location_repo.dart';
 import 'package:flutter_grocery/helper/api_checker.dart';
 import 'package:flutter_grocery/utill/app_constants.dart';
@@ -157,6 +159,11 @@ class LocationProvider with ChangeNotifier {
 
   // user address
   List<AddressModel>? _addressList;
+  List<CityModel>? cityList = [];
+  List<String>? cities = [];
+  List<ZipcodesModel>? zipcodeList;
+  List<String>? _zipcodes = [];
+
 
   List<AddressModel>? get addressList => _addressList;
 
@@ -170,6 +177,40 @@ class LocationProvider with ChangeNotifier {
       responseModel = ResponseModel(true, 'successful');
     } else {
       _addressList = [];
+      ApiChecker.checkApi(apiResponse);
+    }
+    notifyListeners();
+    return responseModel;
+  }
+  Future<ResponseModel?> getCities() async {
+    ResponseModel? responseModel;
+    cityList = null;
+    ApiResponse apiResponse = await locationRepo!.getCities();
+    if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
+      cityList = [];
+
+      apiResponse.response!.data.forEach((address) => cityList!.add(CityModel.fromJson(address)));
+       cityList!.forEach((element) {cities!.add(element.name.toString());});
+      notifyListeners();
+      responseModel = ResponseModel(true, 'successful');
+    } else {
+      cityList = [];
+      ApiChecker.checkApi(apiResponse);
+    }
+    notifyListeners();
+    return responseModel;
+  }
+  Future<ResponseModel?> getZipcodes(int id) async {
+    ResponseModel? responseModel;
+    zipcodeList = null;
+    ApiResponse apiResponse = await locationRepo!.getZipcodes(id);
+    if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
+      zipcodeList = [];
+      apiResponse.response!.data.forEach((address) => zipcodeList!.add(ZipcodesModel.fromJson(address)));
+      _zipcodes = zipcodeList!.first.zipcode!.split(",");
+      responseModel = ResponseModel(true, 'successful');
+    } else {
+      zipcodeList = [];
       ApiChecker.checkApi(apiResponse);
     }
     notifyListeners();
