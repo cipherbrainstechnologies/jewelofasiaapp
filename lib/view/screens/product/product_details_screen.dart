@@ -83,15 +83,16 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>  with Ticke
                   variationType = '$variationType-$variation';
                 }
               }
-
               price = productProvider.product!.price;
               stock = productProvider.product!.totalStock;
+              print("total stock is ${productProvider.product!.totalStock} ${productProvider.product!.price}");
 
               for (Variations variationData in productProvider.product!.variations!) {
                 if (variationData.type == variationType) {
                   price = variationData.price;
                   variation = variationData;
-                  stock = variationData.stock;
+                stock = variationData.stock;
+                print("variationData stock is ${variationData.stock}");
                   break;
                 }
               }
@@ -159,7 +160,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>  with Ticke
                                 padding: const EdgeInsets.all(Dimensions.paddingSizeSmall),
                                 child: Row(mainAxisAlignment : MainAxisAlignment.spaceBetween, children: [
 
-                                  Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                                  Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
                                     Text('${getTranslated('total_amount', context)}:', style: poppinsMedium.copyWith(fontSize: Dimensions.fontSizeSmall, color: Theme.of(context).disabledColor)),
                                     const SizedBox(width: Dimensions.paddingSizeExtraSmall),
 

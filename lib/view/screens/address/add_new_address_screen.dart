@@ -268,25 +268,25 @@ class MapViewSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
 
-          if(ResponsiveHelper.isDesktop(context)) Expanded(child: MapWidget(
-            fromCheckout: fromCheckout,
-            isEnableUpdate: isEnableUpdate,
-            address: address,
-          )),
+          // if(ResponsiveHelper.isDesktop(context)) Expanded(child: MapWidget(
+          //   fromCheckout: fromCheckout,
+          //   isEnableUpdate: isEnableUpdate,
+          //   address: address,
+          // )),
 
-          if(!ResponsiveHelper.isDesktop(context)) MapWidget(
-            fromCheckout: fromCheckout,
-            isEnableUpdate: isEnableUpdate,
-            address: address,
-          ),
-
-          Padding(padding: const EdgeInsets.only(top: 10), child: Center(child: Text(
-            getTranslated('add_the_location_correctly', context),
-            style: poppinsRegular.copyWith(
-              color: Theme.of(context).textTheme.bodyLarge!.color,
-              fontSize: Dimensions.fontSizeSmall,
-            ),
-          ))),
+          // if(!ResponsiveHelper.isDesktop(context)) MapWidget(
+          //   fromCheckout: fromCheckout,
+          //   isEnableUpdate: isEnableUpdate,
+          //   address: address,
+          // ),
+          //
+          // Padding(padding: const EdgeInsets.only(top: 10), child: Center(child: Text(
+          //   getTranslated('add_the_location_correctly', context),
+          //   style: poppinsRegular.copyWith(
+          //     color: Theme.of(context).textTheme.bodyLarge!.color,
+          //     fontSize: Dimensions.fontSizeSmall,
+          //   ),
+          // ))),
 
           Padding(padding: const EdgeInsets.symmetric(vertical: 24.0), child: Text(
             getTranslated('label_us', context),

@@ -140,87 +140,87 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     children: [
                       Expanded(flex: 6, child: Column(children: [
 
-                        if (_branches!.isNotEmpty) CustomShadowView(
-                          margin: const EdgeInsets.symmetric(
-                            horizontal: Dimensions.paddingSizeDefault,
-                            vertical: Dimensions.paddingSizeSmall,
-                          ),
-                          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                              child: Text(getTranslated('select_branch', context), style: poppinsMedium.copyWith(fontSize: Dimensions.fontSizeLarge)),
-                            ),
-
-                            SizedBox(height: 50, child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              padding: const EdgeInsets.all(Dimensions.paddingSizeSmall),
-                              physics: const BouncingScrollPhysics(),
-                              itemCount: _branches!.length,
-                              itemBuilder: (context, index) {
-                                return Padding(
-                                  padding: const EdgeInsets.only(right: Dimensions.paddingSizeSmall),
-                                  child: InkWell(
-                                    onTap: () {
-                                      try {
-                                        orderProvider.setBranchIndex(index);
-                                        double.parse(_branches![index].latitude!);
-                                        _setMarkers(index);
-                                        // ignore: empty_catches
-                                      }catch(e) {}
-                                    },
-                                    child: Container(
-                                      padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeExtraSmall, horizontal: Dimensions.paddingSizeSmall),
-                                      alignment: Alignment.center,
-                                      decoration: BoxDecoration(
-                                        color: index == orderProvider.branchIndex ? Theme.of(context).primaryColor : Theme.of(context).canvasColor,
-                                        borderRadius: BorderRadius.circular(5),
-                                      ),
-                                      child: Text(_branches![index].name!, maxLines: 1, overflow: TextOverflow.ellipsis, style: poppinsMedium.copyWith(
-                                        color: index == orderProvider.branchIndex ? Colors.white : Theme.of(context).textTheme.bodyLarge!.color,
-                                      )),
-                                    ),
-                                  ),
-                                );
-                              },
-                            )),
-
-                            Container(
-                              height: 200,
-                              padding: const EdgeInsets.all(Dimensions.paddingSizeSmall),
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Theme.of(context).cardColor,
-                              ),
-                              child: Stack(children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(Dimensions.radiusSizeDefault),
-                                  child: GoogleMap(
-                                    minMaxZoomPreference: const MinMaxZoomPreference(0, 16),
-                                    mapType: MapType.normal,
-                                    initialCameraPosition: CameraPosition(target: LatLng(
-                                      double.parse(_branches![0].latitude!),
-                                      double.parse(_branches![0].longitude!),
-                                    ), zoom: 8),
-                                    zoomControlsEnabled: true,
-                                    markers: _markers,
-                                    onMapCreated: (GoogleMapController controller) async {
-                                      await Geolocator.requestPermission();
-                                      _mapController = controller;
-                                      _loading = false;
-                                      _setMarkers(0);
-                                    },
-                                  ),
-                                ),
-
-
-                                _loading ? Center(child: CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),
-                                )) : const SizedBox(),
-                              ]),
-                            ),
-                          ]),
-                        ),
+                        // if (_branches!.isNotEmpty) CustomShadowView(
+                        //   margin: const EdgeInsets.symmetric(
+                        //     horizontal: Dimensions.paddingSizeDefault,
+                        //     vertical: Dimensions.paddingSizeSmall,
+                        //   ),
+                        //   child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                        //     Padding(
+                        //       padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                        //       child: Text(getTranslated('select_branch', context), style: poppinsMedium.copyWith(fontSize: Dimensions.fontSizeLarge)),
+                        //     ),
+                        //
+                        //     SizedBox(height: 50, child: ListView.builder(
+                        //       scrollDirection: Axis.horizontal,
+                        //       padding: const EdgeInsets.all(Dimensions.paddingSizeSmall),
+                        //       physics: const BouncingScrollPhysics(),
+                        //       itemCount: _branches!.length,
+                        //       itemBuilder: (context, index) {
+                        //         return Padding(
+                        //           padding: const EdgeInsets.only(right: Dimensions.paddingSizeSmall),
+                        //           child: InkWell(
+                        //             onTap: () {
+                        //               try {
+                        //                 orderProvider.setBranchIndex(index);
+                        //                 double.parse(_branches![index].latitude!);
+                        //                 _setMarkers(index);
+                        //                 // ignore: empty_catches
+                        //               }catch(e) {}
+                        //             },
+                        //             child: Container(
+                        //               padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeExtraSmall, horizontal: Dimensions.paddingSizeSmall),
+                        //               alignment: Alignment.center,
+                        //               decoration: BoxDecoration(
+                        //                 color: index == orderProvider.branchIndex ? Theme.of(context).primaryColor : Theme.of(context).canvasColor,
+                        //                 borderRadius: BorderRadius.circular(5),
+                        //               ),
+                        //               child: Text(_branches![index].name!, maxLines: 1, overflow: TextOverflow.ellipsis, style: poppinsMedium.copyWith(
+                        //                 color: index == orderProvider.branchIndex ? Colors.white : Theme.of(context).textTheme.bodyLarge!.color,
+                        //               )),
+                        //             ),
+                        //           ),
+                        //         );
+                        //       },
+                        //     )),
+                        //
+                        //     Container(
+                        //       height: 200,
+                        //       padding: const EdgeInsets.all(Dimensions.paddingSizeSmall),
+                        //       alignment: Alignment.center,
+                        //       decoration: BoxDecoration(
+                        //         borderRadius: BorderRadius.circular(10),
+                        //         color: Theme.of(context).cardColor,
+                        //       ),
+                        //       child: Stack(children: [
+                        //         ClipRRect(
+                        //           borderRadius: BorderRadius.circular(Dimensions.radiusSizeDefault),
+                        //           child: GoogleMap(
+                        //             minMaxZoomPreference: const MinMaxZoomPreference(0, 16),
+                        //             mapType: MapType.normal,
+                        //             initialCameraPosition: CameraPosition(target: LatLng(
+                        //               double.parse(_branches![0].latitude!),
+                        //               double.parse(_branches![0].longitude!),
+                        //             ), zoom: 8),
+                        //             zoomControlsEnabled: true,
+                        //             markers: _markers,
+                        //             onMapCreated: (GoogleMapController controller) async {
+                        //               await Geolocator.requestPermission();
+                        //               _mapController = controller;
+                        //               _loading = false;
+                        //               _setMarkers(0);
+                        //             },
+                        //           ),
+                        //         ),
+                        //
+                        //
+                        //         _loading ? Center(child: CircularProgressIndicator(
+                        //           valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),
+                        //         )) : const SizedBox(),
+                        //       ]),
+                        //     ),
+                        //   ]),
+                        // ),
 
                         // Address
                         DeliveryAddressView(selfPickup: selfPickup),
