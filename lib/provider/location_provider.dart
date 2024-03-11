@@ -45,25 +45,28 @@ class LocationProvider with ChangeNotifier {
   String get currentAddressText => _currentAddressText;
 
   String? get address => _address;
+
   String? get pickAddress => _pickAddress;
   final List<Marker> _markers = <Marker>[];
 
   List<Marker> get markers => _markers;
-
+  int? selectedCity;
+  String? selectedZipcodeis;
+  String? get selectedZipcode => selectedZipcodeis;
   bool _buttonDisabled = true;
   bool _changeAddress = true;
   List<Prediction> _predictionList = [];
   bool _updateAddAddressData = true;
-
   bool get buttonDisabled => _buttonDisabled;
-
   set setAddress(String? addressValue)=> _address = addressValue;
+  set setZipcode(String? val)=> selectedZipcodeis = val;
 
   GoogleMapController? mapController;
   CameraPosition? cameraPosition;
   bool isUpdateAddress = true;
 
   // for get current location
+
   void getCurrentLocation(BuildContext context, bool fromAddress, {GoogleMapController? mapController}) async {
     _loading = true;
     notifyListeners();
@@ -162,7 +165,7 @@ class LocationProvider with ChangeNotifier {
   List<CityModel>? cityList = [];
   List<String>? cities = [];
   List<ZipcodesModel>? zipcodeList;
-  List<String>? _zipcodes = [];
+  List<String>? zipcodes = [];
 
 
   List<AddressModel>? get addressList => _addressList;
@@ -207,7 +210,7 @@ class LocationProvider with ChangeNotifier {
     if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
       zipcodeList = [];
       apiResponse.response!.data.forEach((address) => zipcodeList!.add(ZipcodesModel.fromJson(address)));
-      _zipcodes = zipcodeList!.first.zipcode!.split(",");
+      zipcodes = zipcodeList!.first.zipcode!.split(",");
       responseModel = ResponseModel(true, 'successful');
     } else {
       zipcodeList = [];
@@ -246,8 +249,8 @@ class LocationProvider with ChangeNotifier {
       String? message = map["message"];
       responseModel = ResponseModel(true, message);
       _addressStatusMessage = message;
-    } else {
 
+    } else {
       responseModel = ResponseModel(false, ApiChecker.getError(apiResponse).errors?.first.message);
     }
     _isLoading = false;

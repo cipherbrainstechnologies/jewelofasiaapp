@@ -42,7 +42,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
   final TextEditingController _streetNumberController = TextEditingController();
   final TextEditingController _houseNumberController = TextEditingController();
   final TextEditingController _florNumberController = TextEditingController();
-
+  final TextEditingController _locationTextController = TextEditingController();
   final FocusNode _addressNode = FocusNode();
   final FocusNode _nameNode = FocusNode();
   final FocusNode _numberNode = FocusNode();
@@ -150,8 +150,10 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                   // for label us
                   if(!ResponsiveHelper.isDesktop(context)) DetailsView(
                     cityList: locationProvider.cityList,
+                    zipcodes: locationProvider.zipcodes!.toList(),
                     cities: locationProvider.cities!.toList(),
                     contactPersonNameController: _contactPersonNameController,
+                    locationTextController: _locationTextController,
                     contactPersonNumberController: _contactPersonNumberController,
                     addressNode: _addressNode, nameNode: _nameNode,
                     numberNode: _numberNode, fromCheckout: widget.fromCheckout,
@@ -180,9 +182,11 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                         const SizedBox(width: Dimensions.paddingSizeDefault),
 
                         Expanded(flex: 4, child: DetailsView(
+                          zipcodes: locationProvider.zipcodes!.toList(),
                           cityList: locationProvider.cityList,
                           cities: locationProvider.cities!.toList(),
                           contactPersonNameController: _contactPersonNameController,
+                          locationTextController: _locationTextController,
                           contactPersonNumberController: _contactPersonNumberController,
                           addressNode: _addressNode, nameNode: _nameNode,
                           numberNode: _numberNode, isEnableUpdate: widget.isEnableUpdate,
@@ -223,11 +227,12 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
             contactPersonNumberController:
             _contactPersonNumberController,
             contactPersonNameController: _contactPersonNameController,
+            locationTextController: _locationTextController,
             address: widget.address,
             streetNumberController: _streetNumberController,
             houseNumberController: _houseNumberController,
             floorNumberController: _florNumberController,
-            countryCode: countryCode!,
+            countryCode: countryCode!, city: locationProvider.selectedCity ?? 0, zipcode: locationProvider.selectedZipcode?? "",
           ),
         ]);
       }),

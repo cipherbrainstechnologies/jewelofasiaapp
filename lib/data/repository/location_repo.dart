@@ -50,13 +50,16 @@ class LocationRepo {
   }
 
   Future<ApiResponse> addAddress(AddressModel addressModel) async {
+    print( "here ${addressModel.toJson()}");
     try {
       Response response = await dioClient!.post(
         AppConstants.addAddressUri,
         data: addressModel.toJson(),
       );
+
       return ApiResponse.withSuccess(response);
     } catch (e) {
+      print("object: :::::  ${ApiErrorHandler.getMessage(e)}");
       return ApiResponse.withError(ApiErrorHandler.getMessage(e));
     }
   }

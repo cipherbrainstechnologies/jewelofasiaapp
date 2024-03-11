@@ -98,7 +98,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
      if(_isLoggedIn && widget.orderType == 'delivery') {
        lastOrderedAddress = await  locationProvider.getLastOrderedAddress();
      }
-
       CheckOutHelper.selectDeliveryAddressAuto(orderType: widget.orderType, isLoggedIn: (_isLoggedIn || isGuestCheckout), lastAddress: lastOrderedAddress);
     }
     _activePaymentList = CheckOutHelper.getActivePaymentList(configModel: splashProvider.configModel!);

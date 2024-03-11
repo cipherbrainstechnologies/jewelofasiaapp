@@ -5,6 +5,8 @@ class AddressModel {
   String? address;
   String? latitude;
   String? longitude;
+  int? city;
+  String? zipcode;
   String? createdAt;
   String? updatedAt;
   int? userId;
@@ -24,6 +26,8 @@ class AddressModel {
       this.createdAt,
       this.updatedAt,
       this.userId,
+        this.city,
+        this.zipcode,
       this.method,
       this.contactPersonName,
       this.streetNumber,
@@ -42,6 +46,8 @@ class AddressModel {
     updatedAt = json['updated_at'];
     userId = json['user_id'];
     method = json['_method'];
+    city = json['city'];
+    zipcode = json['zipcode'];
     contactPersonName = json['contact_person_name'];
     streetNumber = json['road'];
     floorNumber = json['floor'];
@@ -59,6 +65,8 @@ class AddressModel {
     data['created_at'] = createdAt;
     data['updated_at'] = updatedAt;
     data['user_id'] = userId;
+    data['city'] = city;
+    data['zipcode'] = zipcode;
     data['_method'] = method;
     data['contact_person_name'] = contactPersonName;
     data['road'] = streetNumber;

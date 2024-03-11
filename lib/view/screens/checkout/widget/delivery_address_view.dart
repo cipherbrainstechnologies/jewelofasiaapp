@@ -30,7 +30,7 @@ class DeliveryAddressView extends StatelessWidget {
         builder: (context, locationProvider, _) => Consumer<OrderProvider>(
             builder: (context, orderProvider, _) {
               bool isAvailable = false;
-
+              print("address is ${locationProvider.addressList!.first.toJson()}");
               AddressModel? deliveryAddress = CheckOutHelper.getDeliveryAddress(
                 addressList: locationProvider.addressList,
                 selectedAddress: orderProvider.addressIndex == -1 ? null : locationProvider.addressList?[orderProvider.addressIndex],

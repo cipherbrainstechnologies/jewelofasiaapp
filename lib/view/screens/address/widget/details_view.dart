@@ -23,10 +23,12 @@ class DetailsView extends StatefulWidget {
   final bool fromCheckout;
   final List<CityModel>? cityList;
   final List<String> cities;
+  final List<String> zipcodes;
   final AddressModel? address;
   final TextEditingController streetNumberController;
   final TextEditingController houseNumberController;
   final TextEditingController florNumberController;
+  final TextEditingController locationTextController;
   final FocusNode stateNode;
   final FocusNode houseNode;
   final FocusNode florNode;
@@ -37,6 +39,7 @@ class DetailsView extends StatefulWidget {
     Key? key,
     required this.contactPersonNameController,
     required this.contactPersonNumberController,
+    required this.locationTextController,
     required this.addressNode,
     required this.nameNode,
     required this.numberNode,
@@ -50,7 +53,7 @@ class DetailsView extends StatefulWidget {
     required this.florNumberController,
     required this.florNode,
     required this.countryCode,
-    required this.onValueChange, required this.cityList,required this.cities,
+    required this.onValueChange, required this.cityList,required this.cities, required this.zipcodes,
   }) : super(key: key);
 
   @override
@@ -58,12 +61,7 @@ class DetailsView extends StatefulWidget {
 }
 
 class _DetailsViewState extends State<DetailsView> {
-  final TextEditingController locationTextController = TextEditingController();
-  @override
-  void dispose() {
-    locationTextController.dispose();
-    super.dispose();
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -114,8 +112,7 @@ class _DetailsViewState extends State<DetailsView> {
             inputAction: TextInputAction.next,
             focusNode: widget.addressNode,
             nextFocus: widget.stateNode,
-            controller: locationTextController
-              ..text = locationProvider.address ?? '',
+            controller: widget.locationTextController,
           ),
           const SizedBox(height: Dimensions.paddingSizeLarge),
 
@@ -178,9 +175,14 @@ class _DetailsViewState extends State<DetailsView> {
                     showSelectedItems: true,
                     showSearchBox: true,
                   ),
-                  items: widget.cities,
+                  items: widget.cities.toSet().toList(),
                   dropdownDecoratorProps: DropDownDecoratorProps(
                     dropdownSearchDecoration: InputDecoration(
+                      fillColor: Colors.white,
+                      filled: true,
+                      hintStyle: poppinsLight.copyWith(
+                        fontWeight: FontWeight.w300,
+                          fontSize: Dimensions.fontSizeDefault),
                       hintText: "Select City",
                       counterStyle: poppinsLight.copyWith(
                           fontSize: Dimensions.fontSizeLarge),
@@ -191,7 +193,12 @@ class _DetailsViewState extends State<DetailsView> {
                       ),
                     ),
                   ),
-                  onChanged: (val) {},
+                  onChanged: (val) {
+                    print(val);
+                    CityModel selectedmodel = widget.cityList!.where((element) => element.name == val).first;
+                    locationProvider.selectedCity = selectedmodel.id!.toInt();
+                    locationProvider.getZipcodes(selectedmodel.id!.toInt());
+                  },
                 ),
               ),
               const SizedBox(width: Dimensions.paddingSizeLarge),
@@ -201,12 +208,17 @@ class _DetailsViewState extends State<DetailsView> {
                     showSelectedItems: true,
                     showSearchBox: true,
                   ),
-                  items: const ["1111", "2222", "3333", '4444',"1111", "2222", "3333", '4444',"1111", "2222", "3333", '4444'],
+                  items: widget.zipcodes.toSet().toList(),
                   dropdownDecoratorProps: DropDownDecoratorProps(
                     dropdownSearchDecoration: InputDecoration(
+                      fillColor: Colors.white,
+                      filled: true,
                       counterStyle: poppinsLight.copyWith(
                           fontSize: Dimensions.fontSizeLarge),
                       hintText: "Select Pincode",
+                      hintStyle: poppinsLight.copyWith(
+                          fontWeight: FontWeight.w300,
+                          fontSize: Dimensions.fontSizeDefault),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                             color: Theme.of(context).hintColor.withOpacity(0.3),
@@ -214,7 +226,14 @@ class _DetailsViewState extends State<DetailsView> {
                       ),
                     ),
                   ),
-                  onChanged: (val) {},
+                  onChanged: (val) {
+                    print(val);
+                      locationProvider.setZipcode = val;
+                      print("here zip is ${locationProvider.selectedZipcode}");
+                      setState(() {
+
+                      });
+                  },
                 ),
               ),
             ],
@@ -263,6 +282,7 @@ class _DetailsViewState extends State<DetailsView> {
               child: ButtonsView(
                 isEnableUpdate: widget.isEnableUpdate,
                 fromCheckout: widget.fromCheckout,
+                locationTextController: widget.locationTextController,
                 contactPersonNumberController:
                     widget.contactPersonNumberController,
                 contactPersonNameController: widget.contactPersonNameController,
@@ -270,7 +290,7 @@ class _DetailsViewState extends State<DetailsView> {
                 streetNumberController: widget.streetNumberController,
                 houseNumberController: widget.houseNumberController,
                 floorNumberController: widget.florNumberController,
-                countryCode: widget.countryCode,
+                countryCode: widget.countryCode, city: locationProvider.selectedCity?? 0,zipcode: locationProvider.selectedZipcode??"",
               ),
             )
         ],

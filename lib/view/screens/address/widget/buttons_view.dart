@@ -18,11 +18,14 @@ class ButtonsView extends StatelessWidget {
   final bool fromCheckout;
   final TextEditingController contactPersonNameController;
   final TextEditingController contactPersonNumberController;
+  final TextEditingController locationTextController;
   final TextEditingController streetNumberController;
   final TextEditingController houseNumberController;
   final TextEditingController floorNumberController;
   final AddressModel? address;
   final String countryCode;
+  final int city;
+  final String zipcode;
 
   const ButtonsView({
     Key? key,
@@ -34,7 +37,7 @@ class ButtonsView extends StatelessWidget {
     required this.streetNumberController,
     required this.floorNumberController,
     required this.houseNumberController,
-    required this.countryCode,
+    required this.countryCode, required this.locationTextController, required this.city, required this.zipcode,
   }) : super(key: key);
 
   @override
@@ -80,21 +83,22 @@ class ButtonsView extends StatelessWidget {
         margin: const EdgeInsets.all(Dimensions.paddingSizeSmall),
         child: !locationProvider.isLoading ? CustomButton(
           buttonText: isEnableUpdate ? getTranslated('update_address', context) : getTranslated('save_location', context),
-          onPressed: locationProvider.loading ? null : () {
+          onPressed:  () {
             List<Branches> branches = Provider.of<SplashProvider>(context, listen: false).configModel!.branches!;
             bool isAvailable = branches.length == 1 && (branches[0].latitude == null || branches[0].latitude!.isEmpty);
-            if(!isAvailable) {
-              for (Branches branch in branches) {
-                double distance = Geolocator.distanceBetween(
-                  double.parse(branch.latitude!), double.parse(branch.longitude!),
-                  locationProvider.position.latitude, locationProvider.position.longitude,
-                ) / 1000;
-                if (distance < branch.coverage!) {
-                  isAvailable = true;
-                  break;
-                }
-              }
-            }
+            // if(!isAvailable) {
+            //   for (Branches branch in branches) {
+            //     double distance = Geolocator.distanceBetween(
+            //       double.parse(branch.latitude!), double.parse(branch.longitude!),
+            //       locationProvider.position.latitude, locationProvider.position.longitude,
+            //     ) / 1000;
+            //     if (distance < branch.coverage!) {
+            //       isAvailable = true;
+            //       break;
+            //     }
+            //   }
+            // }
+            isAvailable = true;
             if(!isAvailable) {
               showCustomSnackBar(getTranslated('service_is_not_available', context));
             }else {
@@ -102,20 +106,22 @@ class ButtonsView extends StatelessWidget {
                 addressType: locationProvider.getAllAddressType[locationProvider.selectAddressIndex],
                 contactPersonName: contactPersonNameController.text,
                 contactPersonNumber: contactPersonNumberController.text.trim().isEmpty ? '' : '${CountryCode.fromCountryCode(countryCode).dialCode}${contactPersonNumberController.text.trim()}',
-                address: locationProvider.address ?? '',
-                latitude: isEnableUpdate ? locationProvider.position.latitude.toString()
-                    : locationProvider.position.latitude.toString() ,
-                longitude: locationProvider.position.longitude.toString() ,
+                address: locationTextController.text ?? '',
+                city: city,
+                zipcode: zipcode,
+
                 floorNumber: floorNumberController.text,
                 houseNumber: houseNumberController.text,
                 streetNumber: streetNumberController.text,
               );
+              print("this is model ${addressModel.city} AND ${addressModel.zipcode}");
               if (isEnableUpdate) {
                 addressModel.id = address!.id;
                 addressModel.userId = address!.userId;
                 addressModel.method = 'put';
                 locationProvider.updateAddress(context, addressModel: addressModel, addressId: addressModel.id).then((value) {});
               } else {
+                print("this is model ${addressModel.city} AND ${addressModel.zipcode}");
                 locationProvider.addAddress(addressModel, context).then((value) {
 
                   if (value.isSuccess) {
