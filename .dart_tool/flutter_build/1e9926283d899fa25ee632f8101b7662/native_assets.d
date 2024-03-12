@@ -1,1 +1,0 @@
- D:\\Projects\\Gitcodes\\jewelofasiaapp\\.dart_tool\\flutter_build\\1e9926283d899fa25ee632f8101b7662\\native_assets.yaml: 
