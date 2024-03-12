@@ -24,8 +24,6 @@ class PaymentSection extends StatelessWidget {
 
     if (!CheckOutHelper.isSelfPickup(orderType: orderProvider.orderType) && orderProvider.addressIndex == -1) {
       showCustomSnackBar(getTranslated('select_delivery_address', context),isError: true);
-    }else if (orderProvider.timeSlots == null || orderProvider.timeSlots!.isEmpty) {
-      showCustomSnackBar(getTranslated('select_a_time', context),isError: true);
     }else {
       if(!ResponsiveHelper.isMobile()){
         showDialog(

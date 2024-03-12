@@ -27,6 +27,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../data/model/response/deliverydate_model.dart';
 
 class OrderProvider extends ChangeNotifier {
   final OrderRepo? orderRepo;
@@ -57,8 +58,9 @@ class OrderProvider extends ChangeNotifier {
   bool _isOfflineSelected = false;
   CheckOutData? _checkOutData;
   int? _reOrderIndex;
-
-
+  List<String> deliveryDates = [];
+  int selectedDate = 0;
+  int get selectedDateIndex => selectedDate;
   List<TimeSlotModel>? get timeSlots => _timeSlots;
   List<TimeSlotModel>? get allTimeSlots => _allTimeSlots;
   List<OrderModel>? get runningOrderList => _runningOrderList;
@@ -121,41 +123,31 @@ class OrderProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> initializeTimeSlot() async {
-    _distance = -1;
-    ApiResponse apiResponse = await orderRepo!.getTimeSlot();
+  Future<ResponseModel?> initializeTimeSlot(String cityId,String zipcode) async {
+    ResponseModel? responseModel;
+    ApiResponse apiResponse = await orderRepo!.getTimeSlot(int.parse(cityId.toString()),int.parse(zipcode.toString()));
     if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
-      _timeSlots = [];
-      _allTimeSlots = [];
-      apiResponse.response!.data.forEach((timeSlot) {
-
-        _timeSlots!.add(TimeSlotModel.fromJson(timeSlot));
-
-        _allTimeSlots!.add(TimeSlotModel.fromJson(timeSlot));
-
-      });
-      validateSlot(_allTimeSlots, 0);
+      deliveryDates = [];
+     DeliveryDatesModel model =  DeliveryDatesModel.fromJson(apiResponse.response!.data);
+     model.expectedDates!.forEach((element) {deliveryDates.add(element);});
+     print("date list is $deliveryDates");
+      responseModel = ResponseModel(true, 'successful');
     } else {
+      deliveryDates = [];
       ApiChecker.checkApi(apiResponse);
     }
     notifyListeners();
+    return responseModel;
   }
 
-  List<String> getDates(BuildContext context) {
-    return orderRepo!.getDates(context);
-  }
+  // List<String> getDates(BuildContext context) {
+  //   return orderRepo!.getDates(context);
+  // }
 
   int _selectDateSlot = 0;
   int _selectTimeSlot = 0;
 
   int get selectDateSlot => _selectDateSlot;
-  int get selectTimeSlot => _selectTimeSlot;
-
-  void updateTimeSlot(int index) {
-    _selectTimeSlot = index;
-    notifyListeners();
-  }
-
   void updateDateSlot(int index) {
     _selectDateSlot = index;
     if(_allTimeSlots != null) {

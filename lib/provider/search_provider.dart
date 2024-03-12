@@ -8,9 +8,7 @@ import 'package:provider/provider.dart';
 
 class SearchProvider with ChangeNotifier {
   final SearchRepo? searchRepo;
-
   SearchProvider({required this.searchRepo});
-
   int _filterIndex = 0;
   double _lowerValue = 0;
   double _upperValue = 0;

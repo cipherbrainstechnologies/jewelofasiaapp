@@ -107,9 +107,8 @@ class ButtonsView extends StatelessWidget {
                 contactPersonName: contactPersonNameController.text,
                 contactPersonNumber: contactPersonNumberController.text.trim().isEmpty ? '' : '${CountryCode.fromCountryCode(countryCode).dialCode}${contactPersonNumberController.text.trim()}',
                 address: locationTextController.text ?? '',
-                city: city,
-                zipcode: zipcode,
-
+                city: locationProvider.selectedCity,
+                zipcode: locationProvider.selectedZipcode,
                 floorNumber: floorNumberController.text,
                 houseNumber: houseNumberController.text,
                 streetNumber: streetNumberController.text,

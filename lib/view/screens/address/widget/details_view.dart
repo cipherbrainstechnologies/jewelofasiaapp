@@ -178,7 +178,7 @@ class _DetailsViewState extends State<DetailsView> {
                   items: widget.cities.toSet().toList(),
                   dropdownDecoratorProps: DropDownDecoratorProps(
                     dropdownSearchDecoration: InputDecoration(
-                      fillColor: Colors.white,
+                      fillColor: Theme.of(context).cardColor,
                       filled: true,
                       hintStyle: poppinsLight.copyWith(
                         fontWeight: FontWeight.w300,
@@ -211,7 +211,7 @@ class _DetailsViewState extends State<DetailsView> {
                   items: widget.zipcodes.toSet().toList(),
                   dropdownDecoratorProps: DropDownDecoratorProps(
                     dropdownSearchDecoration: InputDecoration(
-                      fillColor: Colors.white,
+                      fillColor: Theme.of(context).cardColor,
                       filled: true,
                       counterStyle: poppinsLight.copyWith(
                           fontSize: Dimensions.fontSizeLarge),
@@ -231,7 +231,6 @@ class _DetailsViewState extends State<DetailsView> {
                       locationProvider.setZipcode = val;
                       print("here zip is ${locationProvider.selectedZipcode}");
                       setState(() {
-
                       });
                   },
                 ),

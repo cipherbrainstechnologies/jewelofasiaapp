@@ -75,23 +75,23 @@ class OrderRepo {
     }
   }
 
-  Future<ApiResponse> getTimeSlot() async {
+  Future<ApiResponse> getTimeSlot(int cityId,int zipcode) async {
     try {
-      final response = await dioClient!.get(AppConstants.timeslotUri);
+      final response = await dioClient!.get("${AppConstants.cities}/$cityId/$zipcode");
       return ApiResponse.withSuccess(response);
     } catch (e) {
       return ApiResponse.withError(ApiErrorHandler.getMessage(e));
     }
   }
 
-  List<String> getDates(BuildContext context) {
-    List<String> dates = [];
-    dates.add(DateConverter.slotDate(DateTime.now()));
-    dates.add(DateConverter.slotDate(DateTime.now().add(const Duration(days: 1))));
-    dates.add(DateConverter.slotDate(DateTime.now().add(const Duration(days: 2))));
-
-    return dates;
-  }
+  // List<String> getDates(BuildContext context) {
+  //   List<String> dates = [];
+  //   dates.add(DateConverter.slotDate(DateTime.now()));
+  //   dates.add(DateConverter.slotDate(DateTime.now().add(const Duration(days: 1))));
+  //   dates.add(DateConverter.slotDate(DateTime.now().add(const Duration(days: 2))));
+  //
+  //   return dates;
+  // }
 
 
   Future<ApiResponse> submitReview(ReviewBody reviewBody) async {

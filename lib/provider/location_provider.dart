@@ -48,7 +48,6 @@ class LocationProvider with ChangeNotifier {
 
   String? get pickAddress => _pickAddress;
   final List<Marker> _markers = <Marker>[];
-
   List<Marker> get markers => _markers;
   int? selectedCity;
   String? selectedZipcodeis;
@@ -168,6 +167,8 @@ class LocationProvider with ChangeNotifier {
   List<String>? zipcodes = [];
 
 
+
+
   List<AddressModel>? get addressList => _addressList;
 
   Future<ResponseModel?> initAddressList() async {
@@ -177,6 +178,7 @@ class LocationProvider with ChangeNotifier {
     if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
       _addressList = [];
       apiResponse.response!.data.forEach((address) => _addressList!.add(AddressModel.fromJson(address)));
+      print(_addressList);
       responseModel = ResponseModel(true, 'successful');
     } else {
       _addressList = [];

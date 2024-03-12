@@ -84,9 +84,7 @@ class PlaceOrderButtonView extends StatelessWidget {
 
               }  else if (!isSelfPickup && orderProvider.addressIndex == -1) {
                 showCustomSnackBar(getTranslated('select_delivery_address', context),isError: true);
-              } else if (orderProvider.timeSlots == null || orderProvider.timeSlots!.isEmpty) {
-                showCustomSnackBar(getTranslated('select_a_time', context),isError: true);
-              } else if (!isSelfPickup && isKmWiseCharge && orderProvider.distance == -1) {
+              }else if (!isSelfPickup && isKmWiseCharge && orderProvider.distance == -1) {
                 showCustomSnackBar(getTranslated('delivery_fee_not_set_yet', context),isError: true);
               } else {
                 List<CartModel> cartList = Provider.of<CartProvider>(context, listen: false).cartList;
@@ -100,7 +98,7 @@ class PlaceOrderButtonView extends StatelessWidget {
                   );
                   carts.add(cart);
                 }
-
+                print("dates is ::: ${orderProvider.deliveryDates}and ${orderProvider.selectedDateIndex}");
                 PlaceOrderBody placeOrderBody = PlaceOrderBody(
                   cart: carts, orderType: checkOutData?.orderType,
                   couponCode: checkOutData?.couponCode, orderNote: checkOutData?.orderNote,
@@ -109,10 +107,9 @@ class PlaceOrderButtonView extends StatelessWidget {
                       ? Provider.of<LocationProvider>(context, listen: false).addressList![orderProvider.addressIndex].id
                       : 0, distance: isSelfPickup ? 0 : orderProvider.distance,
                   couponDiscountAmount: Provider.of<CouponProvider>(context, listen: false).discount,
-                  timeSlotId: orderProvider.timeSlots![orderProvider.selectTimeSlot].id,
                   paymentMethod: orderProvider.selectedOfflineValue != null
                       ? 'offline_payment' : orderProvider.selectedPaymentMethod!.getWay!,
-                  deliveryDate: orderProvider.getDates(context)[orderProvider.selectDateSlot],
+                  deliveryDate: orderProvider.deliveryDates[orderProvider.selectedDateIndex],
                   couponDiscountTitle: '',
                   orderAmount: (checkOutData!.amount ?? 0) + (checkOutData.deliveryCharge ?? 0),
                   paymentInfo: orderProvider.selectedOfflineValue != null ?  OfflinePaymentInfo(

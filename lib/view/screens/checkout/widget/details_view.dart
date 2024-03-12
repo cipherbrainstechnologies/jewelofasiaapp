@@ -40,9 +40,6 @@ class DetailsView extends StatelessWidget {
 
 
 
-
-
-
       CustomShadowView(
         margin: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeDefault, vertical: Dimensions.paddingSizeSmall),
         padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeDefault, vertical: Dimensions.paddingSizeDefault),
@@ -110,7 +107,7 @@ class AmountView extends StatelessWidget {
                 ),
                 Consumer<OrderProvider>(builder: (context, orderProvider, _) {
                   return CustomDirectionality(
-                    child: Text(isFreeDelivery ? getTranslated('free', context): (selfPickup ||  orderProvider.distance != -1)
+                    child: Text(isFreeDelivery ? getTranslated('free', context): (selfPickup)
                         ? '(+) ${PriceConverter.convertPrice(context, selfPickup
                         ? 0 : checkOutData?.deliveryCharge)}'
                         : getTranslated('not_found', context),

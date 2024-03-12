@@ -30,14 +30,14 @@ class AddressWidget extends StatelessWidget {
         child: InkWell(
           onTap: () async {
             if(fromSelectAddress){
-              bool isAvailable = CheckOutHelper.isBranchAvailable(
-                branches: configModel.branches ?? [],
-                selectedBranch: configModel.branches![orderProvider.branchIndex],
-                selectedAddress: locationProvider.addressList![index],
-              );
+              // bool isAvailable = CheckOutHelper.isBranchAvailable(
+              //   branches: configModel.branches ?? [],
+              //   selectedBranch: configModel.branches![orderProvider.branchIndex],
+              //   selectedAddress: locationProvider.addressList![index],
+              // );
 
               CheckOutHelper.selectDeliveryAddress(
-                isAvailable: isAvailable, index: index, configModel: configModel,
+                isAvailable: true, index: index, configModel: configModel,
                 locationProvider: locationProvider, orderProvider: orderProvider,
                 fromAddressList: true,
               );

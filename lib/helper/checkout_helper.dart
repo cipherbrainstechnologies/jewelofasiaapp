@@ -92,6 +92,7 @@ class CheckOutHelper {
       deliveryAddress = lastOrderAddress;
     }else if(addressList != null && addressList.isNotEmpty){
       deliveryAddress = addressList.first;
+      Provider.of<OrderProvider>(Get.context!, listen: false).initializeTimeSlot(deliveryAddress!.city.toString(), deliveryAddress.zipcode.toString());
     }
 
     return deliveryAddress;
@@ -133,16 +134,16 @@ class CheckOutHelper {
           child: CustomLoader(color: Theme.of(context).primaryColor),
         )), barrierDismissible: false);
 
-        bool isSuccess = await orderProvider.getDistanceInMeter(
-          LatLng(
-            double.parse(configModel.branches![orderProvider.branchIndex].latitude!),
-            double.parse(configModel.branches![orderProvider.branchIndex].longitude!),
-          ),
-          LatLng(
-            double.parse(locationProvider.addressList![index].latitude!),
-            double.parse(locationProvider.addressList![index].longitude!),
-          ),
-        );
+        // bool isSuccess = await orderProvider.getDistanceInMeter(
+        //   LatLng(
+        //     double.parse(configModel.branches![orderProvider.branchIndex].latitude!),
+        //     double.parse(configModel.branches![orderProvider.branchIndex].longitude!),
+        //   ),
+        //   LatLng(
+        //     double.parse(locationProvider.addressList![index].latitude!),
+        //     double.parse(locationProvider.addressList![index].longitude!),
+        //   ),
+        // );
 
         Navigator.pop(Get.context!);
 
@@ -165,9 +166,9 @@ class CheckOutHelper {
           ));
         }
 
-        if(!isSuccess){
-          showCustomSnackBar(getTranslated('failed_to_fetch_distance', Get.context!));
-        }
+        // if(!isSuccess){
+        //   showCustomSnackBar(getTranslated('failed_to_fetch_distance', Get.context!));
+        // }
 
   }
 

@@ -43,7 +43,6 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
     if (widget.orderModel == null) {
       await splashProvider.initConfig();
     }
-    await orderProvider.initializeTimeSlot();
     orderProvider.getOrderDetails(orderID: widget.orderId.toString(), phoneNumber: widget.phoneNumber);
   }
 

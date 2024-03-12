@@ -30,30 +30,35 @@ class DeliveryAddressView extends StatelessWidget {
         builder: (context, locationProvider, _) => Consumer<OrderProvider>(
             builder: (context, orderProvider, _) {
               bool isAvailable = false;
-              print("address is ${locationProvider.addressList!.first.toJson()}");
-              AddressModel? deliveryAddress = CheckOutHelper.getDeliveryAddress(
+              AddressModel? deliveryAddress =  CheckOutHelper.getDeliveryAddress(
                 addressList: locationProvider.addressList,
                 selectedAddress: orderProvider.addressIndex == -1 ? null : locationProvider.addressList?[orderProvider.addressIndex],
                 lastOrderAddress: null,
               );
+              // if(deliveryAddress != null) {
+              //  // print("this is delivery address ${deliveryAddress.toJson()}");
+              //   orderProvider.initializeTimeSlot(deliveryAddress.city.toString(), deliveryAddress.zipcode.toString());
+              // }
 
-              if(deliveryAddress != null) {
-                isAvailable = CheckOutHelper.isBranchAvailable(
-                  branches: configModel.branches ?? [],
-                  selectedBranch: configModel.branches![orderProvider.branchIndex],
-                  selectedAddress: deliveryAddress,
-                );
 
-                if(!isAvailable) {
-                  deliveryAddress = null;
-                }
-              }
+                // if(deliveryAddress != null) {
+                //   isAvailable = CheckOutHelper.isBranchAvailable(
+                //     branches: configModel.branches ?? [],
+                //     selectedBranch: configModel.branches![orderProvider.branchIndex],
+                //     selectedAddress: deliveryAddress,
+                //   );
+                //
+                //   if(!isAvailable) {
+                //     deliveryAddress = null;
+                //   }
+                // }
 
-              return locationProvider.addressList == null ? const DeliverySectionShimmer() :  Padding(
-                padding:  const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeSmall, vertical: Dimensions.paddingSizeExtraSmall),
-                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                    Text('${getTranslated('delivery_to', context)} -', style: poppinsMedium.copyWith(fontSize: Dimensions.fontSizeLarge)),
+                return locationProvider.addressList == null ? const DeliverySectionShimmer() :  Padding(
+                  padding:  const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeSmall, vertical: Dimensions.paddingSizeExtraSmall),
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                    Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                      Text('${getTranslated('delivery_to', context)} -', style: poppinsMedium.copyWith(fontSize: Dimensions.fontSizeLarge)
+                          ),
                     const Expanded(child: SizedBox()),
                     TextButton(
                       onPressed: ()=> showDialog(context: context, builder: (_)=> const AddAddressDialog()),

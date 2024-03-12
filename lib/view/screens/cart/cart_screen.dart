@@ -49,7 +49,8 @@ class _CartScreenState extends State<CartScreen> {
     final configModel = Provider.of<SplashProvider>(context, listen: false).configModel!;
 
     bool isSelfPickupActive = configModel.selfPickup == 1;
-    bool kmWiseCharge = configModel.deliveryManagement!.status!;
+   // bool kmWiseCharge = configModel.deliveryManagement!.status!;
+    print("charge is ${configModel.deliveryManagement!.status!}");
 
     return Scaffold(
       appBar: ResponsiveHelper.isMobilePhone() ? null: (ResponsiveHelper.isDesktop(context)? const PreferredSize(preferredSize: Size.fromHeight(120), child: WebAppBar()) : const AppBarBase()) as PreferredSizeWidget?,
@@ -58,7 +59,7 @@ class _CartScreenState extends State<CartScreen> {
             return Consumer<CartProvider>(
               builder: (context, cart, child) {
                 double? deliveryCharge = 0;
-                (Provider.of<OrderProvider>(context).orderType == 'delivery' && !kmWiseCharge)
+                (Provider.of<OrderProvider>(context).orderType == 'delivery')
                     ? deliveryCharge = configModel.deliveryCharge : deliveryCharge = 0;
 
                 if(couponProvider.couponType == 'free_delivery') {
@@ -73,7 +74,6 @@ class _CartScreenState extends State<CartScreen> {
                   discount = discount + (cartModel.discount! * cartModel.quantity!);
                   tax = tax + (cartModel.tax! * cartModel.quantity!);
                 }
-
                 double subTotal = itemPrice + (configModel.isVatTexInclude! ? 0 : tax);
                 bool isFreeDelivery = subTotal >= configModel.freeDeliveryOverAmount! && configModel.freeDeliveryStatus!
                     || couponProvider.couponType == 'free_delivery';
@@ -97,7 +97,7 @@ class _CartScreenState extends State<CartScreen> {
                             CartDetailsView(
                             couponController: _couponController, total: total,
                             isSelfPickupActive: isSelfPickupActive,
-                            kmWiseCharge: kmWiseCharge, isFreeDelivery: isFreeDelivery,
+                            kmWiseCharge: false, isFreeDelivery: isFreeDelivery,
                             itemPrice: itemPrice, tax: tax,
                             discount: discount, deliveryCharge: deliveryCharge!,
                           ),
@@ -150,7 +150,7 @@ class _CartScreenState extends State<CartScreen> {
                                 CartDetailsView(
                                   couponController: _couponController, total: total,
                                   isSelfPickupActive: isSelfPickupActive,
-                                  kmWiseCharge: kmWiseCharge, isFreeDelivery: isFreeDelivery,
+                                  kmWiseCharge: false, isFreeDelivery: isFreeDelivery,
                                   itemPrice: itemPrice, tax: tax,
                                   discount: discount, deliveryCharge: deliveryCharge!,
                                 ),

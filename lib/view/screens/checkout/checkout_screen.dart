@@ -89,7 +89,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
 
     if(_isLoggedIn || isGuestCheckout) {
       orderProvider.setAddressIndex(-1, notify: false);
-      orderProvider.initializeTimeSlot();
+     // orderProvider.initializeTimeSlot();
       _branches = splashProvider.configModel!.branches;
 
      await locationProvider.initAddressList();
@@ -236,13 +236,19 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                 child: Text(getTranslated('preference_time', context), style: poppinsMedium.copyWith(fontSize: Dimensions.fontSizeLarge)),
                               ),
                               const SizedBox(height: 10),
-
-                              SizedBox(height: 52, child: ListView.builder(
+                              orderProvider.deliveryDates.isEmpty?Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: Text(
+                                    "Please Add Delivery Address First",
+                                    style: poppinsRegular.copyWith(
+                                      color: Theme.of(context).textTheme.bodyLarge?.color,
+                                    )),
+                              ) : SizedBox(height: 52, child: ListView.builder(
                                 scrollDirection: Axis.horizontal,
                                 shrinkWrap: true,
                                 padding: const EdgeInsets.symmetric(horizontal: 15),
                                 physics: const BouncingScrollPhysics(),
-                                itemCount: 3,
+                                itemCount: orderProvider.deliveryDates.length,
                                 itemBuilder: (context, index) {
                                   return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                                     Radio(
@@ -254,10 +260,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                     const SizedBox(width: Dimensions.paddingSizeExtraSmall),
 
                                     Text(
-                                      index == 0
-                                          ? getTranslated('today', context) : index == 1
-                                          ? getTranslated('tomorrow', context)
-                                          : DateConverter.estimatedDate(DateTime.now().add(const Duration(days: 2))),
+                                      orderProvider.deliveryDates[index].toString(),
                                       style: poppinsRegular.copyWith(
                                         color: index == orderProvider.selectDateSlot ? Theme.of(context).primaryColor : Theme.of(context).textTheme.bodyLarge?.color,
                                       ),
@@ -267,53 +270,53 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                   ]);
                                 },
                               )),
-                              const SizedBox(height: Dimensions.paddingSizeSmall),
-
-                              orderProvider.timeSlots != null ? SingleChildScrollView(scrollDirection: Axis.horizontal, child: Row(
-                                children: orderProvider.timeSlots!.map((timeSlotModel) {
-                                  int index = orderProvider.timeSlots!.indexOf(timeSlotModel);
-                                  return Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeDefault),
-                                    child: InkWell(
-                                      hoverColor: Colors.transparent,
-                                      onTap: () => orderProvider.updateTimeSlot(index),
-                                      child: Container(
-                                        padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeSmall, horizontal: Dimensions.paddingSizeSmall),
-                                        alignment: Alignment.center,
-                                        decoration: BoxDecoration(
-                                          color: orderProvider.selectTimeSlot == index
-                                              ? Theme.of(context).primaryColor
-                                              : Theme.of(context).cardColor,
-                                          borderRadius: BorderRadius.circular(Dimensions.radiusSizeDefault),
-                                          boxShadow: [BoxShadow(
-                                            color: Theme.of(context).shadowColor,
-                                            spreadRadius: .5, blurRadius: .5,
-                                          )],
-                                          border: Border.all(
-                                            color: orderProvider.selectTimeSlot == index
-                                                ? Theme.of(context).primaryColor
-                                                : Theme.of(context).disabledColor,
-                                          ),
-                                        ),
-                                        child: Row(
-                                          children: [
-                                            Icon(Icons.history, color: orderProvider.selectTimeSlot == index ? Theme.of(context).cardColor : Theme.of(context).disabledColor, size: 20),
-                                            const SizedBox(width: Dimensions.paddingSizeExtraSmall),
-
-                                            Text('${DateConverter.stringToStringTime(orderProvider.timeSlots![index].startTime!, context)} '
-                                                  '- ${DateConverter.stringToStringTime(orderProvider.timeSlots![index].endTime!, context)}',
-                                              style: poppinsRegular.copyWith(
-                                                fontSize: Dimensions.fontSizeLarge,
-                                                color: orderProvider.selectTimeSlot == index ? Theme.of(context).cardColor : Theme.of(context).disabledColor,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                }).toList(),
-                              )) : Center(child: CustomLoader(color: Theme.of(context).primaryColor)),
+                              // const SizedBox(height: Dimensions.paddingSizeSmall),
+                              //
+                              // orderProvider.timeSlots != null ? SingleChildScrollView(scrollDirection: Axis.horizontal, child: Row(
+                              //   children: orderProvider.timeSlots!.map((timeSlotModel) {
+                              //     int index = orderProvider.timeSlots!.indexOf(timeSlotModel);
+                              //     return Padding(
+                              //       padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeDefault),
+                              //       child: InkWell(
+                              //         hoverColor: Colors.transparent,
+                              //         onTap: () => orderProvider.updateTimeSlot(index),
+                              //         child: Container(
+                              //           padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeSmall, horizontal: Dimensions.paddingSizeSmall),
+                              //           alignment: Alignment.center,
+                              //           decoration: BoxDecoration(
+                              //             color: orderProvider.selectTimeSlot == index
+                              //                 ? Theme.of(context).primaryColor
+                              //                 : Theme.of(context).cardColor,
+                              //             borderRadius: BorderRadius.circular(Dimensions.radiusSizeDefault),
+                              //             boxShadow: [BoxShadow(
+                              //               color: Theme.of(context).shadowColor,
+                              //               spreadRadius: .5, blurRadius: .5,
+                              //             )],
+                              //             border: Border.all(
+                              //               color: orderProvider.selectTimeSlot == index
+                              //                   ? Theme.of(context).primaryColor
+                              //                   : Theme.of(context).disabledColor,
+                              //             ),
+                              //           ),
+                              //           child: Row(
+                              //             children: [
+                              //               Icon(Icons.history, color: orderProvider.selectTimeSlot == index ? Theme.of(context).cardColor : Theme.of(context).disabledColor, size: 20),
+                              //               const SizedBox(width: Dimensions.paddingSizeExtraSmall),
+                              //
+                              //               Text('${DateConverter.stringToStringTime(orderProvider.timeSlots![index].startTime!, context)} '
+                              //                     '- ${DateConverter.stringToStringTime(orderProvider.timeSlots![index].endTime!, context)}',
+                              //                 style: poppinsRegular.copyWith(
+                              //                   fontSize: Dimensions.fontSizeLarge,
+                              //                   color: orderProvider.selectTimeSlot == index ? Theme.of(context).cardColor : Theme.of(context).disabledColor,
+                              //                 ),
+                              //               ),
+                              //             ],
+                              //           ),
+                              //         ),
+                              //       ),
+                              //     );
+                              //   }).toList(),
+                              // )) : Center(child: CustomLoader(color: Theme.of(context).primaryColor)),
 
 
                               const SizedBox(height: 20),
