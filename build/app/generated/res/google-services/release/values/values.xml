@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">250728969979-9nqsmhb458assn7q1a68cgasgg5q5mtg.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">250728969979</string>
+    <string name="google_api_key" translatable="false">AIzaSyDTFm7oPur3xhZbVmCkgFkGFcR-44h6Gyo</string>
+    <string name="google_app_id" translatable="false">1:250728969979:android:b5851c79fde8721b75a25e</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDTFm7oPur3xhZbVmCkgFkGFcR-44h6Gyo</string>
+    <string name="google_storage_bucket" translatable="false">grofresh-3986f.appspot.com</string>
+    <string name="project_id" translatable="false">grofresh-3986f</string>
+</resources>
