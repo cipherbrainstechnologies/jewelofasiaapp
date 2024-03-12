@@ -183,26 +183,26 @@ class _WebAppBarState extends State<WebAppBar> {
                       ),
                       const SizedBox(width: Dimensions.paddingSizeSmall),
 
-                      SizedBox(
-                        height: Dimensions.paddingSizeLarge,
-
-                        child: MouseRegion(
-                          onHover: (details){
-                            _showPopupMenu(details.position, context, PopupMenuType.language);
-                          },
-                          child: InkWell(
-                            onTap: () => showAnimatedDialog(context, const CurrencyDialog()),
-                            // onTap: () => Navigator.pushNamed(context, RouteHelper.getLanguageRoute('menu')),
-                            child: Row(
-                              children: [
-                                Text('${currentLanguage.languageCode?.toUpperCase()}',style: poppinsRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color?.withOpacity(0.6))),
-                                const SizedBox(width: Dimensions.paddingSizeExtraSmall),
-                                Icon(Icons.expand_more, color: Theme.of(context).textTheme.bodyLarge?.color?.withOpacity(0.6))
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
+                      // SizedBox(
+                      //   height: Dimensions.paddingSizeLarge,
+                      //
+                      //   child: MouseRegion(
+                      //     onHover: (details){
+                      //       _showPopupMenu(details.position, context, PopupMenuType.language);
+                      //     },
+                      //     child: InkWell(
+                      //       onTap: () => showAnimatedDialog(context, const CurrencyDialog()),
+                      //       // onTap: () => Navigator.pushNamed(context, RouteHelper.getLanguageRoute('menu')),
+                      //       child: Row(
+                      //         children: [
+                      //           Text('${currentLanguage.languageCode?.toUpperCase()}',style: poppinsRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color?.withOpacity(0.6))),
+                      //           const SizedBox(width: Dimensions.paddingSizeExtraSmall),
+                      //           Icon(Icons.expand_more, color: Theme.of(context).textTheme.bodyLarge?.color?.withOpacity(0.6))
+                      //         ],
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
 
                     ],
                   ),
