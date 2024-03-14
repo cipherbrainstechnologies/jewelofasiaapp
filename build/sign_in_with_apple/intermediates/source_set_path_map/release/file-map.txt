@@ -1,0 +1,13 @@
+com.aboutyou.dart_packages.sign_in_with_apple-browser-1.5.0-0 C:\Users\shiva\.gradle\caches\transforms-3\065d84c81e408a50aeed5d02c12ccb9d\transformed\browser-1.5.0\res
+com.aboutyou.dart_packages.sign_in_with_apple-jetified-window-1.0.0-beta04-1 C:\Users\shiva\.gradle\caches\transforms-3\264dff727dd720487ef2bd462d07c007\transformed\jetified-window-1.0.0-beta04\res
+com.aboutyou.dart_packages.sign_in_with_apple-jetified-annotation-experimental-1.1.0-2 C:\Users\shiva\.gradle\caches\transforms-3\55d10bee09574de8f24b038e5e04efa8\transformed\jetified-annotation-experimental-1.1.0\res
+com.aboutyou.dart_packages.sign_in_with_apple-core-1.6.0-3 C:\Users\shiva\.gradle\caches\transforms-3\59dff4ebebcaf504346e212b41863aef\transformed\core-1.6.0\res
+com.aboutyou.dart_packages.sign_in_with_apple-jetified-window-java-1.0.0-beta04-4 C:\Users\shiva\.gradle\caches\transforms-3\ece7841a41474336fcb952c6cc1305bf\transformed\jetified-window-java-1.0.0-beta04\res
+com.aboutyou.dart_packages.sign_in_with_apple-main-5 C:\Users\shiva\AppData\Local\Pub\Cache\hosted\pub.dev\sign_in_with_apple-6.0.0\android\src\main\res
+com.aboutyou.dart_packages.sign_in_with_apple-release-6 C:\Users\shiva\AppData\Local\Pub\Cache\hosted\pub.dev\sign_in_with_apple-6.0.0\android\src\release\res
+com.aboutyou.dart_packages.sign_in_with_apple-pngs-7 D:\Projects\Gitcodes\jewelofasiaapp\build\sign_in_with_apple\generated\res\pngs\release
+com.aboutyou.dart_packages.sign_in_with_apple-resValues-8 D:\Projects\Gitcodes\jewelofasiaapp\build\sign_in_with_apple\generated\res\resValues\release
+com.aboutyou.dart_packages.sign_in_with_apple-rs-9 D:\Projects\Gitcodes\jewelofasiaapp\build\sign_in_with_apple\generated\res\rs\release
+com.aboutyou.dart_packages.sign_in_with_apple-mergeReleaseResources-10 D:\Projects\Gitcodes\jewelofasiaapp\build\sign_in_with_apple\intermediates\incremental\release\mergeReleaseResources\merged.dir
+com.aboutyou.dart_packages.sign_in_with_apple-mergeReleaseResources-11 D:\Projects\Gitcodes\jewelofasiaapp\build\sign_in_with_apple\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+com.aboutyou.dart_packages.sign_in_with_apple-merged_res-12 D:\Projects\Gitcodes\jewelofasiaapp\build\sign_in_with_apple\intermediates\merged_res\release

@@ -1,0 +1,15 @@
+io.flutter.plugins.googlesignin.google_sign_in_android-jetified-play-services-base-18.0.1-0 C:\Users\shiva\.gradle\caches\transforms-3\0d1db42e1154b1ddcde0ca2f3c518cc0\transformed\jetified-play-services-base-18.0.1\res
+io.flutter.plugins.googlesignin.google_sign_in_android-jetified-window-1.0.0-beta04-1 C:\Users\shiva\.gradle\caches\transforms-3\264dff727dd720487ef2bd462d07c007\transformed\jetified-window-1.0.0-beta04\res
+io.flutter.plugins.googlesignin.google_sign_in_android-jetified-annotation-experimental-1.1.0-2 C:\Users\shiva\.gradle\caches\transforms-3\55d10bee09574de8f24b038e5e04efa8\transformed\jetified-annotation-experimental-1.1.0\res
+io.flutter.plugins.googlesignin.google_sign_in_android-core-1.6.0-3 C:\Users\shiva\.gradle\caches\transforms-3\59dff4ebebcaf504346e212b41863aef\transformed\core-1.6.0\res
+io.flutter.plugins.googlesignin.google_sign_in_android-jetified-play-services-auth-20.7.0-4 C:\Users\shiva\.gradle\caches\transforms-3\9c8b055a7fae81250b2ab02c4b4410e7\transformed\jetified-play-services-auth-20.7.0\res
+io.flutter.plugins.googlesignin.google_sign_in_android-jetified-window-java-1.0.0-beta04-5 C:\Users\shiva\.gradle\caches\transforms-3\ece7841a41474336fcb952c6cc1305bf\transformed\jetified-window-java-1.0.0-beta04\res
+io.flutter.plugins.googlesignin.google_sign_in_android-jetified-play-services-basement-18.2.0-6 C:\Users\shiva\.gradle\caches\transforms-3\f6a4cd86a0bb5be6ec4393fe49c5478f\transformed\jetified-play-services-basement-18.2.0\res
+io.flutter.plugins.googlesignin.google_sign_in_android-main-7 C:\Users\shiva\AppData\Local\Pub\Cache\hosted\pub.dev\google_sign_in_android-6.1.21\android\src\main\res
+io.flutter.plugins.googlesignin.google_sign_in_android-release-8 C:\Users\shiva\AppData\Local\Pub\Cache\hosted\pub.dev\google_sign_in_android-6.1.21\android\src\release\res
+io.flutter.plugins.googlesignin.google_sign_in_android-pngs-9 D:\Projects\Gitcodes\jewelofasiaapp\build\google_sign_in_android\generated\res\pngs\release
+io.flutter.plugins.googlesignin.google_sign_in_android-resValues-10 D:\Projects\Gitcodes\jewelofasiaapp\build\google_sign_in_android\generated\res\resValues\release
+io.flutter.plugins.googlesignin.google_sign_in_android-rs-11 D:\Projects\Gitcodes\jewelofasiaapp\build\google_sign_in_android\generated\res\rs\release
+io.flutter.plugins.googlesignin.google_sign_in_android-mergeReleaseResources-12 D:\Projects\Gitcodes\jewelofasiaapp\build\google_sign_in_android\intermediates\incremental\release\mergeReleaseResources\merged.dir
+io.flutter.plugins.googlesignin.google_sign_in_android-mergeReleaseResources-13 D:\Projects\Gitcodes\jewelofasiaapp\build\google_sign_in_android\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+io.flutter.plugins.googlesignin.google_sign_in_android-merged_res-14 D:\Projects\Gitcodes\jewelofasiaapp\build\google_sign_in_android\intermediates\merged_res\release
