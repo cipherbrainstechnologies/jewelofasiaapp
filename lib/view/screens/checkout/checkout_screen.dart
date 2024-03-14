@@ -243,9 +243,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                     style: poppinsRegular.copyWith(
                                       color: Theme.of(context).textTheme.bodyLarge?.color,
                                     )),
-                              ) : SizedBox(height: 52, child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
+                              ) : SizedBox(height: 300, child: GridView.builder(
+                                scrollDirection: Axis.vertical,
                                 shrinkWrap: true,
+                                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  childAspectRatio: 6,
+                                ),
                                 padding: const EdgeInsets.symmetric(horizontal: 15),
                                 physics: const BouncingScrollPhysics(),
                                 itemCount: orderProvider.deliveryDates.length,

@@ -51,7 +51,8 @@ class FooterView extends StatelessWidget {
 
                                     Consumer<SplashProvider>(
                                       builder:(context, splash, child) => CustomImage(
-                                        image: '${splash.baseUrls!.ecommerceImageUrl}/${splash.configModel!.ecommerceLogo}',
+                                        image: splash.baseUrls != null ? '${splash.baseUrls!.ecommerceImageUrl}/${splash.configModel!.ecommerceLogo}' : '',
+                                        fit: BoxFit.contain,
                                         placeholder: Images.webBarLogoPlaceHolder,
                                         width: 125,
                                       ),
