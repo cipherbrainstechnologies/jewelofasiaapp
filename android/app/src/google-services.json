@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:250728969979:android:b5851c79fde8721b75a25e",
         "android_client_info": {
-          "package_name": "com.sixamtech.grofresh"
+          "package_name": "com.jewelofasia.au"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "250728969979-phec12tcero8obfv5n9ik2sgu4cqat45.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.sixamtech.grofresh",
+            "package_name": "com.jewelofasia.au",
             "certificate_hash": "b9b0e55da089ae006457e4a7525d5d81e69555fc"
           }
         },
@@ -25,7 +25,7 @@
           "client_id": "250728969979-sd7rcuvbrvpqg2dojp7kamafnpcohkid.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.sixamtech.grofresh",
+            "package_name": "com.jewelofasia.au",
             "certificate_hash": "5174bb127f738b159ef1dd0a987166a682761bf3"
           }
         },
@@ -33,7 +33,7 @@
           "client_id": "250728969979-u07k1sjpmgqcjmk377kq8mrlus2a6ppk.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.sixamtech.grofresh",
+            "package_name": "com.jewelofasia.au",
             "certificate_hash": "cd0ac511cd390e4642666eb8571050d5fe8aa319"
           }
         },

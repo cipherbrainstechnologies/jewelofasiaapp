@@ -3,7 +3,7 @@ import 'package:flutter_grocery/helper/app_mode.dart';
 import 'images.dart';
 
 class AppConstants {
-  static const String appName = 'JewelOfAsia';
+  static const String appName = 'JEWEL OF ASIA';
   static const double appVersion = 7.2;
   static const AppMode appMode = AppMode.release;
   static const String baseUrl = 'https://phplaravel-941212-4363533.cloudwaysapps.com';
@@ -88,7 +88,7 @@ class AppConstants {
   static const String userAddress = 'user_address';
 
   static const String searchAddress = 'search_address';
-  static const String topic = 'JewelOfAsia';
+  static const String topic = 'JEWEL OF ASIA';
   static const String onBoardingSkip = 'on_boarding_skip';
   static const String placeOrderData = 'place_order_data';
   static const String cookingManagement = 'cookies_management';

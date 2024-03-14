@@ -26,27 +26,30 @@ class LocationSearchDialog extends StatelessWidget {
       ),
       alignment: Alignment.topCenter,
       child: SizedBox(width: 650, child: TypeAheadField(
-        textFieldConfiguration: TextFieldConfiguration(
-          controller: controller,
-          textInputAction: TextInputAction.search,
-          autofocus: true,
-          textCapitalization: TextCapitalization.words,
-          keyboardType: TextInputType.streetAddress,
-          decoration: InputDecoration(
-            hintText: getTranslated('search_location', context),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: const BorderSide(style: BorderStyle.none, width: 0),
+        builder: (context, controller, focusNode) {
+          return TextField(
+            controller: controller,
+            textInputAction: TextInputAction.search,
+            autofocus: true,
+            textCapitalization: TextCapitalization.words,
+            keyboardType: TextInputType.streetAddress,
+            decoration: InputDecoration(
+              hintText: getTranslated('search_location', context),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: const BorderSide(style: BorderStyle.none, width: 0),
+              ),
+              hintStyle: Theme.of(context).textTheme.displayMedium!.copyWith(
+                fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).disabledColor,
+              ),
+              filled: true, fillColor: Theme.of(context).cardColor,
             ),
-            hintStyle: Theme.of(context).textTheme.displayMedium!.copyWith(
-              fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).disabledColor,
+            style: Theme.of(context).textTheme.displayMedium!.copyWith(
+              color: Theme.of(context).textTheme.bodyLarge!.color, fontSize: Dimensions.fontSizeLarge,
             ),
-            filled: true, fillColor: Theme.of(context).cardColor,
-          ),
-          style: Theme.of(context).textTheme.displayMedium!.copyWith(
-            color: Theme.of(context).textTheme.bodyLarge!.color, fontSize: Dimensions.fontSizeLarge,
-          ),
-        ),
+          );
+        },
+
         suggestionsCallback: (pattern) async {
           return await Provider.of<LocationProvider>(context, listen: false).searchLocation(context, pattern);
         },
@@ -63,7 +66,7 @@ class LocationSearchDialog extends StatelessWidget {
             ]),
           );
         },
-        onSuggestionSelected: (Prediction suggestion) {
+        onSelected: (Prediction suggestion) {
           Provider.of<LocationProvider>(context, listen: false).setLocation(suggestion.placeId, suggestion.description, mapController);
           Navigator.pop(context);
         },

@@ -30,8 +30,8 @@ class DioClient {
 
   Future<void> updateHeader({String? getToken, Dio? dioC})async {
     dio?..options.baseUrl = baseUrl
-      ..options.connectTimeout = ResponsiveHelper.isMobilePhone() ? 30000 : 60 * 30000
-      ..options.receiveTimeout = ResponsiveHelper.isMobilePhone() ? 30000 : 60 * 30000
+      ..options.connectTimeout = ResponsiveHelper.isMobilePhone() ? Duration(seconds:30000) : Duration(seconds:60 * 30000)
+      ..options.receiveTimeout = ResponsiveHelper.isMobilePhone() ? Duration(seconds:30000):Duration(seconds:  60 * 30000)
       ..httpClientAdapter
       ..options.headers = {
         'Content-Type': 'application/json; charset=UTF-8',

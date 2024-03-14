@@ -86,18 +86,19 @@ class ButtonsView extends StatelessWidget {
           onPressed:  () {
             List<Branches> branches = Provider.of<SplashProvider>(context, listen: false).configModel!.branches!;
             bool isAvailable = branches.length == 1 && (branches[0].latitude == null || branches[0].latitude!.isEmpty);
-            // if(!isAvailable) {
-            //   for (Branches branch in branches) {
-            //     double distance = Geolocator.distanceBetween(
-            //       double.parse(branch.latitude!), double.parse(branch.longitude!),
-            //       locationProvider.position.latitude, locationProvider.position.longitude,
-            //     ) / 1000;
-            //     if (distance < branch.coverage!) {
-            //       isAvailable = true;
-            //       break;
-            //     }
-            //   }
-            // }
+            if(!isAvailable) {
+              for (Branches branch in branches) {
+                double distance = Geolocator.distanceBetween(
+                  double.parse(branch.latitude!), double.parse(branch.longitude!),
+                  locationProvider.position.latitude, locationProvider.position.longitude,
+                ) / 1000;
+                if (distance < branch.coverage!) {
+                  isAvailable = true;
+                  break;
+                }
+              }
+            }
+
             isAvailable = true;
             if(!isAvailable) {
               showCustomSnackBar(getTranslated('service_is_not_available', context));
@@ -111,7 +112,9 @@ class ButtonsView extends StatelessWidget {
                 zipcode: locationProvider.selectedZipcode,
                 floorNumber: floorNumberController.text,
                 houseNumber: houseNumberController.text,
-                streetNumber: streetNumberController.text,
+                latitude: locationProvider.position.latitude.toString(),
+                longitude: locationProvider.position.longitude.toString(),
+                streetNumber: "${streetNumberController.text} ${locationProvider.selectedCity} ${locationProvider.selectedZipcode}",
               );
               print("this is model ${addressModel.city} AND ${addressModel.zipcode}");
               if (isEnableUpdate) {

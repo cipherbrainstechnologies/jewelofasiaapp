@@ -13,10 +13,10 @@ class ApiErrorHandler {
             case DioErrorType.cancel:
               errorDescription = "Request to API server was cancelled";
               break;
-            case DioErrorType.connectTimeout:
+            case DioErrorType.connectionTimeout:
               errorDescription = "Connection timeout with API server";
               break;
-            case DioErrorType.other:
+            case DioErrorType.unknown:
               errorDescription =
               "Connection to API server failed due to internet connection";
               break;
@@ -24,7 +24,7 @@ class ApiErrorHandler {
               errorDescription =
               "Receive timeout in connection with API server";
               break;
-            case DioErrorType.response:
+            case DioErrorType.badResponse:
               switch (error.response!.statusCode) {
                 case 500:
                 case 503:
