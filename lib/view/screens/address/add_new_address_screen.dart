@@ -148,26 +148,35 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                   // ),
 
                   // for label us
-                  if(!ResponsiveHelper.isDesktop(context)) DetailsView(
-                    cityList: locationProvider.cityList,
-                    zipcodes: locationProvider.zipcodes!.toList(),
-                    cities: locationProvider.cities!.toList(),
-                    contactPersonNameController: _contactPersonNameController,
-                    locationTextController: _locationTextController,
-                    contactPersonNumberController: _contactPersonNumberController,
-                    addressNode: _addressNode, nameNode: _nameNode,
-                    numberNode: _numberNode, fromCheckout: widget.fromCheckout,
-                    address: widget.address, isEnableUpdate: widget.isEnableUpdate,
-                    streetNumberController: _streetNumberController,
-                    houseNumberController: _houseNumberController,
-                    houseNode: _houseNode,
-                    stateNode: _stateNode,
-                    florNumberController: _florNumberController,
-                    florNode: _floorNode,
-                    countryCode: countryCode!,
-                    onValueChange: (code){
-                      countryCode = code;
-                    },
+                  if(!ResponsiveHelper.isDesktop(context)) Column(
+                    children: [
+                       MapViewSection(
+                        isEnableUpdate: widget.isEnableUpdate,
+                        fromCheckout: widget.fromCheckout,
+                      ),
+                      const SizedBox(width: Dimensions.paddingSizeDefault),
+                      DetailsView(
+                        cityList: locationProvider.cityList,
+                        zipcodes: locationProvider.zipcodes!.toList(),
+                        cities: locationProvider.cities!.toList(),
+                        contactPersonNameController: _contactPersonNameController,
+                        locationTextController: _locationTextController,
+                        contactPersonNumberController: _contactPersonNumberController,
+                        addressNode: _addressNode, nameNode: _nameNode,
+                        numberNode: _numberNode, fromCheckout: widget.fromCheckout,
+                        address: widget.address, isEnableUpdate: widget.isEnableUpdate,
+                        streetNumberController: _streetNumberController,
+                        houseNumberController: _houseNumberController,
+                        houseNode: _houseNode,
+                        stateNode: _stateNode,
+                        florNumberController: _florNumberController,
+                        florNode: _floorNode,
+                        countryCode: countryCode!,
+                        onValueChange: (code){
+                          countryCode = code;
+                        },
+                      ),
+                    ],
                   ),
 
 

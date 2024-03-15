@@ -74,7 +74,9 @@ class LocationProvider with ChangeNotifier {
     try {
       Position newLocalData = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
       myPosition = newLocalData;
+      print(myPosition);
     }catch(e) {
+      print("this is catch from current location:::: $e");
       myPosition = Position(
         latitude: double.parse('0'),
         longitude: double.parse('0'),
@@ -92,7 +94,7 @@ class LocationProvider with ChangeNotifier {
         CameraPosition(target: LatLng(myPosition.latitude, myPosition.longitude), zoom: 17),
       ));
     }
-    // String _myPlaceMark;
+    String _myPlaceMark;
     String getAddress = await getAddressFromGeocode(LatLng(myPosition.latitude, myPosition.longitude));
     if(fromAddress) {
       _address = placeMarkToAddress(getAddress);
