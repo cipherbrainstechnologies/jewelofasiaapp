@@ -336,7 +336,7 @@ class FooterView extends StatelessWidget {
 
                   SizedBox(
                     child: Text(Provider.of<SplashProvider>(context,listen: false).configModel!.footerCopyright ??
-                        '${'copyright'.tr} ${Provider.of<SplashProvider>(context,listen: false).configModel!.ecommerceName}',
+                        '${'copyright'.tr} ${Provider.of<SplashProvider>(context,listen: false).configModel!.footerCopyright}',
                         overflow: TextOverflow.ellipsis,maxLines: 1,textAlign: TextAlign.center),
                   ),
                 ],

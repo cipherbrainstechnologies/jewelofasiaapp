@@ -229,10 +229,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>  with Ticke
                   onPressed: (productProvider.cartIndex == null && stock! > 0) ? () {
                     if (productProvider.cartIndex == null && stock! > 0) {
                       Provider.of<CartProvider>(context, listen: false).addToCart(cartModel!);
-
-
                       showCustomSnackBar(getTranslated('added_to_cart', context), isError: false);
-
                     } else {
                       showCustomSnackBar(getTranslated('already_added', context));
                     }

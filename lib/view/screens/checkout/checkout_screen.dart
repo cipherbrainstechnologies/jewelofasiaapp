@@ -1,6 +1,7 @@
 import 'dart:collection';
 import 'dart:ui';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_grocery/data/model/body/check_out_data.dart';
@@ -247,10 +248,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                 scrollDirection: Axis.vertical,
                                 shrinkWrap: true,
                                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2,
-                                  childAspectRatio: 6,
+                                  crossAxisCount: kIsWeb? 2:1,
+                                  childAspectRatio: 7,
                                 ),
-                                padding: const EdgeInsets.symmetric(horizontal: 15),
+                                padding: const EdgeInsets.symmetric(horizontal: 10),
                                 physics: const BouncingScrollPhysics(),
                                 itemCount: orderProvider.deliveryDates.length,
                                 itemBuilder: (context, index) {
