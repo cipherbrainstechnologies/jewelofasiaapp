@@ -227,11 +227,53 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>  with Ticke
                   margin: Dimensions.paddingSizeSmall,
                   buttonText: getTranslated(productProvider.cartIndex != null ? 'already_added' : stock! <= 0 ? 'out_of_stock' : 'add_to_card', context),
                   onPressed: (productProvider.cartIndex == null && stock! > 0) ? () {
-                    if (productProvider.cartIndex == null && stock! > 0) {
-                      Provider.of<CartProvider>(context, listen: false).addToCart(cartModel!);
-                      showCustomSnackBar(getTranslated('added_to_cart', context), isError: false);
-                    } else {
-                      showCustomSnackBar(getTranslated('already_added', context));
+                    if(cart.cartList.isEmpty){
+                      if (productProvider.cartIndex == null && stock! > 0) {
+                        Provider.of<CartProvider>(context, listen: false)
+                            .addToCart(cartModel!);
+                        showCustomSnackBar(
+                            getTranslated('added_to_cart', context),
+                            isError: false);
+                      } else {
+                        showCustomSnackBar(
+                            getTranslated('already_added', context));
+                      }
+                    }else {
+                      if (cart.cartList
+                          .where((element) =>
+                      element.product!.isSubscriptionProduct == 0)
+                          .isEmpty &&
+                          cartModel!.product!.isSubscriptionProduct == 1) {
+                        if (productProvider.cartIndex == null && stock! > 0) {
+                          Provider.of<CartProvider>(context, listen: false)
+                              .addToCart(cartModel);
+                          showCustomSnackBar(
+                              getTranslated('added_to_cart', context),
+                              isError: false);
+                        } else {
+                          showCustomSnackBar(
+                              getTranslated('already_added', context));
+                        }
+                      } else if (cartModel!.product!.isSubscriptionProduct == 0 &&
+                          cart.cartList
+                              .where((element) =>
+                          element.product!.isSubscriptionProduct == 1)
+                              .isEmpty) {
+                        if (productProvider.cartIndex == null && stock! > 0) {
+                          Provider.of<CartProvider>(context, listen: false)
+                              .addToCart(cartModel);
+                          showCustomSnackBar(
+                              getTranslated('added_to_cart', context),
+                              isError: false);
+                        } else {
+                          showCustomSnackBar(
+                              getTranslated('already_added', context));
+                        }
+                      }
+                      else {
+                        showCustomSnackBar(
+                            "either you can and subscription product or non-subscription product");
+                      }
                     }
                   } : null,
                 ))),
@@ -358,13 +400,53 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>  with Ticke
                                               icon: Icons.shopping_cart,
                                               buttonText: getTranslated(productProvider.cartIndex != null ? 'already_added' : stock! <= 0 ? 'out_of_stock' : 'add_to_card', context),
                                               onPressed: (productProvider.cartIndex == null && stock! > 0) ? () {
-                                                if (productProvider.cartIndex == null && stock! > 0) {
-                                                  Provider.of<CartProvider>(context, listen: false).addToCart(cartModel!);
-
-                                                  showCustomSnackBar(getTranslated('added_to_cart', context), isError: false);
-
-                                                } else {
-                                                  showCustomSnackBar(getTranslated('already_added', context));
+                                                if(cart.cartList.isEmpty){
+                                                  if (productProvider.cartIndex == null && stock! > 0) {
+                                                    Provider.of<CartProvider>(context, listen: false)
+                                                        .addToCart(cartModel!);
+                                                    showCustomSnackBar(
+                                                        getTranslated('added_to_cart', context),
+                                                        isError: false);
+                                                  } else {
+                                                    showCustomSnackBar(
+                                                        getTranslated('already_added', context));
+                                                  }
+                                                }else {
+                                                  if (cart.cartList
+                                                      .where((element) =>
+                                                  element.product!.isSubscriptionProduct == 0)
+                                                      .isEmpty &&
+                                                      cartModel!.product!.isSubscriptionProduct == 1) {
+                                                    if (productProvider.cartIndex == null && stock! > 0) {
+                                                      Provider.of<CartProvider>(context, listen: false)
+                                                          .addToCart(cartModel);
+                                                      showCustomSnackBar(
+                                                          getTranslated('added_to_cart', context),
+                                                          isError: false);
+                                                    } else {
+                                                      showCustomSnackBar(
+                                                          getTranslated('already_added', context));
+                                                    }
+                                                  } else if (cartModel!.product!.isSubscriptionProduct == 0 &&
+                                                      cart.cartList
+                                                          .where((element) =>
+                                                      element.product!.isSubscriptionProduct == 1)
+                                                          .isEmpty) {
+                                                    if (productProvider.cartIndex == null && stock! > 0) {
+                                                      Provider.of<CartProvider>(context, listen: false)
+                                                          .addToCart(cartModel);
+                                                      showCustomSnackBar(
+                                                          getTranslated('added_to_cart', context),
+                                                          isError: false);
+                                                    } else {
+                                                      showCustomSnackBar(
+                                                          getTranslated('already_added', context));
+                                                    }
+                                                  }
+                                                  else {
+                                                    showCustomSnackBar(
+                                                        "either you can and subscription product or non-subscription product");
+                                                  }
                                                 }
                                               } : null,
                                             ),

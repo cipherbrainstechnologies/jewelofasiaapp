@@ -60,6 +60,7 @@ class Product {
   String? _unit;
   double? _capacity;
   int? _totalStock;
+  int? _isSubscriptionProduct;
   List<Rating>? _rating;
   List<ActiveReview>? _activeReviews;
   int? _maximumOrderQuantity;
@@ -108,6 +109,7 @@ class Product {
     _unit = unit;
     _capacity = capacity;
     _totalStock = totalStock;
+    _isSubscriptionProduct = isSubscriptionProduct;
     _rating = rating as List<Rating>?;
     _maximumOrderQuantity = maximumOrderQuantity;
     _categoryDiscount = categoryDiscount;
@@ -132,6 +134,7 @@ class Product {
   String? get unit => _unit;
   double? get capacity => _capacity;
   int? get totalStock => _totalStock;
+  int? get isSubscriptionProduct => _isSubscriptionProduct;
   List<Rating>? get rating => _rating;
   List<ActiveReview>? get activeReviews => _activeReviews;
   int? get maximumOrderQuantity => _maximumOrderQuantity;
@@ -172,6 +175,7 @@ class Product {
     _unit = json['unit'];
     _capacity = json['capacity'] != null ? json['capacity'].toDouble() : json['capacity'];
     _totalStock = json['total_stock'];
+    _isSubscriptionProduct = json['is_subscription_product'];
     if (json['rating'] != null) {
       _rating = [];
       json['rating'].forEach((v) {
@@ -221,6 +225,7 @@ class Product {
     data['unit'] = _unit;
     data['capacity'] = _capacity;
     data['total_stock'] = _totalStock;
+    data['is_subscription_product'] = _isSubscriptionProduct;
      if (_rating != null) {
       data['rating'] = _rating!.map((v) => v.toJson()).toList();
     }

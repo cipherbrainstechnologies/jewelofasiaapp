@@ -13,7 +13,7 @@ import FBSDKLoginKit
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     FirebaseApp.configure()
-    GMSServices.provideAPIKey("YOUR_MAP_KEY_HERE")
+    GMSServices.provideAPIKey("AIzaSyBLKiI-vWGHMb4NY6-dkpD20KHPGOnPDCg")
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
