@@ -64,6 +64,7 @@ class ProductProvider extends ChangeNotifier {
         _allProductModel!.offset = ProductModel.fromJson(response.response?.data).offset;
         _allProductModel!.products!.addAll(ProductModel.fromJson(response.response?.data).products!);
       }
+      print("this is total response ${ response.response?.data} ");
 
       notifyListeners();
 

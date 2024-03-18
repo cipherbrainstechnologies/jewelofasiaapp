@@ -24,7 +24,6 @@ class CartProductWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     String? variationText = '';
     if(cart.variation !=null ) {
       List<String> variationTypes = cart.variation!.type!.split('-');

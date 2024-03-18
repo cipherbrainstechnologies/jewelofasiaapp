@@ -51,6 +51,11 @@ class Product {
   int? _status;
   String? _createdAt;
   String? _updatedAt;
+  String? _paypalProductId;
+  String? _paypalWeeklyPlanId;
+  String? _paypalBiWeeklyPlanId;
+  String? _paypalMonthlyPlanId;
+  String? _paypalAccessToken;
   List<String>? _attributes;
   List<CategoryIds>? _categoryIds;
   List<ChoiceOptions>? _choiceOptions;
@@ -82,6 +87,11 @@ class Product {
         List<ChoiceOptions>? choiceOptions,
         double? discount,
         String? discountType,
+        String? paypalProductId,
+        String? paypalWeeklyPlanId,
+        String? paypalBiWeeklyPlanId,
+        String? paypalMonthlyPlanId,
+        String? paypalAccessToken,
         String? taxType,
         String? unit,
         double? capacity,
@@ -104,6 +114,11 @@ class Product {
     _categoryIds = categoryIds;
     _choiceOptions = choiceOptions;
     _discount = discount;
+    _paypalProductId = paypalProductId;
+    _paypalWeeklyPlanId = paypalWeeklyPlanId;
+    _paypalBiWeeklyPlanId = paypalBiWeeklyPlanId;
+    _paypalMonthlyPlanId = paypalMonthlyPlanId;
+    _paypalAccessToken = paypalAccessToken;
     _discountType = discountType;
     _taxType = taxType;
     _unit = unit;
@@ -129,6 +144,11 @@ class Product {
   List<CategoryIds>? get categoryIds => _categoryIds;
   List<ChoiceOptions>? get choiceOptions => _choiceOptions;
   double? get discount => _discount;
+  String? get paypalProductId => _paypalProductId;
+  String? get paypalWeeklyPlanId => _paypalWeeklyPlanId;
+  String? get paypalBiWeeklyPlanId => _paypalBiWeeklyPlanId;
+  String? get paypalMonthlyPlanId => _paypalMonthlyPlanId;
+  String? get paypalAccessToken => _paypalAccessToken;
   String? get discountType => _discountType;
   String? get taxType => _taxType;
   String? get unit => _unit;
@@ -143,6 +163,11 @@ class Product {
   Product.fromJson(Map<String, dynamic> json) {
     _id = json['id'];
     _name = json['name'];
+    _paypalProductId = json['paypal_product_id'];
+    _paypalWeeklyPlanId = json['paypal_weekly_plan_id'];
+    _paypalBiWeeklyPlanId = json['paypal_biweekly_plan_id'];
+    _paypalMonthlyPlanId = json['paypal_monthly_plan_id'];
+    _paypalAccessToken = json['paypal_access_token'];
     _description = json['description'];
     _image = json['image'].cast<String>();
     _price = json['price'].toDouble();
@@ -201,6 +226,11 @@ class Product {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = _id;
     data['name'] = _name;
+    data['paypal_product_id'] = _paypalProductId;
+    data['paypal_weekly_plan_id'] = _paypalProductId;
+    data['paypal_biweekly_plan_id'] = _paypalBiWeeklyPlanId;
+    data['paypal_monthly_plan_id'] = _paypalMonthlyPlanId;
+    data['paypal_access_token'] = _paypalAccessToken;
     data['description'] = _description;
     data['image'] = _image;
     data['price'] = _price;

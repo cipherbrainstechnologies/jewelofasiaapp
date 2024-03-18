@@ -37,7 +37,7 @@ class _ChatScreenState extends State<ChatScreen> {
   late bool _isLoggedIn;
   bool _isFirst = true;
 
-  var androidInitialize = const AndroidInitializationSettings('notification_icon');
+  var androidInitialize = const AndroidInitializationSettings('notification_icon.png');
   var iOSInitialize = const DarwinInitializationSettings();
 
 

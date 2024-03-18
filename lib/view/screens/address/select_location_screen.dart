@@ -69,8 +69,8 @@ class _SelectLocationScreenState extends State<SelectLocationScreen> {
                     target: _initialPosition,
                     zoom: 15,
                   ),
-                  zoomControlsEnabled: false,
-                  compassEnabled: false,
+                  zoomControlsEnabled: true,
+                  compassEnabled: true,
                   indoorViewEnabled: true,
                   mapToolbarEnabled: true,
                   onCameraIdle: () {

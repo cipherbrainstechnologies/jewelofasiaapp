@@ -54,7 +54,7 @@ class LocationProvider with ChangeNotifier {
   String? get selectedZipcode => selectedZipcodeis;
   bool _buttonDisabled = true;
   bool _changeAddress = true;
-  List<Prediction> _predictionList = [];
+  List<Prediction> predictionList = [];
   bool _updateAddAddressData = true;
   bool get buttonDisabled => _buttonDisabled;
   set setAddress(String? addressValue)=> _address = addressValue;
@@ -74,7 +74,7 @@ class LocationProvider with ChangeNotifier {
     try {
       Position newLocalData = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
       myPosition = newLocalData;
-      print(myPosition);
+      print("location is here" + myPosition.toString());
     }catch(e) {
       print("this is catch from current location:::: $e");
       myPosition = Position(
@@ -208,10 +208,12 @@ class LocationProvider with ChangeNotifier {
     return responseModel;
   }
   Future<ResponseModel?> getZipcodes(int id) async {
+    _isLoading = true;
     ResponseModel? responseModel;
     zipcodeList = null;
     ApiResponse apiResponse = await locationRepo!.getZipcodes(id);
     if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
+      _isLoading = false;
       zipcodeList = [];
       apiResponse.response!.data.forEach((address) => zipcodeList!.add(ZipcodesModel.fromJson(address)));
       zipcodes = zipcodeList!.first.zipcode!.split(",");
@@ -220,6 +222,7 @@ class LocationProvider with ChangeNotifier {
       zipcodeList = [];
       ApiChecker.checkApi(apiResponse);
     }
+    _isLoading = false;
     notifyListeners();
     return responseModel;
   }
@@ -385,13 +388,15 @@ class LocationProvider with ChangeNotifier {
     if(text.isNotEmpty) {
       ApiResponse response = await locationRepo!.searchLocation(text);
       if (response.response!.statusCode == 200 && response.response!.data['status'] == 'OK') {
-        _predictionList = [];
-        response.response!.data['predictions'].forEach((prediction) => _predictionList.add(Prediction.fromJson(prediction)));
+        predictionList = [];
+        response.response!.data['predictions'].forEach((prediction) => predictionList.add(Prediction.fromJson(prediction)));
+     print("prid list here: $predictionList");
       } else {
         ApiChecker.checkApi(response);
       }
     }
-    return _predictionList;
+    notifyListeners();
+    return predictionList;
   }
 
   String placeMarkToAddress(String placeMark) {

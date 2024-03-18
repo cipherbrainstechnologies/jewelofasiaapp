@@ -41,7 +41,7 @@ class ProductWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    CartProvider cart = Provider.of<CartProvider>(context, listen: false);
     double? priceWithDiscount = 0;
     double? categoryDiscountAmount;
     if(product.categoryDiscount != null) {
@@ -67,6 +67,7 @@ class ProductWidget extends StatelessWidget {
         bool isExistInCart = false;
         int? cardIndex;
         CartModel? cartModel;
+
         if(product.variations!.isNotEmpty) {
           for(int index=0; index<product.variations!.length; index++) {
             price = product.variations!.isNotEmpty ? product.variations![index].price : product.price;
@@ -83,6 +84,7 @@ class ProductWidget extends StatelessWidget {
             );
             isExistInCart = Provider.of<CartProvider>(context, listen: false).isExistInCart(cartModel) != null;
             cardIndex = Provider.of<CartProvider>(context, listen: false).isExistInCart(cartModel);
+
             if(isExistInCart) {
               break;
             }
@@ -155,22 +157,78 @@ class ProductWidget extends StatelessWidget {
                         child: !isExistInCart
                             ? InkWell(
                             onTap: () {
-                              if(product.variations == null || product.variations!.isEmpty) {
-                                if (isExistInCart) {
-                                  showCustomSnackBar('already_added'.tr);
-                                } else if (stock! < 1) {
-                                  showCustomSnackBar('out_of_stock'.tr);
-                                } else {
-                                  Provider.of<CartProvider>(context, listen: false).addToCart(cartModel!);
-                                  showCustomSnackBar('added_to_cart'.tr, isError: false);
+                              if(cart.cartList.isEmpty){
+                                if(product.variations == null || product.variations!.isEmpty) {
+                                  if (isExistInCart) {
+                                    showCustomSnackBar('already_added'.tr);
+                                  } else if (stock! < 1) {
+                                    showCustomSnackBar('out_of_stock'.tr);
+                                  } else {
+                                    Provider.of<CartProvider>(context, listen: false).addToCart(cartModel!);
+                                    showCustomSnackBar('added_to_cart'.tr, isError: false);
+                                  }
+                                }else {
+                                  Navigator.of(context).pushNamed(
+                                    RouteHelper.getProductDetailsRoute(
+                                      productId: product.id, formSearch:productType == ProductType.searchItem,
+                                    ),
+                                  );
                                 }
                               }else {
-                                Navigator.of(context).pushNamed(
-                                  RouteHelper.getProductDetailsRoute(
-                                    productId: product.id, formSearch:productType == ProductType.searchItem,
-                                  ),
-                                );
+                                if (cart.cartList
+                                    .where((element) =>
+                                element.product!.isSubscriptionProduct == 0)
+                                    .isEmpty &&
+                                    cartModel!.product!.isSubscriptionProduct == 1) {
+
+                                  if(cart.cartList.where((element) => element.id == cartModel!.product!.id).isNotEmpty) {
+                                    if(product.variations == null || product.variations!.isEmpty) {
+                                      if (isExistInCart) {
+                                        showCustomSnackBar('already_added'.tr);
+                                      } else if (stock! < 1) {
+                                        showCustomSnackBar('out_of_stock'.tr);
+                                      } else {
+                                        Provider.of<CartProvider>(context, listen: false).addToCart(cartModel!);
+                                        showCustomSnackBar('added_to_cart'.tr, isError: false);
+                                      }
+                                    }else {
+                                      Navigator.of(context).pushNamed(
+                                        RouteHelper.getProductDetailsRoute(
+                                          productId: product.id, formSearch:productType == ProductType.searchItem,
+                                        ),
+                                      );
+                                    }
+                                  }else{
+                                    showCustomSnackBar("you can not choose more then one subscription product at a time.");
+                                  }
+                                } else if (cartModel!.product!.isSubscriptionProduct == 0 &&
+                                    cart.cartList
+                                        .where((element) =>
+                                    element.product!.isSubscriptionProduct == 1)
+                                        .isEmpty) {
+                                  if(product.variations == null || product.variations!.isEmpty) {
+                                    if (isExistInCart) {
+                                      showCustomSnackBar('already_added'.tr);
+                                    } else if (stock! < 1) {
+                                      showCustomSnackBar('out_of_stock'.tr);
+                                    } else {
+                                      Provider.of<CartProvider>(context, listen: false).addToCart(cartModel!);
+                                      showCustomSnackBar('added_to_cart'.tr, isError: false);
+                                    }
+                                  }else {
+                                    Navigator.of(context).pushNamed(
+                                      RouteHelper.getProductDetailsRoute(
+                                        productId: product.id, formSearch:productType == ProductType.searchItem,
+                                      ),
+                                    );
+                                  }
+                                }
+                                else {
+                                  showCustomSnackBar(
+                                      "either you can add subscription product or non-subscription product");
+                                }
                               }
+
                             },
                             child: Container(
                               padding: const EdgeInsets.all(5),
@@ -316,7 +374,7 @@ class ProductWidget extends StatelessWidget {
   }
 
   InkWell _productGridView(BuildContext context, bool isExistInCart, int? stock, CartModel? cartModel, int? cardIndex, double priceWithDiscount) {
-
+    CartProvider cart = Provider.of<CartProvider>(context, listen: false);
     return InkWell(
       hoverColor: Colors.transparent,
       borderRadius:  BorderRadius.circular(Dimensions.radiusSizeTen),
@@ -483,21 +541,76 @@ class ProductWidget extends StatelessWidget {
               alignment: Alignment.topRight,
               child: !isExistInCart ? InkWell(
                 onTap: () {
-                  if(product.variations == null || product.variations!.isEmpty) {
-                    if (isExistInCart) {
-                      showCustomSnackBar('already_added'.tr);
-                    } else if (stock! < 1) {
-                      showCustomSnackBar('out_of_stock'.tr);
-                    } else {
-                      Provider.of<CartProvider>(context, listen: false).addToCart(cartModel!);
-                      showCustomSnackBar('added_to_cart'.tr, isError: false);
+                  if(cart.cartList.isEmpty){
+                    if(product.variations == null || product.variations!.isEmpty) {
+                      if (isExistInCart) {
+                        showCustomSnackBar('already_added'.tr);
+                      } else if (stock! < 1) {
+                        showCustomSnackBar('out_of_stock'.tr);
+                      } else {
+                        Provider.of<CartProvider>(context, listen: false).addToCart(cartModel!);
+                        showCustomSnackBar('added_to_cart'.tr, isError: false);
+                      }
+                    }else {
+                      Navigator.of(context).pushNamed(
+                        RouteHelper.getProductDetailsRoute(
+                          productId: product.id, formSearch:productType == ProductType.searchItem,
+                        ),
+                      );
                     }
                   }else {
-                    Navigator.of(context).pushNamed(
-                      RouteHelper.getProductDetailsRoute(
-                        productId: product.id, formSearch:productType == ProductType.searchItem,
-                      ),
-                    );
+                    if (cart.cartList
+                        .where((element) =>
+                    element.product!.isSubscriptionProduct == 0)
+                        .isEmpty &&
+                        cartModel!.product!.isSubscriptionProduct == 1) {
+
+                      if(cart.cartList.where((element) => element.id == cartModel!.product!.id).isNotEmpty) {
+                        if(product.variations == null || product.variations!.isEmpty) {
+                          if (isExistInCart) {
+                            showCustomSnackBar('already_added'.tr);
+                          } else if (stock! < 1) {
+                            showCustomSnackBar('out_of_stock'.tr);
+                          } else {
+                            Provider.of<CartProvider>(context, listen: false).addToCart(cartModel!);
+                            showCustomSnackBar('added_to_cart'.tr, isError: false);
+                          }
+                        }else {
+                          Navigator.of(context).pushNamed(
+                            RouteHelper.getProductDetailsRoute(
+                              productId: product.id, formSearch:productType == ProductType.searchItem,
+                            ),
+                          );
+                        }
+                      }else{
+                        showCustomSnackBar("you can not choose more then one subscription product at a time.");
+                      }
+                    } else if (cartModel!.product!.isSubscriptionProduct == 0 &&
+                        cart.cartList
+                            .where((element) =>
+                        element.product!.isSubscriptionProduct == 1)
+                            .isEmpty) {
+                      if(product.variations == null || product.variations!.isEmpty) {
+                        if (isExistInCart) {
+                          showCustomSnackBar('already_added'.tr);
+                        } else if (stock! < 1) {
+                          showCustomSnackBar('out_of_stock'.tr);
+                        } else {
+                          Provider.of<CartProvider>(context, listen: false).addToCart(cartModel!);
+                          showCustomSnackBar('added_to_cart'.tr, isError: false);
+                        }
+                      }else {
+                        Navigator.of(context).pushNamed(
+                          RouteHelper.getProductDetailsRoute(
+                            productId: product.id, formSearch:productType == ProductType.searchItem,
+                          ),
+                        );
+                      }
+                    }
+                    else {
+                      showCustomSnackBar(
+                          "either you can add subscription product or non-subscription product");
+                    }
                   }
                 },
                 child: Container(

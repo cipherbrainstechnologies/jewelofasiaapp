@@ -96,6 +96,7 @@ class LocationRepo {
   Future<ApiResponse> searchLocation(String text) async {
     try {
       Response response = await dioClient!.get('${AppConstants.searchLocationUri}?search_text=$text');
+      print(response);
       return ApiResponse.withSuccess(response);
     } catch (e) {
       return ApiResponse.withError(ApiErrorHandler.getMessage(e));

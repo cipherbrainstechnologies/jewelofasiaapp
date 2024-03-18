@@ -98,7 +98,6 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>  with Ticke
               }
               double? priceWithDiscount = 0;
               double? categoryDiscountAmount;
-
               if(productProvider.product!.categoryDiscount != null) {
                categoryDiscountAmount = PriceConverter.convertWithDiscount(
                  price, productProvider.product!.categoryDiscount!.discountAmount, productProvider.product!.categoryDiscount!.discountType,
@@ -244,15 +243,20 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>  with Ticke
                       element.product!.isSubscriptionProduct == 0)
                           .isEmpty &&
                           cartModel!.product!.isSubscriptionProduct == 1) {
-                        if (productProvider.cartIndex == null && stock! > 0) {
-                          Provider.of<CartProvider>(context, listen: false)
-                              .addToCart(cartModel);
-                          showCustomSnackBar(
-                              getTranslated('added_to_cart', context),
-                              isError: false);
-                        } else {
-                          showCustomSnackBar(
-                              getTranslated('already_added', context));
+
+                        if(cart.cartList.where((element) => element.id == cartModel!.product!.id).isNotEmpty) {
+                          if (productProvider.cartIndex == null && stock! > 0) {
+                            Provider.of<CartProvider>(context, listen: false)
+                                .addToCart(cartModel);
+                            showCustomSnackBar(
+                                getTranslated('added_to_cart', context),
+                                isError: false);
+                          } else {
+                            showCustomSnackBar(
+                                getTranslated('already_added', context));
+                          }
+                        }else{
+                          showCustomSnackBar("you can not choose more then one subscription product at a time.");
                         }
                       } else if (cartModel!.product!.isSubscriptionProduct == 0 &&
                           cart.cartList
@@ -272,7 +276,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>  with Ticke
                       }
                       else {
                         showCustomSnackBar(
-                            "either you can and subscription product or non-subscription product");
+                            "either you can add subscription product or non-subscription product");
                       }
                     }
                   } : null,
@@ -417,15 +421,20 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>  with Ticke
                                                   element.product!.isSubscriptionProduct == 0)
                                                       .isEmpty &&
                                                       cartModel!.product!.isSubscriptionProduct == 1) {
-                                                    if (productProvider.cartIndex == null && stock! > 0) {
-                                                      Provider.of<CartProvider>(context, listen: false)
-                                                          .addToCart(cartModel);
-                                                      showCustomSnackBar(
-                                                          getTranslated('added_to_cart', context),
-                                                          isError: false);
-                                                    } else {
-                                                      showCustomSnackBar(
-                                                          getTranslated('already_added', context));
+
+                                                    if(cart.cartList.where((element) => element.id == cartModel!.product!.id).isNotEmpty) {
+                                                      if (productProvider.cartIndex == null && stock! > 0) {
+                                                        Provider.of<CartProvider>(context, listen: false)
+                                                            .addToCart(cartModel);
+                                                        showCustomSnackBar(
+                                                            getTranslated('added_to_cart', context),
+                                                            isError: false);
+                                                      } else {
+                                                        showCustomSnackBar(
+                                                            getTranslated('already_added', context));
+                                                      }
+                                                    }else{
+                                                      showCustomSnackBar("you can not choose more then one subscription product at a time.");
                                                     }
                                                   } else if (cartModel!.product!.isSubscriptionProduct == 0 &&
                                                       cart.cartList
@@ -445,7 +454,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>  with Ticke
                                                   }
                                                   else {
                                                     showCustomSnackBar(
-                                                        "either you can and subscription product or non-subscription product");
+                                                        "either you can add subscription product or non-subscription product");
                                                   }
                                                 }
                                               } : null,
