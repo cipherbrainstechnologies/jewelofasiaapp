@@ -66,13 +66,13 @@ Future<void> main() async {
     }
   } else {
     await Firebase.initializeApp(options: const FirebaseOptions(
-        apiKey: "AIzaSyDuBlqmsh9xw17osLOuEn7iqHtDlpkulcM",
-        authDomain: "grofresh-3986f.firebaseapp.com",
-        projectId: "grofresh-3986f",
-        storageBucket: "grofresh-3986f.appspot.com",
-        messagingSenderId: "250728969979",
-        appId: "1:250728969979:web:b79642a7b2d2400b75a25e",
-        measurementId: "G-X1HCG4K8HJ"
+        apiKey: "AIzaSyB-dOZh9vXhi9_Hv9dGNc6vXDYW6RlNP7w",
+        authDomain: "jewelofasia-1d8c1-d564b.firebaseapp.com",
+        projectId: "jewelofasia-1d8c1",
+        storageBucket: "jewelofasia-1d8c1.appspot.com",
+        messagingSenderId: "575307389937",
+        appId: "1:575307389937:web:5f0442d85bb3d3dcc68250",
+        measurementId: "G-ZPEXM8DCFX"
     ));
 
     await FacebookAuth.instance.webAndDesktopInitialize(

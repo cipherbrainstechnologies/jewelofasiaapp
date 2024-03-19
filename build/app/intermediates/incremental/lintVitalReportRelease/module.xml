@@ -1,0 +1,25 @@
+<lint-module
+    format="1"
+    dir="/Users/mac/Documents/GitHub/jewelofasiaapp/android/app"
+    name=":app"
+    type="APP"
+    maven="android:app:"
+    gradle="7.2.1"
+    buildFolder="/Users/mac/Documents/GitHub/jewelofasiaapp/build/app"
+    bootClassPath="/Users/mac/Library/Android/sdk/platforms/android-34/android.jar:/Users/mac/Library/Android/sdk/build-tools/30.0.3/core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-34">
+  <lintOptions
+      disable="InvalidPackage"
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true">
+    <severities>
+      <severity
+        id="InvalidPackage"
+        severity="IGNORE" />
+    </severities>
+  </lintOptions>
+  <variant name="release"/>
+</lint-module>

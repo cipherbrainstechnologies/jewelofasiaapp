@@ -1,0 +1,937 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.jewelofasia.au"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml
+10    <!--
+11         io.flutter.app.FlutterApplication is an android.app.Application that
+12         calls FlutterMain.startInitialization(this); in its onCreate method.
+13         In most cases you can leave this as-is, but you if you want to provide
+14         additional functionality it is fine to subclass or reimplement
+15         FlutterApplication and put your custom class here.
+16    -->
+17    <uses-permission android:name="android.permission.INTERNET" />
+17-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:8:5-67
+17-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:8:22-64
+18    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+18-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:9:5-79
+18-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:9:22-76
+19    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+19-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:10:5-81
+19-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:10:22-78
+20    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+20-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:11:5-79
+20-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:11:22-76
+21
+22    <queries>
+22-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:13:5-28:15
+23        <intent>
+23-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:14:9-17:18
+24            <action android:name="android.intent.action.VIEW" />
+24-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:15:13-65
+24-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:15:21-62
+25
+26            <data android:scheme="https" />
+26-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:16:13-44
+26-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:16:19-41
+27        </intent>
+28        <intent>
+28-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:18:9-21:18
+29            <action android:name="android.intent.action.DIAL" />
+29-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:19:13-65
+29-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:19:21-62
+30
+31            <data android:scheme="tel" />
+31-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:16:13-44
+31-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:16:19-41
+32        </intent>
+33        <intent>
+33-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:22:9-25:18
+34            <action android:name="android.intent.action.SEND" />
+34-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:23:13-65
+34-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:23:21-62
+35
+36            <data android:mimeType="*/*" />
+36-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:16:13-44
+36-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:24:19-41
+37        </intent>
+38
+39        <provider android:authorities="com.facebook.katana.provider.PlatformProvider" />
+39-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:26:9-89
+39-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:26:19-86
+40
+41        <intent>
+41-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:10:9-12:18
+42            <action android:name="android.support.customtabs.action.CustomTabsService" />
+42-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-90
+42-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:11:21-87
+43        </intent>
+44
+45        <package android:name="com.facebook.katana" /> <!-- Needs to be explicitly declared on Android R+ -->
+45-->[com.facebook.android:facebook-common:16.3.0] /Users/mac/.gradle/caches/transforms-3/7f885666c5c07e3b23467ea5aa0acad3/transformed/jetified-facebook-common-16.3.0/AndroidManifest.xml:18:9-55
+45-->[com.facebook.android:facebook-common:16.3.0] /Users/mac/.gradle/caches/transforms-3/7f885666c5c07e3b23467ea5aa0acad3/transformed/jetified-facebook-common-16.3.0/AndroidManifest.xml:18:18-52
+46        <package android:name="com.google.android.apps.maps" />
+46-->[com.google.android.gms:play-services-maps:18.2.0] /Users/mac/.gradle/caches/transforms-3/5a18211490231dc8184f7b562d191d40/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:33:9-64
+46-->[com.google.android.gms:play-services-maps:18.2.0] /Users/mac/.gradle/caches/transforms-3/5a18211490231dc8184f7b562d191d40/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:33:18-61
+47    </queries>
+48
+49    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Permissions options for the `notification` group -->
+49-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:10:5-68
+49-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:10:22-65
+50    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+50-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:13:5-77
+50-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:13:22-74
+51    <uses-permission android:name="android.permission.VIBRATE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+51-->[:flutter_local_notifications] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:9:5-66
+51-->[:flutter_local_notifications] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:9:22-63
+52    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+52-->[com.google.firebase:firebase-messaging:23.4.1] /Users/mac/.gradle/caches/transforms-3/aac817184cf32ec87fd9859db402c975/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:26:5-82
+52-->[com.google.firebase:firebase-messaging:23.4.1] /Users/mac/.gradle/caches/transforms-3/aac817184cf32ec87fd9859db402c975/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:26:22-79
+53    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+53-->[com.google.android.gms:play-services-measurement-api:21.5.1] /Users/mac/.gradle/caches/transforms-3/d8e3f17333a4fefbff508d7c890105a2/transformed/jetified-play-services-measurement-api-21.5.1/AndroidManifest.xml:25:5-79
+53-->[com.google.android.gms:play-services-measurement-api:21.5.1] /Users/mac/.gradle/caches/transforms-3/d8e3f17333a4fefbff508d7c890105a2/transformed/jetified-play-services-measurement-api-21.5.1/AndroidManifest.xml:25:22-76
+54    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_ATTRIBUTION" />
+54-->[com.google.android.gms:play-services-measurement-api:21.5.1] /Users/mac/.gradle/caches/transforms-3/d8e3f17333a4fefbff508d7c890105a2/transformed/jetified-play-services-measurement-api-21.5.1/AndroidManifest.xml:26:5-88
+54-->[com.google.android.gms:play-services-measurement-api:21.5.1] /Users/mac/.gradle/caches/transforms-3/d8e3f17333a4fefbff508d7c890105a2/transformed/jetified-play-services-measurement-api-21.5.1/AndroidManifest.xml:26:22-85
+55    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_AD_ID" />
+55-->[com.google.android.gms:play-services-measurement-api:21.5.1] /Users/mac/.gradle/caches/transforms-3/d8e3f17333a4fefbff508d7c890105a2/transformed/jetified-play-services-measurement-api-21.5.1/AndroidManifest.xml:27:5-82
+55-->[com.google.android.gms:play-services-measurement-api:21.5.1] /Users/mac/.gradle/caches/transforms-3/d8e3f17333a4fefbff508d7c890105a2/transformed/jetified-play-services-measurement-api-21.5.1/AndroidManifest.xml:27:22-79
+56
+57    <uses-feature
+57-->[com.google.android.gms:play-services-maps:18.2.0] /Users/mac/.gradle/caches/transforms-3/5a18211490231dc8184f7b562d191d40/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:26:5-28:35
+58        android:glEsVersion="0x00020000"
+58-->[com.google.android.gms:play-services-maps:18.2.0] /Users/mac/.gradle/caches/transforms-3/5a18211490231dc8184f7b562d191d40/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:27:9-41
+59        android:required="true" />
+59-->[com.google.android.gms:play-services-maps:18.2.0] /Users/mac/.gradle/caches/transforms-3/5a18211490231dc8184f7b562d191d40/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:28:9-32
+60
+61    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+61-->[com.google.android.gms:play-services-measurement:21.5.1] /Users/mac/.gradle/caches/transforms-3/5c562ee5d10b5bd956f606a11e760d9d/transformed/jetified-play-services-measurement-21.5.1/AndroidManifest.xml:26:5-110
+61-->[com.google.android.gms:play-services-measurement:21.5.1] /Users/mac/.gradle/caches/transforms-3/5c562ee5d10b5bd956f606a11e760d9d/transformed/jetified-play-services-measurement-21.5.1/AndroidManifest.xml:26:22-107
+62    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+62-->[com.google.android.recaptcha:recaptcha:18.4.0] /Users/mac/.gradle/caches/transforms-3/bcd4252021b5b54f9016b4bf7df98e1c/transformed/jetified-recaptcha-18.4.0/AndroidManifest.xml:9:5-98
+62-->[com.google.android.recaptcha:recaptcha:18.4.0] /Users/mac/.gradle/caches/transforms-3/bcd4252021b5b54f9016b4bf7df98e1c/transformed/jetified-recaptcha-18.4.0/AndroidManifest.xml:9:22-95
+63
+64    <permission
+64-->[androidx.core:core:1.10.1] /Users/mac/.gradle/caches/transforms-3/ff8be43fc03d85ae8a270bea042370da/transformed/core-1.10.1/AndroidManifest.xml:22:5-24:47
+65        android:name="com.jewelofasia.au.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+65-->[androidx.core:core:1.10.1] /Users/mac/.gradle/caches/transforms-3/ff8be43fc03d85ae8a270bea042370da/transformed/core-1.10.1/AndroidManifest.xml:23:9-81
+66        android:protectionLevel="signature" />
+66-->[androidx.core:core:1.10.1] /Users/mac/.gradle/caches/transforms-3/ff8be43fc03d85ae8a270bea042370da/transformed/core-1.10.1/AndroidManifest.xml:24:9-44
+67
+68    <uses-permission android:name="com.jewelofasia.au.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+68-->[androidx.core:core:1.10.1] /Users/mac/.gradle/caches/transforms-3/ff8be43fc03d85ae8a270bea042370da/transformed/core-1.10.1/AndroidManifest.xml:26:5-97
+68-->[androidx.core:core:1.10.1] /Users/mac/.gradle/caches/transforms-3/ff8be43fc03d85ae8a270bea042370da/transformed/core-1.10.1/AndroidManifest.xml:26:22-94
+69
+70    <application
+70-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:30:5-100:19
+71        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+71-->[androidx.core:core:1.10.1] /Users/mac/.gradle/caches/transforms-3/ff8be43fc03d85ae8a270bea042370da/transformed/core-1.10.1/AndroidManifest.xml:28:18-86
+72        android:icon="@mipmap/ic_launcher"
+72-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:31:9-43
+73        android:label="Jewel of Asia"
+73-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:34:9-38
+74        android:requestLegacyExternalStorage="true"
+74-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:32:9-52
+75        android:supportsRtl="true"
+75-->[com.facebook.android:facebook-android-sdk:16.3.0] /Users/mac/.gradle/caches/transforms-3/aed85bf708f12be65d0b52228a7eb252/transformed/jetified-facebook-android-sdk-16.3.0/AndroidManifest.xml:16:18-44
+76        android:usesCleartextTraffic="true" >
+76-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:33:9-44
+77        android:allowBackup="false"
+78        android:fullBackupContent="false"
+79        <meta-data
+79-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:37:9-39:71
+80            android:name="com.google.android.geo.API_KEY"
+80-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:38:13-58
+81            android:value="AIzaSyBLKiI-vWGHMb4NY6-dkpD20KHPGOnPDCg" />
+81-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:39:13-68
+82        <meta-data
+82-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:40:9-42:55
+83            android:name="com.facebook.sdk.ApplicationId"
+83-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:41:13-58
+84            android:value="@string/facebook_app_id" />
+84-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:42:13-52
+85        <meta-data
+85-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:43:9-45:60
+86            android:name="com.facebook.sdk.ClientToken"
+86-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:44:13-56
+87            android:value="@string/facebook_client_token" />
+87-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:45:13-58
+88
+89        <activity
+89-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:47:9-50:48
+90            android:name="com.facebook.FacebookActivity"
+90-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:47:19-63
+91            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+91-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:48:13-113
+92            android:label="@string/app_name"
+92-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:50:13-45
+93            android:theme="@style/com_facebook_activity_theme" />
+93-->[com.facebook.android:facebook-common:16.3.0] /Users/mac/.gradle/caches/transforms-3/7f885666c5c07e3b23467ea5aa0acad3/transformed/jetified-facebook-common-16.3.0/AndroidManifest.xml:25:13-63
+94        <activity
+94-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:51:9-60:20
+95            android:name="com.facebook.CustomTabActivity"
+95-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:52:13-58
+96            android:exported="true" >
+96-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:53:13-36
+97            <intent-filter>
+97-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:54:13-59:29
+98                <action android:name="android.intent.action.VIEW" />
+98-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:15:13-65
+98-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:15:21-62
+99
+100                <category android:name="android.intent.category.DEFAULT" />
+100-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:56:17-76
+100-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:56:27-73
+101                <category android:name="android.intent.category.BROWSABLE" />
+101-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:57:17-78
+101-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:57:27-75
+102
+103                <data android:scheme="@string/fb_login_protocol_scheme" />
+103-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:16:13-44
+103-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:16:19-41
+104            </intent-filter>
+105            <intent-filter>
+105-->[com.facebook.android:facebook-common:16.3.0] /Users/mac/.gradle/caches/transforms-3/7f885666c5c07e3b23467ea5aa0acad3/transformed/jetified-facebook-common-16.3.0/AndroidManifest.xml:31:13-40:29
+106                <action android:name="android.intent.action.VIEW" />
+106-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:15:13-65
+106-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:15:21-62
+107
+108                <category android:name="android.intent.category.DEFAULT" />
+108-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:56:17-76
+108-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:56:27-73
+109                <category android:name="android.intent.category.BROWSABLE" />
+109-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:57:17-78
+109-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:57:27-75
+110
+111                <data
+111-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:16:13-44
+112                    android:host="cct.com.jewelofasia.au"
+113                    android:scheme="fbconnect" />
+113-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:16:19-41
+114            </intent-filter>
+115        </activity>
+116        <activity
+116-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:63:9-94:20
+117            android:name="com.jewelofasia.au.MainActivity"
+117-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:64:13-41
+118            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+118-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:65:13-163
+119            android:exported="true"
+119-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:67:13-36
+120            android:hardwareAccelerated="true"
+120-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:66:13-47
+121            android:launchMode="singleTop"
+121-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:68:13-43
+122            android:theme="@style/LaunchTheme"
+122-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:69:13-47
+123            android:windowSoftInputMode="adjustResize" >
+123-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:70:13-55
+124
+125            <!--
+126                 Specifies an Android theme to apply to this Activity as soon as
+127                 the Android process has started. This theme is visible to the user
+128                 while the Flutter UI initializes. After that, this theme continues
+129                 to determine the Window background behind the Flutter UI.
+130            -->
+131            <meta-data
+131-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:75:13-77:57
+132                android:name="io.flutter.embedding.android.NormalTheme"
+132-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:76:17-72
+133                android:resource="@style/NormalTheme" />
+133-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:77:17-54
+134            <!--
+135                 Displays an Android View that continues showing the launch screen
+136                 Drawable until Flutter paints its first frame, then this splash
+137                 screen fades out. A splash screen is useful to avoid any visual
+138                 gap between the end of Android's launch screen and the painting of
+139                 Flutter's first frame.
+140            -->
+141            <meta-data
+141-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:83:13-85:66
+142                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+142-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:84:17-81
+143                android:resource="@drawable/launch_background" />
+143-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:85:17-63
+144
+145            <intent-filter>
+145-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:86:13-89:29
+146                <action android:name="android.intent.action.MAIN" />
+146-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:87:17-69
+146-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:87:25-66
+147
+148                <category android:name="android.intent.category.LAUNCHER" />
+148-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:88:17-77
+148-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:88:27-74
+149            </intent-filter>
+150            <intent-filter>
+150-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:90:13-93:29
+151                <action android:name="FLUTTER_NOTIFICATION_CLICK" />
+151-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:91:17-69
+151-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:91:25-66
+152
+153                <category android:name="android.intent.category.DEFAULT" />
+153-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:56:17-76
+153-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:56:27-73
+154            </intent-filter>
+155        </activity>
+156        <!--
+157             Don't delete the meta-data below.
+158             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+159        -->
+160        <meta-data
+160-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:97:9-99:33
+161            android:name="flutterEmbedding"
+161-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:98:13-44
+162            android:value="2" />
+162-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:99:13-30
+163
+164        <service
+164-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:16:9-19:72
+165            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService"
+165-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:17:13-107
+166            android:exported="false"
+166-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-37
+167            android:permission="android.permission.BIND_JOB_SERVICE" />
+167-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:19:13-69
+168        <service
+168-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:20:9-26:19
+169            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService"
+169-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:21:13-97
+170            android:exported="false" >
+170-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:22:13-37
+171            <intent-filter>
+171-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:23:13-25:29
+172                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+172-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:24:17-78
+172-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:24:25-75
+173            </intent-filter>
+174        </service>
+175
+176        <receiver
+176-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:28:9-35:20
+177            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver"
+177-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:29:13-98
+178            android:exported="true"
+178-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:30:13-36
+179            android:permission="com.google.android.c2dm.permission.SEND" >
+179-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:31:13-73
+180            <intent-filter>
+180-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:32:13-34:29
+181                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+181-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:33:17-81
+181-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:33:25-78
+182            </intent-filter>
+183        </receiver>
+184
+185        <service
+185-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:37:9-41:19
+186            android:name="com.google.firebase.components.ComponentDiscoveryService"
+186-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:37:18-89
+187            android:directBootAware="true"
+187-->[com.google.firebase:firebase-common:20.4.2] /Users/mac/.gradle/caches/transforms-3/bb1e66b190d7ae1f906048d8c883740e/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:32:13-43
+188            android:exported="false" >
+188-->[com.google.firebase:firebase-messaging:23.4.1] /Users/mac/.gradle/caches/transforms-3/aac817184cf32ec87fd9859db402c975/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:56:13-37
+189            <meta-data
+189-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:38:13-40:85
+190                android:name="com.google.firebase.components:io.flutter.plugins.firebase.messaging.FlutterFirebaseAppRegistrar"
+190-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:39:17-128
+191                android:value="com.google.firebase.components.ComponentRegistrar" />
+191-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:40:17-82
+192            <meta-data
+192-->[:firebase_auth] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_auth/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-13:85
+193                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
+193-->[:firebase_auth] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_auth/intermediates/merged_manifest/release/AndroidManifest.xml:12:17-124
+194                android:value="com.google.firebase.components.ComponentRegistrar" />
+194-->[:firebase_auth] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_auth/intermediates/merged_manifest/release/AndroidManifest.xml:13:17-82
+195            <meta-data
+195-->[:firebase_core] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_core/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-13:85
+196                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+196-->[:firebase_core] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_core/intermediates/merged_manifest/release/AndroidManifest.xml:12:17-124
+197                android:value="com.google.firebase.components.ComponentRegistrar" />
+197-->[:firebase_core] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_core/intermediates/merged_manifest/release/AndroidManifest.xml:13:17-82
+198            <meta-data
+198-->[com.google.firebase:firebase-messaging:23.4.1] /Users/mac/.gradle/caches/transforms-3/aac817184cf32ec87fd9859db402c975/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:57:13-59:85
+199                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar"
+199-->[com.google.firebase:firebase-messaging:23.4.1] /Users/mac/.gradle/caches/transforms-3/aac817184cf32ec87fd9859db402c975/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:58:17-122
+200                android:value="com.google.firebase.components.ComponentRegistrar" />
+200-->[com.google.firebase:firebase-messaging:23.4.1] /Users/mac/.gradle/caches/transforms-3/aac817184cf32ec87fd9859db402c975/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:59:17-82
+201            <meta-data
+201-->[com.google.firebase:firebase-messaging:23.4.1] /Users/mac/.gradle/caches/transforms-3/aac817184cf32ec87fd9859db402c975/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:60:13-62:85
+202                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+202-->[com.google.firebase:firebase-messaging:23.4.1] /Users/mac/.gradle/caches/transforms-3/aac817184cf32ec87fd9859db402c975/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:61:17-119
+203                android:value="com.google.firebase.components.ComponentRegistrar" />
+203-->[com.google.firebase:firebase-messaging:23.4.1] /Users/mac/.gradle/caches/transforms-3/aac817184cf32ec87fd9859db402c975/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:62:17-82
+204            <meta-data
+204-->[com.google.android.gms:play-services-measurement-api:21.5.1] /Users/mac/.gradle/caches/transforms-3/d8e3f17333a4fefbff508d7c890105a2/transformed/jetified-play-services-measurement-api-21.5.1/AndroidManifest.xml:37:13-39:85
+205                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+205-->[com.google.android.gms:play-services-measurement-api:21.5.1] /Users/mac/.gradle/caches/transforms-3/d8e3f17333a4fefbff508d7c890105a2/transformed/jetified-play-services-measurement-api-21.5.1/AndroidManifest.xml:38:17-139
+206                android:value="com.google.firebase.components.ComponentRegistrar" />
+206-->[com.google.android.gms:play-services-measurement-api:21.5.1] /Users/mac/.gradle/caches/transforms-3/d8e3f17333a4fefbff508d7c890105a2/transformed/jetified-play-services-measurement-api-21.5.1/AndroidManifest.xml:39:17-82
+207            <meta-data
+207-->[com.google.firebase:firebase-auth:22.3.1] /Users/mac/.gradle/caches/transforms-3/49e125aa2608ed086840593b4090d17c/transformed/jetified-firebase-auth-22.3.1/AndroidManifest.xml:69:13-71:85
+208                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+208-->[com.google.firebase:firebase-auth:22.3.1] /Users/mac/.gradle/caches/transforms-3/49e125aa2608ed086840593b4090d17c/transformed/jetified-firebase-auth-22.3.1/AndroidManifest.xml:70:17-109
+209                android:value="com.google.firebase.components.ComponentRegistrar" />
+209-->[com.google.firebase:firebase-auth:22.3.1] /Users/mac/.gradle/caches/transforms-3/49e125aa2608ed086840593b4090d17c/transformed/jetified-firebase-auth-22.3.1/AndroidManifest.xml:71:17-82
+210            <meta-data
+210-->[com.google.firebase:firebase-iid:21.1.0] /Users/mac/.gradle/caches/transforms-3/eb15df729952553a08e275dbb4c7e3f7/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:32:13-34:85
+211                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+211-->[com.google.firebase:firebase-iid:21.1.0] /Users/mac/.gradle/caches/transforms-3/eb15df729952553a08e275dbb4c7e3f7/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:33:17-96
+212                android:value="com.google.firebase.components.ComponentRegistrar" />
+212-->[com.google.firebase:firebase-iid:21.1.0] /Users/mac/.gradle/caches/transforms-3/eb15df729952553a08e275dbb4c7e3f7/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:34:17-82
+213            <meta-data
+213-->[com.google.firebase:firebase-installations:17.2.0] /Users/mac/.gradle/caches/transforms-3/72785fec5446ffdbf72c8858c5dfe645/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:15:13-17:85
+214                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
+214-->[com.google.firebase:firebase-installations:17.2.0] /Users/mac/.gradle/caches/transforms-3/72785fec5446ffdbf72c8858c5dfe645/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:16:17-130
+215                android:value="com.google.firebase.components.ComponentRegistrar" />
+215-->[com.google.firebase:firebase-installations:17.2.0] /Users/mac/.gradle/caches/transforms-3/72785fec5446ffdbf72c8858c5dfe645/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:17:17-82
+216            <meta-data
+216-->[com.google.firebase:firebase-installations:17.2.0] /Users/mac/.gradle/caches/transforms-3/72785fec5446ffdbf72c8858c5dfe645/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:18:13-20:85
+217                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+217-->[com.google.firebase:firebase-installations:17.2.0] /Users/mac/.gradle/caches/transforms-3/72785fec5446ffdbf72c8858c5dfe645/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:19:17-127
+218                android:value="com.google.firebase.components.ComponentRegistrar" />
+218-->[com.google.firebase:firebase-installations:17.2.0] /Users/mac/.gradle/caches/transforms-3/72785fec5446ffdbf72c8858c5dfe645/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:20:17-82
+219            <meta-data
+219-->[com.google.firebase:firebase-common-ktx:20.4.2] /Users/mac/.gradle/caches/transforms-3/8aaa79b0004361c5b78a18ef68bfbc2e/transformed/jetified-firebase-common-ktx-20.4.2/AndroidManifest.xml:12:13-14:85
+220                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+220-->[com.google.firebase:firebase-common-ktx:20.4.2] /Users/mac/.gradle/caches/transforms-3/8aaa79b0004361c5b78a18ef68bfbc2e/transformed/jetified-firebase-common-ktx-20.4.2/AndroidManifest.xml:13:17-116
+221                android:value="com.google.firebase.components.ComponentRegistrar" />
+221-->[com.google.firebase:firebase-common-ktx:20.4.2] /Users/mac/.gradle/caches/transforms-3/8aaa79b0004361c5b78a18ef68bfbc2e/transformed/jetified-firebase-common-ktx-20.4.2/AndroidManifest.xml:14:17-82
+222            <meta-data
+222-->[com.google.firebase:firebase-common:20.4.2] /Users/mac/.gradle/caches/transforms-3/bb1e66b190d7ae1f906048d8c883740e/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:35:13-37:85
+223                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+223-->[com.google.firebase:firebase-common:20.4.2] /Users/mac/.gradle/caches/transforms-3/bb1e66b190d7ae1f906048d8c883740e/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:36:17-109
+224                android:value="com.google.firebase.components.ComponentRegistrar" />
+224-->[com.google.firebase:firebase-common:20.4.2] /Users/mac/.gradle/caches/transforms-3/bb1e66b190d7ae1f906048d8c883740e/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:37:17-82
+225            <meta-data
+225-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/mac/.gradle/caches/transforms-3/583788dc4272eb83509a2fa2c5b267d3/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:27:13-29:85
+226                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+226-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/mac/.gradle/caches/transforms-3/583788dc4272eb83509a2fa2c5b267d3/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:28:17-115
+227                android:value="com.google.firebase.components.ComponentRegistrar" />
+227-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/mac/.gradle/caches/transforms-3/583788dc4272eb83509a2fa2c5b267d3/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:29:17-82
+228        </service>
+229
+230        <provider
+230-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:43:9-47:38
+231            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider"
+231-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:44:13-102
+232            android:authorities="com.jewelofasia.au.flutterfirebasemessaginginitprovider"
+232-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:45:13-88
+233            android:exported="false"
+233-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:46:13-37
+234            android:initOrder="99" />
+234-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:47:13-35
+235
+236        <service
+236-->[:geolocator_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/geolocator_android/intermediates/merged_manifest/release/AndroidManifest.xml:10:9-14:56
+237            android:name="com.baseflow.geolocator.GeolocatorLocationService"
+237-->[:geolocator_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/geolocator_android/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-77
+238            android:enabled="true"
+238-->[:geolocator_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/geolocator_android/intermediates/merged_manifest/release/AndroidManifest.xml:12:13-35
+239            android:exported="false"
+239-->[:geolocator_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/geolocator_android/intermediates/merged_manifest/release/AndroidManifest.xml:13:13-37
+240            android:foregroundServiceType="location" />
+240-->[:geolocator_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/geolocator_android/intermediates/merged_manifest/release/AndroidManifest.xml:14:13-53
+241        <!--
+242           Declares a provider which allows us to store files to share in
+243           '.../caches/share_plus' and grant the receiving action access
+244        -->
+245        <provider
+245-->[:share_plus] /Users/mac/Documents/GitHub/jewelofasiaapp/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:15:9-23:20
+246            android:name="dev.fluttercommunity.plus.share.ShareFileProvider"
+246-->[:share_plus] /Users/mac/Documents/GitHub/jewelofasiaapp/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:16:13-77
+247            android:authorities="com.jewelofasia.au.flutter.share_provider"
+247-->[:share_plus] /Users/mac/Documents/GitHub/jewelofasiaapp/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:17:13-74
+248            android:exported="false"
+248-->[:share_plus] /Users/mac/Documents/GitHub/jewelofasiaapp/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-37
+249            android:grantUriPermissions="true" >
+249-->[:share_plus] /Users/mac/Documents/GitHub/jewelofasiaapp/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:19:13-47
+250            <meta-data
+250-->[:share_plus] /Users/mac/Documents/GitHub/jewelofasiaapp/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:20:13-22:68
+251                android:name="android.support.FILE_PROVIDER_PATHS"
+251-->[:share_plus] /Users/mac/Documents/GitHub/jewelofasiaapp/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:21:17-67
+252                android:resource="@xml/flutter_share_file_paths" />
+252-->[:share_plus] /Users/mac/Documents/GitHub/jewelofasiaapp/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:22:17-65
+253        </provider>
+254        <!--
+255           This manifest declared broadcast receiver allows us to use an explicit
+256           Intent when creating a PendingItent to be informed of the user's choice
+257        -->
+258        <receiver
+258-->[:share_plus] /Users/mac/Documents/GitHub/jewelofasiaapp/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:28:9-34:20
+259            android:name="dev.fluttercommunity.plus.share.SharePlusPendingIntent"
+259-->[:share_plus] /Users/mac/Documents/GitHub/jewelofasiaapp/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:29:13-82
+260            android:exported="false" >
+260-->[:share_plus] /Users/mac/Documents/GitHub/jewelofasiaapp/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:30:13-37
+261            <intent-filter>
+261-->[:share_plus] /Users/mac/Documents/GitHub/jewelofasiaapp/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:31:13-33:29
+262                <action android:name="EXTRA_CHOSEN_COMPONENT" />
+262-->[:share_plus] /Users/mac/Documents/GitHub/jewelofasiaapp/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:32:17-65
+262-->[:share_plus] /Users/mac/Documents/GitHub/jewelofasiaapp/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:32:25-62
+263            </intent-filter>
+264        </receiver>
+265
+266        <provider
+266-->[:image_picker_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/image_picker_android/intermediates/merged_manifest/release/AndroidManifest.xml:10:9-18:20
+267            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+267-->[:image_picker_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/image_picker_android/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-82
+268            android:authorities="com.jewelofasia.au.flutter.image_provider"
+268-->[:image_picker_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/image_picker_android/intermediates/merged_manifest/release/AndroidManifest.xml:12:13-74
+269            android:exported="false"
+269-->[:image_picker_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/image_picker_android/intermediates/merged_manifest/release/AndroidManifest.xml:13:13-37
+270            android:grantUriPermissions="true" >
+270-->[:image_picker_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/image_picker_android/intermediates/merged_manifest/release/AndroidManifest.xml:14:13-47
+271            <meta-data
+271-->[:share_plus] /Users/mac/Documents/GitHub/jewelofasiaapp/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:20:13-22:68
+272                android:name="android.support.FILE_PROVIDER_PATHS"
+272-->[:share_plus] /Users/mac/Documents/GitHub/jewelofasiaapp/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:21:17-67
+273                android:resource="@xml/flutter_image_picker_file_paths" />
+273-->[:share_plus] /Users/mac/Documents/GitHub/jewelofasiaapp/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:22:17-65
+274        </provider>
+275
+276        <activity
+276-->[:url_launcher_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:10:9-13:74
+277            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+277-->[:url_launcher_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-74
+278            android:exported="false"
+278-->[:url_launcher_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:12:13-37
+279            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+279-->[:url_launcher_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:13:13-71
+280        <activity
+280-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:16:9-20:47
+281            android:name="com.pichillilorenzo.flutter_inappwebview_android.in_app_browser.InAppBrowserActivity"
+281-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:17:13-112
+282            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density"
+282-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-137
+283            android:exported="false"
+283-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:19:13-37
+284            android:theme="@style/AppTheme" />
+284-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:20:13-44
+285        <activity
+285-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:21:9-24:55
+286            android:name="com.pichillilorenzo.flutter_inappwebview_android.chrome_custom_tabs.ChromeCustomTabsActivity"
+286-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:22:13-120
+287            android:exported="false"
+287-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:23:13-37
+288            android:theme="@style/ThemeTransparent" />
+288-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:24:13-52
+289        <activity
+289-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:25:9-28:55
+290            android:name="com.pichillilorenzo.flutter_inappwebview_android.chrome_custom_tabs.TrustedWebActivity"
+290-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:26:13-114
+291            android:exported="false"
+291-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:27:13-37
+292            android:theme="@style/ThemeTransparent" />
+292-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:28:13-52
+293        <activity
+293-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:29:9-33:55
+294            android:name="com.pichillilorenzo.flutter_inappwebview_android.chrome_custom_tabs.ChromeCustomTabsActivitySingleInstance"
+294-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:30:13-134
+295            android:exported="false"
+295-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:31:13-37
+296            android:launchMode="singleInstance"
+296-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:32:13-48
+297            android:theme="@style/ThemeTransparent" />
+297-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:33:13-52
+298        <activity
+298-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:34:9-38:55
+299            android:name="com.pichillilorenzo.flutter_inappwebview_android.chrome_custom_tabs.TrustedWebActivitySingleInstance"
+299-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:35:13-128
+300            android:exported="false"
+300-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:36:13-37
+301            android:launchMode="singleInstance"
+301-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:37:13-48
+302            android:theme="@style/ThemeTransparent" />
+302-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:38:13-52
+303
+304        <receiver
+304-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:40:9-43:40
+305            android:name="com.pichillilorenzo.flutter_inappwebview_android.chrome_custom_tabs.ActionBroadcastReceiver"
+305-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:41:13-119
+306            android:enabled="true"
+306-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:42:13-35
+307            android:exported="false" />
+307-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:43:13-37
+308
+309        <meta-data
+309-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:45:9-47:36
+310            android:name="io.flutter.embedded_views_preview"
+310-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:46:13-61
+311            android:value="true" />
+311-->[:flutter_inappwebview_android] /Users/mac/Documents/GitHub/jewelofasiaapp/build/flutter_inappwebview_android/intermediates/merged_manifest/release/AndroidManifest.xml:47:13-33
+312
+313        <receiver
+313-->[com.google.firebase:firebase-messaging:23.4.1] /Users/mac/.gradle/caches/transforms-3/aac817184cf32ec87fd9859db402c975/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:29:9-40:20
+314            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+314-->[com.google.firebase:firebase-messaging:23.4.1] /Users/mac/.gradle/caches/transforms-3/aac817184cf32ec87fd9859db402c975/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:30:13-78
+315            android:exported="true"
+315-->[com.google.firebase:firebase-messaging:23.4.1] /Users/mac/.gradle/caches/transforms-3/aac817184cf32ec87fd9859db402c975/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:31:13-36
+316            android:permission="com.google.android.c2dm.permission.SEND" >
+316-->[com.google.firebase:firebase-messaging:23.4.1] /Users/mac/.gradle/caches/transforms-3/aac817184cf32ec87fd9859db402c975/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:32:13-73
+317            <intent-filter>
+317-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:32:13-34:29
+318                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+318-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:33:17-81
+318-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:33:25-78
+319            </intent-filter>
+320
+321            <meta-data
+321-->[com.google.firebase:firebase-messaging:23.4.1] /Users/mac/.gradle/caches/transforms-3/aac817184cf32ec87fd9859db402c975/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:37:13-39:40
+322                android:name="com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED"
+322-->[com.google.firebase:firebase-messaging:23.4.1] /Users/mac/.gradle/caches/transforms-3/aac817184cf32ec87fd9859db402c975/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:38:17-92
+323                android:value="true" />
+323-->[com.google.firebase:firebase-messaging:23.4.1] /Users/mac/.gradle/caches/transforms-3/aac817184cf32ec87fd9859db402c975/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:39:17-37
+324        </receiver>
+325        <!--
+326             FirebaseMessagingService performs security checks at runtime,
+327             but set to not exported to explicitly avoid allowing another app to call it.
+328        -->
+329        <service
+329-->[com.google.firebase:firebase-messaging:23.4.1] /Users/mac/.gradle/caches/transforms-3/aac817184cf32ec87fd9859db402c975/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:46:9-53:19
+330            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+330-->[com.google.firebase:firebase-messaging:23.4.1] /Users/mac/.gradle/caches/transforms-3/aac817184cf32ec87fd9859db402c975/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:47:13-82
+331            android:directBootAware="true"
+331-->[com.google.firebase:firebase-messaging:23.4.1] /Users/mac/.gradle/caches/transforms-3/aac817184cf32ec87fd9859db402c975/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:48:13-43
+332            android:exported="false" >
+332-->[com.google.firebase:firebase-messaging:23.4.1] /Users/mac/.gradle/caches/transforms-3/aac817184cf32ec87fd9859db402c975/transformed/jetified-firebase-messaging-23.4.1/AndroidManifest.xml:49:13-37
+333            <intent-filter android:priority="-500" >
+333-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:23:13-25:29
+334                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+334-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:24:17-78
+334-->[:firebase_messaging] /Users/mac/Documents/GitHub/jewelofasiaapp/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:24:25-75
+335            </intent-filter>
+336        </service>
+337
+338        <property
+338-->[com.google.android.gms:play-services-measurement-api:21.5.1] /Users/mac/.gradle/caches/transforms-3/d8e3f17333a4fefbff508d7c890105a2/transformed/jetified-play-services-measurement-api-21.5.1/AndroidManifest.xml:30:9-32:61
+339            android:name="android.adservices.AD_SERVICES_CONFIG"
+339-->[com.google.android.gms:play-services-measurement-api:21.5.1] /Users/mac/.gradle/caches/transforms-3/d8e3f17333a4fefbff508d7c890105a2/transformed/jetified-play-services-measurement-api-21.5.1/AndroidManifest.xml:31:13-65
+340            android:resource="@xml/ga_ad_services_config" />
+340-->[com.google.android.gms:play-services-measurement-api:21.5.1] /Users/mac/.gradle/caches/transforms-3/d8e3f17333a4fefbff508d7c890105a2/transformed/jetified-play-services-measurement-api-21.5.1/AndroidManifest.xml:32:13-58
+341
+342        <activity
+342-->[com.google.firebase:firebase-auth:22.3.1] /Users/mac/.gradle/caches/transforms-3/49e125aa2608ed086840593b4090d17c/transformed/jetified-firebase-auth-22.3.1/AndroidManifest.xml:29:9-46:20
+343            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+343-->[com.google.firebase:firebase-auth:22.3.1] /Users/mac/.gradle/caches/transforms-3/49e125aa2608ed086840593b4090d17c/transformed/jetified-firebase-auth-22.3.1/AndroidManifest.xml:30:13-80
+344            android:excludeFromRecents="true"
+344-->[com.google.firebase:firebase-auth:22.3.1] /Users/mac/.gradle/caches/transforms-3/49e125aa2608ed086840593b4090d17c/transformed/jetified-firebase-auth-22.3.1/AndroidManifest.xml:31:13-46
+345            android:exported="true"
+345-->[com.google.firebase:firebase-auth:22.3.1] /Users/mac/.gradle/caches/transforms-3/49e125aa2608ed086840593b4090d17c/transformed/jetified-firebase-auth-22.3.1/AndroidManifest.xml:32:13-36
+346            android:launchMode="singleTask"
+346-->[com.google.firebase:firebase-auth:22.3.1] /Users/mac/.gradle/caches/transforms-3/49e125aa2608ed086840593b4090d17c/transformed/jetified-firebase-auth-22.3.1/AndroidManifest.xml:33:13-44
+347            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+347-->[com.google.firebase:firebase-auth:22.3.1] /Users/mac/.gradle/caches/transforms-3/49e125aa2608ed086840593b4090d17c/transformed/jetified-firebase-auth-22.3.1/AndroidManifest.xml:34:13-72
+348            <intent-filter>
+348-->[com.google.firebase:firebase-auth:22.3.1] /Users/mac/.gradle/caches/transforms-3/49e125aa2608ed086840593b4090d17c/transformed/jetified-firebase-auth-22.3.1/AndroidManifest.xml:35:13-45:29
+349                <action android:name="android.intent.action.VIEW" />
+349-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:15:13-65
+349-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:15:21-62
+350
+351                <category android:name="android.intent.category.DEFAULT" />
+351-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:56:17-76
+351-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:56:27-73
+352                <category android:name="android.intent.category.BROWSABLE" />
+352-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:57:17-78
+352-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:57:27-75
+353
+354                <data
+354-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:16:13-44
+355                    android:host="firebase.auth"
+356                    android:path="/"
+357                    android:scheme="genericidp" />
+357-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:16:19-41
+358            </intent-filter>
+359        </activity>
+360        <activity
+360-->[com.google.firebase:firebase-auth:22.3.1] /Users/mac/.gradle/caches/transforms-3/49e125aa2608ed086840593b4090d17c/transformed/jetified-firebase-auth-22.3.1/AndroidManifest.xml:47:9-64:20
+361            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+361-->[com.google.firebase:firebase-auth:22.3.1] /Users/mac/.gradle/caches/transforms-3/49e125aa2608ed086840593b4090d17c/transformed/jetified-firebase-auth-22.3.1/AndroidManifest.xml:48:13-79
+362            android:excludeFromRecents="true"
+362-->[com.google.firebase:firebase-auth:22.3.1] /Users/mac/.gradle/caches/transforms-3/49e125aa2608ed086840593b4090d17c/transformed/jetified-firebase-auth-22.3.1/AndroidManifest.xml:49:13-46
+363            android:exported="true"
+363-->[com.google.firebase:firebase-auth:22.3.1] /Users/mac/.gradle/caches/transforms-3/49e125aa2608ed086840593b4090d17c/transformed/jetified-firebase-auth-22.3.1/AndroidManifest.xml:50:13-36
+364            android:launchMode="singleTask"
+364-->[com.google.firebase:firebase-auth:22.3.1] /Users/mac/.gradle/caches/transforms-3/49e125aa2608ed086840593b4090d17c/transformed/jetified-firebase-auth-22.3.1/AndroidManifest.xml:51:13-44
+365            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+365-->[com.google.firebase:firebase-auth:22.3.1] /Users/mac/.gradle/caches/transforms-3/49e125aa2608ed086840593b4090d17c/transformed/jetified-firebase-auth-22.3.1/AndroidManifest.xml:52:13-72
+366            <intent-filter>
+366-->[com.google.firebase:firebase-auth:22.3.1] /Users/mac/.gradle/caches/transforms-3/49e125aa2608ed086840593b4090d17c/transformed/jetified-firebase-auth-22.3.1/AndroidManifest.xml:53:13-63:29
+367                <action android:name="android.intent.action.VIEW" />
+367-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:15:13-65
+367-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:15:21-62
+368
+369                <category android:name="android.intent.category.DEFAULT" />
+369-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:56:17-76
+369-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:56:27-73
+370                <category android:name="android.intent.category.BROWSABLE" />
+370-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:57:17-78
+370-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:57:27-75
+371
+372                <data
+372-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:16:13-44
+373                    android:host="firebase.auth"
+374                    android:path="/"
+375                    android:scheme="recaptcha" />
+375-->/Users/mac/Documents/GitHub/jewelofasiaapp/android/app/src/main/AndroidManifest.xml:16:19-41
+376            </intent-filter>
+377        </activity>
+378        <activity android:name="com.facebook.CustomTabMainActivity" /> <!-- Needs to be explicitly declared on P+ -->
+378-->[com.facebook.android:facebook-common:16.3.0] /Users/mac/.gradle/caches/transforms-3/7f885666c5c07e3b23467ea5aa0acad3/transformed/jetified-facebook-common-16.3.0/AndroidManifest.xml:26:9-71
+378-->[com.facebook.android:facebook-common:16.3.0] /Users/mac/.gradle/caches/transforms-3/7f885666c5c07e3b23467ea5aa0acad3/transformed/jetified-facebook-common-16.3.0/AndroidManifest.xml:26:19-68
+379        <uses-library
+379-->[com.google.android.gms:play-services-maps:18.2.0] /Users/mac/.gradle/caches/transforms-3/5a18211490231dc8184f7b562d191d40/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:39:9-41:40
+380            android:name="org.apache.http.legacy"
+380-->[com.google.android.gms:play-services-maps:18.2.0] /Users/mac/.gradle/caches/transforms-3/5a18211490231dc8184f7b562d191d40/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:40:13-50
+381            android:required="false" />
+381-->[com.google.android.gms:play-services-maps:18.2.0] /Users/mac/.gradle/caches/transforms-3/5a18211490231dc8184f7b562d191d40/transformed/jetified-play-services-maps-18.2.0/AndroidManifest.xml:41:13-37
+382
+383        <activity
+383-->[com.google.android.gms:play-services-auth:20.7.0] /Users/mac/.gradle/caches/transforms-3/9c8b055a7fae81250b2ab02c4b4410e7/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:23:9-27:75
+384            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+384-->[com.google.android.gms:play-services-auth:20.7.0] /Users/mac/.gradle/caches/transforms-3/9c8b055a7fae81250b2ab02c4b4410e7/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:24:13-93
+385            android:excludeFromRecents="true"
+385-->[com.google.android.gms:play-services-auth:20.7.0] /Users/mac/.gradle/caches/transforms-3/9c8b055a7fae81250b2ab02c4b4410e7/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:25:13-46
+386            android:exported="false"
+386-->[com.google.android.gms:play-services-auth:20.7.0] /Users/mac/.gradle/caches/transforms-3/9c8b055a7fae81250b2ab02c4b4410e7/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:26:13-37
+387            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+387-->[com.google.android.gms:play-services-auth:20.7.0] /Users/mac/.gradle/caches/transforms-3/9c8b055a7fae81250b2ab02c4b4410e7/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:27:13-72
+388        <!--
+389            Service handling Google Sign-In user revocation. For apps that do not integrate with
+390            Google Sign-In, this service will never be started.
+391        -->
+392        <service
+392-->[com.google.android.gms:play-services-auth:20.7.0] /Users/mac/.gradle/caches/transforms-3/9c8b055a7fae81250b2ab02c4b4410e7/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:33:9-37:51
+393            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+393-->[com.google.android.gms:play-services-auth:20.7.0] /Users/mac/.gradle/caches/transforms-3/9c8b055a7fae81250b2ab02c4b4410e7/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:34:13-89
+394            android:exported="true"
+394-->[com.google.android.gms:play-services-auth:20.7.0] /Users/mac/.gradle/caches/transforms-3/9c8b055a7fae81250b2ab02c4b4410e7/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:35:13-36
+395            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+395-->[com.google.android.gms:play-services-auth:20.7.0] /Users/mac/.gradle/caches/transforms-3/9c8b055a7fae81250b2ab02c4b4410e7/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:36:13-107
+396            android:visibleToInstantApps="true" />
+396-->[com.google.android.gms:play-services-auth:20.7.0] /Users/mac/.gradle/caches/transforms-3/9c8b055a7fae81250b2ab02c4b4410e7/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:37:13-48
+397
+398        <activity
+398-->[com.google.android.gms:play-services-base:18.1.0] /Users/mac/.gradle/caches/transforms-3/2e508b7e8fb23863258a92816984cd32/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+399            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+399-->[com.google.android.gms:play-services-base:18.1.0] /Users/mac/.gradle/caches/transforms-3/2e508b7e8fb23863258a92816984cd32/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+400            android:exported="false"
+400-->[com.google.android.gms:play-services-base:18.1.0] /Users/mac/.gradle/caches/transforms-3/2e508b7e8fb23863258a92816984cd32/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+401            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+401-->[com.google.android.gms:play-services-base:18.1.0] /Users/mac/.gradle/caches/transforms-3/2e508b7e8fb23863258a92816984cd32/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+402
+403        <provider
+403-->[com.google.firebase:firebase-common:20.4.2] /Users/mac/.gradle/caches/transforms-3/bb1e66b190d7ae1f906048d8c883740e/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:23:9-28:39
+404            android:name="com.google.firebase.provider.FirebaseInitProvider"
+404-->[com.google.firebase:firebase-common:20.4.2] /Users/mac/.gradle/caches/transforms-3/bb1e66b190d7ae1f906048d8c883740e/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:24:13-77
+405            android:authorities="com.jewelofasia.au.firebaseinitprovider"
+405-->[com.google.firebase:firebase-common:20.4.2] /Users/mac/.gradle/caches/transforms-3/bb1e66b190d7ae1f906048d8c883740e/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:25:13-72
+406            android:directBootAware="true"
+406-->[com.google.firebase:firebase-common:20.4.2] /Users/mac/.gradle/caches/transforms-3/bb1e66b190d7ae1f906048d8c883740e/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:26:13-43
+407            android:exported="false"
+407-->[com.google.firebase:firebase-common:20.4.2] /Users/mac/.gradle/caches/transforms-3/bb1e66b190d7ae1f906048d8c883740e/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:27:13-37
+408            android:initOrder="100" />
+408-->[com.google.firebase:firebase-common:20.4.2] /Users/mac/.gradle/caches/transforms-3/bb1e66b190d7ae1f906048d8c883740e/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:28:13-36
+409
+410        <receiver
+410-->[com.google.android.gms:play-services-measurement:21.5.1] /Users/mac/.gradle/caches/transforms-3/5c562ee5d10b5bd956f606a11e760d9d/transformed/jetified-play-services-measurement-21.5.1/AndroidManifest.xml:29:9-33:20
+411            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+411-->[com.google.android.gms:play-services-measurement:21.5.1] /Users/mac/.gradle/caches/transforms-3/5c562ee5d10b5bd956f606a11e760d9d/transformed/jetified-play-services-measurement-21.5.1/AndroidManifest.xml:30:13-85
+412            android:enabled="true"
+412-->[com.google.android.gms:play-services-measurement:21.5.1] /Users/mac/.gradle/caches/transforms-3/5c562ee5d10b5bd956f606a11e760d9d/transformed/jetified-play-services-measurement-21.5.1/AndroidManifest.xml:31:13-35
+413            android:exported="false" >
+413-->[com.google.android.gms:play-services-measurement:21.5.1] /Users/mac/.gradle/caches/transforms-3/5c562ee5d10b5bd956f606a11e760d9d/transformed/jetified-play-services-measurement-21.5.1/AndroidManifest.xml:32:13-37
+414        </receiver>
+415
+416        <service
+416-->[com.google.android.gms:play-services-measurement:21.5.1] /Users/mac/.gradle/caches/transforms-3/5c562ee5d10b5bd956f606a11e760d9d/transformed/jetified-play-services-measurement-21.5.1/AndroidManifest.xml:35:9-38:40
+417            android:name="com.google.android.gms.measurement.AppMeasurementService"
+417-->[com.google.android.gms:play-services-measurement:21.5.1] /Users/mac/.gradle/caches/transforms-3/5c562ee5d10b5bd956f606a11e760d9d/transformed/jetified-play-services-measurement-21.5.1/AndroidManifest.xml:36:13-84
+418            android:enabled="true"
+418-->[com.google.android.gms:play-services-measurement:21.5.1] /Users/mac/.gradle/caches/transforms-3/5c562ee5d10b5bd956f606a11e760d9d/transformed/jetified-play-services-measurement-21.5.1/AndroidManifest.xml:37:13-35
+419            android:exported="false" />
+419-->[com.google.android.gms:play-services-measurement:21.5.1] /Users/mac/.gradle/caches/transforms-3/5c562ee5d10b5bd956f606a11e760d9d/transformed/jetified-play-services-measurement-21.5.1/AndroidManifest.xml:38:13-37
+420        <service
+420-->[com.google.android.gms:play-services-measurement:21.5.1] /Users/mac/.gradle/caches/transforms-3/5c562ee5d10b5bd956f606a11e760d9d/transformed/jetified-play-services-measurement-21.5.1/AndroidManifest.xml:39:9-43:72
+421            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+421-->[com.google.android.gms:play-services-measurement:21.5.1] /Users/mac/.gradle/caches/transforms-3/5c562ee5d10b5bd956f606a11e760d9d/transformed/jetified-play-services-measurement-21.5.1/AndroidManifest.xml:40:13-87
+422            android:enabled="true"
+422-->[com.google.android.gms:play-services-measurement:21.5.1] /Users/mac/.gradle/caches/transforms-3/5c562ee5d10b5bd956f606a11e760d9d/transformed/jetified-play-services-measurement-21.5.1/AndroidManifest.xml:41:13-35
+423            android:exported="false"
+423-->[com.google.android.gms:play-services-measurement:21.5.1] /Users/mac/.gradle/caches/transforms-3/5c562ee5d10b5bd956f606a11e760d9d/transformed/jetified-play-services-measurement-21.5.1/AndroidManifest.xml:42:13-37
+424            android:permission="android.permission.BIND_JOB_SERVICE" />
+424-->[com.google.android.gms:play-services-measurement:21.5.1] /Users/mac/.gradle/caches/transforms-3/5c562ee5d10b5bd956f606a11e760d9d/transformed/jetified-play-services-measurement-21.5.1/AndroidManifest.xml:43:13-69
+425
+426        <uses-library
+426-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/mac/.gradle/caches/transforms-3/d44f724ef14867983e63a548a6bedb04/transformed/jetified-ads-adservices-1.0.0-beta05/AndroidManifest.xml:23:9-25:40
+427            android:name="android.ext.adservices"
+427-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/mac/.gradle/caches/transforms-3/d44f724ef14867983e63a548a6bedb04/transformed/jetified-ads-adservices-1.0.0-beta05/AndroidManifest.xml:24:13-50
+428            android:required="false" />
+428-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/mac/.gradle/caches/transforms-3/d44f724ef14867983e63a548a6bedb04/transformed/jetified-ads-adservices-1.0.0-beta05/AndroidManifest.xml:25:13-37
+429
+430        <meta-data
+430-->[com.google.android.gms:play-services-basement:18.2.0] /Users/mac/.gradle/caches/transforms-3/f6a4cd86a0bb5be6ec4393fe49c5478f/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:21:9-23:69
+431            android:name="com.google.android.gms.version"
+431-->[com.google.android.gms:play-services-basement:18.2.0] /Users/mac/.gradle/caches/transforms-3/f6a4cd86a0bb5be6ec4393fe49c5478f/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:22:13-58
+432            android:value="@integer/google_play_services_version" />
+432-->[com.google.android.gms:play-services-basement:18.2.0] /Users/mac/.gradle/caches/transforms-3/f6a4cd86a0bb5be6ec4393fe49c5478f/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:23:13-66
+433        <!--
+434         The initialization ContentProvider will call FacebookSdk.sdkInitialize automatically
+435         with the application context. This config is merged in with the host app's manifest,
+436         but there can only be one provider with the same authority activated at any given
+437         point; so if the end user has two or more different apps that use Facebook SDK, only the
+438         first one will be able to use the provider. To work around this problem, we use the
+439         following placeholder in the authority to identify each host application as if it was
+440         a completely different provider.
+441        -->
+442        <provider
+442-->[com.facebook.android:facebook-core:16.3.0] /Users/mac/.gradle/caches/transforms-3/fe31c898525f8969c4d218c19c5925b9/transformed/jetified-facebook-core-16.3.0/AndroidManifest.xml:29:9-32:40
+443            android:name="com.facebook.internal.FacebookInitProvider"
+443-->[com.facebook.android:facebook-core:16.3.0] /Users/mac/.gradle/caches/transforms-3/fe31c898525f8969c4d218c19c5925b9/transformed/jetified-facebook-core-16.3.0/AndroidManifest.xml:30:13-70
+444            android:authorities="com.jewelofasia.au.FacebookInitProvider"
+444-->[com.facebook.android:facebook-core:16.3.0] /Users/mac/.gradle/caches/transforms-3/fe31c898525f8969c4d218c19c5925b9/transformed/jetified-facebook-core-16.3.0/AndroidManifest.xml:31:13-72
+445            android:exported="false" />
+445-->[com.facebook.android:facebook-core:16.3.0] /Users/mac/.gradle/caches/transforms-3/fe31c898525f8969c4d218c19c5925b9/transformed/jetified-facebook-core-16.3.0/AndroidManifest.xml:32:13-37
+446
+447        <receiver
+447-->[com.facebook.android:facebook-core:16.3.0] /Users/mac/.gradle/caches/transforms-3/fe31c898525f8969c4d218c19c5925b9/transformed/jetified-facebook-core-16.3.0/AndroidManifest.xml:34:9-40:20
+448            android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver"
+448-->[com.facebook.android:facebook-core:16.3.0] /Users/mac/.gradle/caches/transforms-3/fe31c898525f8969c4d218c19c5925b9/transformed/jetified-facebook-core-16.3.0/AndroidManifest.xml:35:13-86
+449            android:exported="false" >
+449-->[com.facebook.android:facebook-core:16.3.0] /Users/mac/.gradle/caches/transforms-3/fe31c898525f8969c4d218c19c5925b9/transformed/jetified-facebook-core-16.3.0/AndroidManifest.xml:36:13-37
+450            <intent-filter>
+450-->[com.facebook.android:facebook-core:16.3.0] /Users/mac/.gradle/caches/transforms-3/fe31c898525f8969c4d218c19c5925b9/transformed/jetified-facebook-core-16.3.0/AndroidManifest.xml:37:13-39:29
+451                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED" />
+451-->[com.facebook.android:facebook-core:16.3.0] /Users/mac/.gradle/caches/transforms-3/fe31c898525f8969c4d218c19c5925b9/transformed/jetified-facebook-core-16.3.0/AndroidManifest.xml:38:17-95
+451-->[com.facebook.android:facebook-core:16.3.0] /Users/mac/.gradle/caches/transforms-3/fe31c898525f8969c4d218c19c5925b9/transformed/jetified-facebook-core-16.3.0/AndroidManifest.xml:38:25-92
+452            </intent-filter>
+453        </receiver>
+454        <receiver
+454-->[com.facebook.android:facebook-core:16.3.0] /Users/mac/.gradle/caches/transforms-3/fe31c898525f8969c4d218c19c5925b9/transformed/jetified-facebook-core-16.3.0/AndroidManifest.xml:41:9-47:20
+455            android:name="com.facebook.AuthenticationTokenManager$CurrentAuthenticationTokenChangedBroadcastReceiver"
+455-->[com.facebook.android:facebook-core:16.3.0] /Users/mac/.gradle/caches/transforms-3/fe31c898525f8969c4d218c19c5925b9/transformed/jetified-facebook-core-16.3.0/AndroidManifest.xml:42:13-118
+456            android:exported="false" >
+456-->[com.facebook.android:facebook-core:16.3.0] /Users/mac/.gradle/caches/transforms-3/fe31c898525f8969c4d218c19c5925b9/transformed/jetified-facebook-core-16.3.0/AndroidManifest.xml:43:13-37
+457            <intent-filter>
+457-->[com.facebook.android:facebook-core:16.3.0] /Users/mac/.gradle/caches/transforms-3/fe31c898525f8969c4d218c19c5925b9/transformed/jetified-facebook-core-16.3.0/AndroidManifest.xml:44:13-46:29
+458                <action android:name="com.facebook.sdk.ACTION_CURRENT_AUTHENTICATION_TOKEN_CHANGED" />
+458-->[com.facebook.android:facebook-core:16.3.0] /Users/mac/.gradle/caches/transforms-3/fe31c898525f8969c4d218c19c5925b9/transformed/jetified-facebook-core-16.3.0/AndroidManifest.xml:45:17-103
+458-->[com.facebook.android:facebook-core:16.3.0] /Users/mac/.gradle/caches/transforms-3/fe31c898525f8969c4d218c19c5925b9/transformed/jetified-facebook-core-16.3.0/AndroidManifest.xml:45:25-100
+459            </intent-filter>
+460        </receiver>
+461
+462        <provider
+462-->[androidx.emoji2:emoji2:1.2.0] /Users/mac/.gradle/caches/transforms-3/76369ea96e28c8a312c1d8e5bb78f29b/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+463            android:name="androidx.startup.InitializationProvider"
+463-->[androidx.emoji2:emoji2:1.2.0] /Users/mac/.gradle/caches/transforms-3/76369ea96e28c8a312c1d8e5bb78f29b/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+464            android:authorities="com.jewelofasia.au.androidx-startup"
+464-->[androidx.emoji2:emoji2:1.2.0] /Users/mac/.gradle/caches/transforms-3/76369ea96e28c8a312c1d8e5bb78f29b/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+465            android:exported="false" >
+465-->[androidx.emoji2:emoji2:1.2.0] /Users/mac/.gradle/caches/transforms-3/76369ea96e28c8a312c1d8e5bb78f29b/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+466            <meta-data
+466-->[androidx.emoji2:emoji2:1.2.0] /Users/mac/.gradle/caches/transforms-3/76369ea96e28c8a312c1d8e5bb78f29b/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+467                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+467-->[androidx.emoji2:emoji2:1.2.0] /Users/mac/.gradle/caches/transforms-3/76369ea96e28c8a312c1d8e5bb78f29b/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+468                android:value="androidx.startup" />
+468-->[androidx.emoji2:emoji2:1.2.0] /Users/mac/.gradle/caches/transforms-3/76369ea96e28c8a312c1d8e5bb78f29b/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+469            <meta-data
+469-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/mac/.gradle/caches/transforms-3/877098f3da2f7a67f399548b6890cf93/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:29:13-31:52
+470                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+470-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/mac/.gradle/caches/transforms-3/877098f3da2f7a67f399548b6890cf93/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
+471                android:value="androidx.startup" />
+471-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/mac/.gradle/caches/transforms-3/877098f3da2f7a67f399548b6890cf93/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
+472            <meta-data
+472-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/mac/.gradle/caches/transforms-3/2bdaea8e895c8893f7f88cedc4b18690/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+473                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+473-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/mac/.gradle/caches/transforms-3/2bdaea8e895c8893f7f88cedc4b18690/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+474                android:value="androidx.startup" />
+474-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/mac/.gradle/caches/transforms-3/2bdaea8e895c8893f7f88cedc4b18690/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+475        </provider>
+476
+477        <uses-library
+477-->[androidx.window:window:1.0.0-beta04] /Users/mac/.gradle/caches/transforms-3/264dff727dd720487ef2bd462d07c007/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+478            android:name="androidx.window.extensions"
+478-->[androidx.window:window:1.0.0-beta04] /Users/mac/.gradle/caches/transforms-3/264dff727dd720487ef2bd462d07c007/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+479            android:required="false" />
+479-->[androidx.window:window:1.0.0-beta04] /Users/mac/.gradle/caches/transforms-3/264dff727dd720487ef2bd462d07c007/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+480        <uses-library
+480-->[androidx.window:window:1.0.0-beta04] /Users/mac/.gradle/caches/transforms-3/264dff727dd720487ef2bd462d07c007/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+481            android:name="androidx.window.sidecar"
+481-->[androidx.window:window:1.0.0-beta04] /Users/mac/.gradle/caches/transforms-3/264dff727dd720487ef2bd462d07c007/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+482            android:required="false" />
+482-->[androidx.window:window:1.0.0-beta04] /Users/mac/.gradle/caches/transforms-3/264dff727dd720487ef2bd462d07c007/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+483
+484        <service
+484-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/mac/.gradle/caches/transforms-3/d6ec76f56638ce49b69f7f1a504469de/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:28:9-34:19
+485            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+485-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/mac/.gradle/caches/transforms-3/d6ec76f56638ce49b69f7f1a504469de/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:29:13-103
+486            android:exported="false" >
+486-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/mac/.gradle/caches/transforms-3/d6ec76f56638ce49b69f7f1a504469de/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:30:13-37
+487            <meta-data
+487-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/mac/.gradle/caches/transforms-3/d6ec76f56638ce49b69f7f1a504469de/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:31:13-33:39
+488                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+488-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/mac/.gradle/caches/transforms-3/d6ec76f56638ce49b69f7f1a504469de/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:32:17-94
+489                android:value="cct" />
+489-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/mac/.gradle/caches/transforms-3/d6ec76f56638ce49b69f7f1a504469de/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:33:17-36
+490        </service>
+491        <service
+491-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/mac/.gradle/caches/transforms-3/39031284f8eae5e8557fc31254a5422a/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:26:9-30:19
+492            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+492-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/mac/.gradle/caches/transforms-3/39031284f8eae5e8557fc31254a5422a/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:27:13-117
+493            android:exported="false"
+493-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/mac/.gradle/caches/transforms-3/39031284f8eae5e8557fc31254a5422a/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:28:13-37
+494            android:permission="android.permission.BIND_JOB_SERVICE" >
+494-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/mac/.gradle/caches/transforms-3/39031284f8eae5e8557fc31254a5422a/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:29:13-69
+495        </service>
+496
+497        <receiver
+497-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/mac/.gradle/caches/transforms-3/39031284f8eae5e8557fc31254a5422a/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:32:9-34:40
+498            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+498-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/mac/.gradle/caches/transforms-3/39031284f8eae5e8557fc31254a5422a/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:33:13-132
+499            android:exported="false" />
+499-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/mac/.gradle/caches/transforms-3/39031284f8eae5e8557fc31254a5422a/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:34:13-37
+500        <receiver
+500-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/mac/.gradle/caches/transforms-3/2bdaea8e895c8893f7f88cedc4b18690/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+501            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+501-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/mac/.gradle/caches/transforms-3/2bdaea8e895c8893f7f88cedc4b18690/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+502            android:directBootAware="false"
+502-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/mac/.gradle/caches/transforms-3/2bdaea8e895c8893f7f88cedc4b18690/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+503            android:enabled="true"
+503-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/mac/.gradle/caches/transforms-3/2bdaea8e895c8893f7f88cedc4b18690/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+504            android:exported="true"
+504-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/mac/.gradle/caches/transforms-3/2bdaea8e895c8893f7f88cedc4b18690/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+505            android:permission="android.permission.DUMP" >
+505-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/mac/.gradle/caches/transforms-3/2bdaea8e895c8893f7f88cedc4b18690/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+506            <intent-filter>
+506-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/mac/.gradle/caches/transforms-3/2bdaea8e895c8893f7f88cedc4b18690/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+507                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+507-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/mac/.gradle/caches/transforms-3/2bdaea8e895c8893f7f88cedc4b18690/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+507-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/mac/.gradle/caches/transforms-3/2bdaea8e895c8893f7f88cedc4b18690/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+508            </intent-filter>
+509            <intent-filter>
+509-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/mac/.gradle/caches/transforms-3/2bdaea8e895c8893f7f88cedc4b18690/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+510                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+510-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/mac/.gradle/caches/transforms-3/2bdaea8e895c8893f7f88cedc4b18690/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+510-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/mac/.gradle/caches/transforms-3/2bdaea8e895c8893f7f88cedc4b18690/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+511            </intent-filter>
+512            <intent-filter>
+512-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/mac/.gradle/caches/transforms-3/2bdaea8e895c8893f7f88cedc4b18690/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+513                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+513-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/mac/.gradle/caches/transforms-3/2bdaea8e895c8893f7f88cedc4b18690/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+513-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/mac/.gradle/caches/transforms-3/2bdaea8e895c8893f7f88cedc4b18690/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+514            </intent-filter>
+515            <intent-filter>
+515-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/mac/.gradle/caches/transforms-3/2bdaea8e895c8893f7f88cedc4b18690/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+516                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+516-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/mac/.gradle/caches/transforms-3/2bdaea8e895c8893f7f88cedc4b18690/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+516-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/mac/.gradle/caches/transforms-3/2bdaea8e895c8893f7f88cedc4b18690/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+517            </intent-filter>
+518        </receiver>
+519    </application>
+520
+521</manifest>

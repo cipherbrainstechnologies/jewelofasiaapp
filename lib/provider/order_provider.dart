@@ -272,7 +272,6 @@ class OrderProvider extends ChangeNotifier {
     ApiResponse apiResponse = await orderRepo!.placeOrder(placeOrderBody);
     _isLoading = false;
     if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
-
       String? message = apiResponse.response!.data['message'];
       String orderID = apiResponse.response!.data['order_id'].toString();
       callback(true, message, orderID);
