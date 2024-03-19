@@ -1167,6 +1167,7 @@ layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 menu menu_main
 mipmap ic_launcher
+mipmap notification_icon
 raw firebase_common_keep
 raw notification
 string abc_action_bar_home_description
