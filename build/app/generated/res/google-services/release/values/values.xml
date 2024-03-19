@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="gcm_defaultSenderId" translatable="false">575307389937</string>
-    <string name="google_api_key" translatable="false">AIzaSyDgTllJ9n09tyvcKUw88IRuBQn9my4FXQ4</string>
-    <string name="google_app_id" translatable="false">1:575307389937:android:0903bba5b2baf3efc68250</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDgTllJ9n09tyvcKUw88IRuBQn9my4FXQ4</string>
-    <string name="google_storage_bucket" translatable="false">jewelofasia-1d8c1.appspot.com</string>
-    <string name="project_id" translatable="false">jewelofasia-1d8c1</string>
-</resources>
