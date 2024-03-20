@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_grocery/data/datasource/remote/dio/dio_client.dart';
@@ -16,6 +18,8 @@ class OrderRepo {
   Future<ApiResponse> getOrderList() async {
     try {
       final response = await dioClient!.get(AppConstants.orderListUri);
+      log("this is delivery addrerss:::::${response.data}");
+
       return ApiResponse.withSuccess(response);
     } catch (e) {
       return ApiResponse.withError(ApiErrorHandler.getMessage(e));

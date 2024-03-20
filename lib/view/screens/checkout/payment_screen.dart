@@ -200,7 +200,7 @@ class MyInAppBrowser extends InAppBrowser {
   void _pageRedirect(String url) {
     if(_canRedirect) {
       //bool checkedUrl = (url.contains('${AppConstants.baseUrl}${RouteHelper.orderSuccessful}') || url.contains('${AppConstants.baseUrl}${RouteHelper.wallet}'));
-      bool checkedUrl = (url.contains('${RouteHelper.orderSuccessful}') || url.contains('${RouteHelper.wallet}'));
+      bool checkedUrl = url.contains("subscription_id") ? (url.contains('${RouteHelper.orderSuccessful}') || url.contains('${RouteHelper.wallet}')):(url.contains('${AppConstants.baseUrl}${RouteHelper.orderSuccessful}') || url.contains('${AppConstants.baseUrl}${RouteHelper.wallet}'));
       bool isSuccess = url.contains('success') && checkedUrl;
       bool isFailed = url.contains('fail') && checkedUrl;
       bool isCancel = url.contains('cancel') && checkedUrl;
@@ -217,15 +217,14 @@ class MyInAppBrowser extends InAppBrowser {
         close();
       }
       if(isSuccess){
-        String token = url.replaceRange(0, url.indexOf('token='), '').replaceAll('token=', '');
-        String orderId = url.replaceRange(0, url.indexOf("order-successful/"),'').replaceAll('order-successful/','').substring(0,6);
-        print("orderId is :::::::: $orderId");
+        String token = url.replaceRange(0, url.indexOf('token='), '').replaceAll('token=', '');;
         if(isWallet){
           Navigator.pushReplacementNamed(context, RouteHelper.getWalletRoute(token: token, status: 'success'));
         }else{
           if(token.isNotEmpty) {
             final orderProvider =  Provider.of<OrderProvider>(context, listen: false);
             if(url.contains("subscription_id")){
+              String orderId = url.replaceRange(0, url.indexOf("order-successful/"),'').replaceAll('order-successful/','').substring(0,6);
               _callback(true,"order successful",orderId);
             }else{
             String placeOrderString =  utf8.decode(base64Url.decode(orderProvider.getPlaceOrder()!.replaceAll(' ', '+')));
