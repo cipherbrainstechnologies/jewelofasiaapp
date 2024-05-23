@@ -99,24 +99,6 @@ class _DetailsViewState extends State<DetailsView> {
           ),
           // for Address Field
           Text(
-            getTranslated('address_line_01', context),
-            style: poppinsRegular.copyWith(
-                color: Theme.of(context).hintColor.withOpacity(0.6)),
-          ),
-          const SizedBox(height: Dimensions.paddingSizeSmall),
-
-          CustomTextField(
-            hintText: getTranslated('address_line_02', context),
-            isShowBorder: true,
-            inputType: TextInputType.streetAddress,
-            inputAction: TextInputAction.next,
-            focusNode: widget.addressNode,
-            nextFocus: widget.stateNode,
-            controller: widget.locationTextController,
-          ),
-          const SizedBox(height: Dimensions.paddingSizeLarge),
-
-          Text(
             '${getTranslated('street', context)} ${getTranslated('number', context)}',
             style: poppinsRegular.copyWith(
                 color: Theme.of(context).hintColor.withOpacity(0.6)),
@@ -132,41 +114,56 @@ class _DetailsViewState extends State<DetailsView> {
             controller: widget.streetNumberController,
           ),
           const SizedBox(height: Dimensions.paddingSizeLarge),
-
           Text(
             '${getTranslated('house', context)} / ${getTranslated('floor', context)} ${getTranslated('number', context)}',
             style: poppinsRegular.copyWith(
                 color: Theme.of(context).hintColor.withOpacity(0.6)),
           ),
           const SizedBox(height: Dimensions.paddingSizeSmall),
-          Row(
-            children: [
-              Expanded(
-                child: CustomTextField(
-                  hintText: getTranslated('ex_2', context),
-                  isShowBorder: true,
-                  inputType: TextInputType.streetAddress,
-                  inputAction: TextInputAction.next,
-                  focusNode: widget.houseNode,
-                  nextFocus: widget.florNode,
-                  controller: widget.houseNumberController,
-                ),
-              ),
-              const SizedBox(width: Dimensions.paddingSizeLarge),
-              Expanded(
-                child: CustomTextField(
-                  hintText: getTranslated('ex_2b', context),
-                  isShowBorder: true,
-                  inputType: TextInputType.streetAddress,
-                  inputAction: TextInputAction.next,
-                  focusNode: widget.florNode,
-                  nextFocus: widget.nameNode,
-                  controller: widget.florNumberController,
-                ),
-              ),
-            ],
+          CustomTextField(
+            hintText: getTranslated('ex_2', context),
+            isShowBorder: true,
+            inputType: TextInputType.streetAddress,
+            inputAction: TextInputAction.next,
+            focusNode: widget.houseNode,
+            nextFocus: widget.addressNode,
+            controller: widget.houseNumberController,
+          ),
+
+          const SizedBox(height: Dimensions.paddingSizeLarge),
+          Text(
+            getTranslated('address_line_01', context),
+            style: poppinsRegular.copyWith(
+                color: Theme.of(context).hintColor.withOpacity(0.6)),
+          ),
+          const SizedBox(height: Dimensions.paddingSizeSmall),
+
+          CustomTextField(
+            hintText: getTranslated('address_line_02', context),
+            isShowBorder: true,
+            inputType: TextInputType.streetAddress,
+            inputAction: TextInputAction.next,
+            focusNode: widget.addressNode,
+            nextFocus: widget.florNode,
+            controller: widget.locationTextController,
           ),
           const SizedBox(height: Dimensions.paddingSizeLarge),
+          Text(
+            getTranslated('Suburb', context),
+            style: poppinsRegular.copyWith(
+                color: Theme.of(context).hintColor.withOpacity(0.6)),
+          ),
+          const SizedBox(height: Dimensions.paddingSizeSmall),
+          CustomTextField(
+            hintText: getTranslated('ex_2b', context),
+            isShowBorder: true,
+            inputType: TextInputType.streetAddress,
+            inputAction: TextInputAction.done,
+            focusNode: widget.florNode,
+            controller: widget.florNumberController,
+          ),
+          const SizedBox(height: Dimensions.paddingSizeLarge),
+
           Row(
             children: [
               Expanded(
