@@ -1,11 +1,11 @@
 {
-    "name": "flutter_grocery",
-    "short_name": "flutter_grocery",
+    "name": "Jewels Of Asia ",
+    "short_name": "Jewelsofasia",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Jewel of Asia provides healthy and affordable breakfast, lunch and dinner solution delivered to your home in Sydney Metropolitan area",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
