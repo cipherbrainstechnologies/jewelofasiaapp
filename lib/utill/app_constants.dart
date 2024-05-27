@@ -7,6 +7,7 @@ class AppConstants {
   static const double appVersion = 7.2;
   static const AppMode appMode = AppMode.release;
   static const String baseUrl = 'https://admin.jewelsofasia.app';
+
   static const String configUri = '/api/v1/config';
   static const String bannerUri = '/api/v1/banners';
   static const String categoryUri = '/api/v1/categories';
