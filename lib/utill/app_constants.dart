@@ -6,8 +6,8 @@ class AppConstants {
   static const String appName = 'JEWEL OF ASIA';
   static const double appVersion = 7.2;
   static const AppMode appMode = AppMode.release;
-  //static const String baseUrl = 'https://admin.jewelsofasia.app';
-  static const String baseUrl = 'http://phplaravel-941212-4363533.cloudwaysapps.com';
+  static const String baseUrl = 'https://admin.jewelsofasia.app';
+  //static const String baseUrl = 'https://phplaravel-941212-4363533.cloudwaysapps.com';
 
   static const String configUri = '/api/v1/config';
   static const String bannerUri = '/api/v1/banners';
