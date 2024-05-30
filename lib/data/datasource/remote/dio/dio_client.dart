@@ -35,6 +35,7 @@ class DioClient {
       ..httpClientAdapter
       ..options.headers = {
         'Content-Type': 'application/json; charset=UTF-8',
+        'Access-Control-Allow-Origin': '*',
         'Authorization': 'Bearer $getToken',
         'X-localization': sharedPreferences.getString(AppConstants.languageCode)
             ?? AppConstants.languages[0].languageCode,
