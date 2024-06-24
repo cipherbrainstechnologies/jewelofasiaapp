@@ -104,7 +104,7 @@ class DeliveryAddressView extends StatelessWidget {
                       const SizedBox(width: Dimensions.paddingSizeSmall),
 
                       if(deliveryAddress.floorNumber != null) Text(
-                        '${getTranslated('floor', context)} - ${deliveryAddress.floorNumber}',
+                        '${getTranslated('Suburb', context)} - ${deliveryAddress.floorNumber}',
                         maxLines: 1, overflow: TextOverflow.ellipsis,
                       ),
                     ]),

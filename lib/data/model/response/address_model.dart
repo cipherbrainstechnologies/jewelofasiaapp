@@ -59,7 +59,10 @@ class AddressModel {
     data['id'] = id;
     data['address_type'] = addressType;
     data['contact_person_number'] = contactPersonNumber;
+    data['road'] = streetNumber;
     data['address'] = address;
+    data['floor'] = floorNumber;
+    data['house'] = houseNumber;
     data['latitude'] = latitude;
     data['longitude'] = longitude;
     data['created_at'] = createdAt;
@@ -69,9 +72,9 @@ class AddressModel {
     data['zipcode'] = zipcode;
     data['_method'] = method;
     data['contact_person_name'] = contactPersonName;
-    data['road'] = streetNumber;
-    data['floor'] = floorNumber;
-    data['house'] = houseNumber;
+
+
+
     return data;
   }
 }

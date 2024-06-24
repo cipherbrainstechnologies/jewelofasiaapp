@@ -212,7 +212,7 @@ class _DetailsViewState extends State<DetailsView> {
                       filled: true,
                       counterStyle: poppinsLight.copyWith(
                           fontSize: Dimensions.fontSizeLarge),
-                      hintText: "Select Pincode",
+                      hintText: "Select Zipcode",
                       hintStyle: poppinsLight.copyWith(
                           fontWeight: FontWeight.w300,
                           fontSize: Dimensions.fontSizeDefault),

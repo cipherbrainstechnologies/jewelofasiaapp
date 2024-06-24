@@ -134,7 +134,8 @@ class ButtonsView extends StatelessWidget {
                               .isEmpty
                           ? ''
                           : '${CountryCode.fromCountryCode(countryCode).dialCode}${contactPersonNumberController.text.trim()}',
-                      address: "${houseNumberController.text} ${floorNumberController.text}  ${locationTextController.text.toString() ?? ''}  ${streetNumberController.text} ${locationProvider.cityList!.where((element) => element.id == locationProvider.selectedCity).first.name} ${locationProvider.selectedZipcode}",
+                    //  address: "${houseNumberController.text} ${floorNumberController.text}  ${locationTextController.text.toString() ?? ''}  ${streetNumberController.text} ${locationProvider.cityList!.where((element) => element.id == locationProvider.selectedCity).first.name} ${locationProvider.selectedZipcode}",
+                      address: " ${streetNumberController.text} ${locationTextController.text.toString() ?? ''} ${houseNumberController.text} ${floorNumberController.text} ${locationProvider.cityList!.where((element) => element.id == locationProvider.selectedCity).first.name} ${locationProvider.selectedZipcode}",
                       city: locationProvider.selectedCity,
                       zipcode: locationProvider.selectedZipcode,
                       floorNumber: floorNumberController.text,
