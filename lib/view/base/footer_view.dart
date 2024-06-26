@@ -254,7 +254,7 @@ class FooterView extends StatelessWidget {
                           builder: (hovered) {
                             return InkWell(
                                 onTap: () => Navigator.pushNamed(context, RouteHelper.getfaqRoute()),
-                                child: Text('faq'.tr, style: hovered? poppinsMedium.copyWith(
+                                child: Text('Delivery Information'.tr, style: hovered? poppinsMedium.copyWith(
                                     color: Theme.of(context).primaryColor) : poppinsRegular.copyWith(
                                   color: ColorResources.getFooterTextColor(context),
                                   fontSize: Dimensions.fontSizeDefault,
