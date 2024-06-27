@@ -579,7 +579,7 @@
     },
     {
       "name": "google_maps_flutter_ios",
-      "rootUri": "file:///C:/Users/lovec/AppData/Local/Pub/Cache/hosted/pub.dev/google_maps_flutter_ios-2.7.0",
+      "rootUri": "file:///C:/Users/lovec/AppData/Local/Pub/Cache/hosted/pub.dev/google_maps_flutter_ios-2.8.0",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
@@ -1256,7 +1256,7 @@
       "languageVersion": "2.15"
     }
   ],
-  "generated": "2024-06-26T07:46:41.693926Z",
+  "generated": "2024-06-27T06:49:54.057875Z",
   "generator": "pub",
   "generatorVersion": "3.4.1",
   "flutterRoot": "file:///C:/Users/lovec/dev/flutter_windows_3.22.1-stable/flutter",
