@@ -199,12 +199,10 @@ class MyInAppBrowser extends InAppBrowser {
 
   void _pageRedirect(String url) {
     if(_canRedirect) {
-      //bool checkedUrl = (url.contains('${AppConstants.baseUrl}${RouteHelper.orderSuccessful}') || url.contains('${AppConstants.baseUrl}${RouteHelper.wallet}'));
       bool checkedUrl = (url.contains('${RouteHelper.orderSuccessful}') || url.contains('${RouteHelper.wallet}'));
       bool isSuccess = url.contains('success') && checkedUrl;
       bool isFailed = url.contains('fail') && checkedUrl;
       bool isCancel = url.contains('cancel') && checkedUrl;
-
       bool isWallet = url.contains('${AppConstants.baseUrl}${RouteHelper.wallet}');
 
       if (kDebugMode) {
@@ -216,47 +214,138 @@ class MyInAppBrowser extends InAppBrowser {
         _canRedirect = false;
         close();
       }
+
       if(isSuccess){
-        String token = url.replaceRange(0, url.indexOf('token='), '').replaceAll('token=', '');
-        String orderId = url.replaceRange(0, url.indexOf("order-successful/"),'').replaceAll('order-successful/','').substring(0,6);
-        print("orderId is :::::::: $orderId");
-        if(isWallet){
-          Navigator.pushReplacementNamed(context, RouteHelper.getWalletRoute(token: token, status: 'success'));
-        }else{
-          if(token.isNotEmpty) {
-            final orderProvider =  Provider.of<OrderProvider>(context, listen: false);
-            if(url.contains("subscription_id")){
-              _callback(true,"order successful",orderId);
-            }else{
-            String placeOrderString =  utf8.decode(base64Url.decode(orderProvider.getPlaceOrder()!.replaceAll(' ', '+')));
-            String decodeValue = utf8.decode(base64Url.decode(token.replaceAll(' ', '+')));
-            String paymentMethod = decodeValue.substring(0, decodeValue.indexOf('&&'));
-            String transactionReference = decodeValue.substring(decodeValue.indexOf('&&') + '&&'.length, decodeValue.length);
-
-            PlaceOrderBody? placeOrderBody =  PlaceOrderBody.fromJson(jsonDecode(placeOrderString)).copyWith(
-              paymentMethod: paymentMethod.replaceAll('payment_method=', ''),
-              transactionReference:  transactionReference.replaceRange(0, transactionReference.indexOf('transaction_reference='), '').replaceAll('transaction_reference=', ''),
-            );
-
-            Provider.of<OrderProvider>(context, listen: false).placeOrder(placeOrderBody, _callback);
-            }
-
-          }else{
-            Navigator.pushReplacementNamed(context, '${RouteHelper.orderSuccessful}/$orderId/payment-fail');
+        try {
+          // Extract token safely
+          String token = '';
+          if (url.contains('token=')) {
+            token = url.substring(url.indexOf('token=') + 'token='.length);
           }
+
+          // Extract orderId safely
+          String orderId = 'No';
+          if (url.contains('order-successful/')) {
+            int startIndex = url.indexOf('order-successful/') + 'order-successful/'.length;
+            String remaining = url.substring(startIndex);
+            // Make sure there are at least 6 characters to extract
+            if (remaining.length >= 6) {
+              orderId = remaining.substring(0, 6);
+            }
+          }
+
+          if (kDebugMode) {
+            print("orderId is :::::::: $orderId");
+          }
+
+          if(isWallet){
+            Navigator.pushReplacementNamed(context, RouteHelper.getWalletRoute(token: token, status: 'success'));
+          } else {
+            if(token.isNotEmpty) {
+              final orderProvider = Provider.of<OrderProvider>(context, listen: false);
+              if(url.contains("subscription_id")){
+                _callback(true, "order successful", orderId);
+              } else {
+                String placeOrderString = utf8.decode(base64Url.decode(orderProvider.getPlaceOrder()!.replaceAll(' ', '+')));
+                String decodeValue = utf8.decode(base64Url.decode(token.replaceAll(' ', '+')));
+
+                // Safely extract paymentMethod and transactionReference
+                String paymentMethod = '';
+                String transactionReference = '';
+                if (decodeValue.contains('&&')) {
+                  paymentMethod = decodeValue.substring(0, decodeValue.indexOf('&&'));
+                  transactionReference = decodeValue.substring(decodeValue.indexOf('&&') + '&&'.length);
+                }
+
+                PlaceOrderBody? placeOrderBody = PlaceOrderBody.fromJson(jsonDecode(placeOrderString)).copyWith(
+                  paymentMethod: paymentMethod.replaceAll('payment_method=', ''),
+                  transactionReference: transactionReference.contains('transaction_reference=')
+                    ? transactionReference.replaceAll('transaction_reference=', '')
+                    : transactionReference,
+                );
+
+                Provider.of<OrderProvider>(context, listen: false).placeOrder(placeOrderBody, _callback);
+              }
+            } else {
+              Navigator.pushReplacementNamed(context, '${RouteHelper.orderSuccessful}/$orderId/payment-fail');
+            }
+          }
+        } catch (e) {
+          if (kDebugMode) {
+            print("Error in _pageRedirect: $e");
+          }
+          Navigator.pushReplacementNamed(context, '${RouteHelper.orderSuccessful}/No/payment-fail');
         }
-
-      }else if(isWallet){
-        Navigator.pushReplacementNamed(context, RouteHelper.getWalletRoute(token: 'failed',status: 'failed'));
-
-      }else if(isFailed) {
+      } else if(isWallet) {
+        Navigator.pushReplacementNamed(context, RouteHelper.getWalletRoute(token: 'failed', status: 'failed'));
+      } else if(isFailed) {
         Navigator.pushReplacementNamed(context, '${RouteHelper.orderSuccessful}/${'No'}/payment-fail');
-      }else if(isCancel) {
+      } else if(isCancel) {
         Navigator.pushReplacementNamed(context, '${RouteHelper.orderSuccessful}/${'No'}/payment-cancel');
       }
     }
-
   }
+
+//   void _pageRedirect(String url) {
+//     if(_canRedirect) {
+//       //bool checkedUrl = (url.contains('${AppConstants.baseUrl}${RouteHelper.orderSuccessful}') || url.contains('${AppConstants.baseUrl}${RouteHelper.wallet}'));
+//       bool checkedUrl = (url.contains('${RouteHelper.orderSuccessful}') || url.contains('${RouteHelper.wallet}'));
+//       bool isSuccess = url.contains('success') && checkedUrl;
+//       bool isFailed = url.contains('fail') && checkedUrl;
+//       bool isCancel = url.contains('cancel') && checkedUrl;
+//
+//       bool isWallet = url.contains('${AppConstants.baseUrl}${RouteHelper.wallet}');
+//
+//       if (kDebugMode) {
+//         print('----------------payment status -----$isCancel -- $isSuccess -- $isFailed');
+//         print('------------------url --- $url');
+//       }
+//
+//       if(isSuccess || isFailed || isCancel) {
+//         _canRedirect = false;
+//         close();
+//       }
+//       if(isSuccess){
+//         String token = url.replaceRange(0, url.indexOf('token='), '').replaceAll('token=', '');
+//         String orderId = url.replaceRange(0, url.indexOf("order-successful/"),'').replaceAll('order-successful/','').substring(0,6);
+//         print("orderId is :::::::: $orderId");
+//         if(isWallet){
+//           Navigator.pushReplacementNamed(context, RouteHelper.getWalletRoute(token: token, status: 'success'));
+//         }else{
+//           if(token.isNotEmpty) {
+//             final orderProvider =  Provider.of<OrderProvider>(context, listen: false);
+//             if(url.contains("subscription_id")){
+//               _callback(true,"order successful",orderId);
+//             }else{
+//             String placeOrderString =  utf8.decode(base64Url.decode(orderProvider.getPlaceOrder()!.replaceAll(' ', '+')));
+//             String decodeValue = utf8.decode(base64Url.decode(token.replaceAll(' ', '+')));
+//             String paymentMethod = decodeValue.substring(0, decodeValue.indexOf('&&'));
+//             String transactionReference = decodeValue.substring(decodeValue.indexOf('&&') + '&&'.length, decodeValue.length);
+//
+//             PlaceOrderBody? placeOrderBody =  PlaceOrderBody.fromJson(jsonDecode(placeOrderString)).copyWith(
+//               paymentMethod: paymentMethod.replaceAll('payment_method=', ''),
+//               transactionReference:  transactionReference.replaceRange(0, transactionReference.indexOf('transaction_reference='), '').replaceAll('transaction_reference=', ''),
+//             );
+//
+//             Provider.of<OrderProvider>(context, listen: false).placeOrder(placeOrderBody, _callback);
+//             }
+//
+//           }else{
+//             Navigator.pushReplacementNamed(context, '${RouteHelper.orderSuccessful}/$orderId/payment-fail');
+//           }
+//         }
+//
+//       }else if(isWallet){
+//         Navigator.pushReplacementNamed(context, RouteHelper.getWalletRoute(token: 'failed',status: 'failed'));
+//
+//       }else if(isFailed) {
+//         Navigator.pushReplacementNamed(context, '${RouteHelper.orderSuccessful}/${'No'}/payment-fail');
+//       }else if(isCancel) {
+//         Navigator.pushReplacementNamed(context, '${RouteHelper.orderSuccessful}/${'No'}/payment-cancel');
+//       }
+//     }
+//
+//   }
 
   void _callback(bool isSuccess, String message, String orderID) async {
     Provider.of<CartProvider>(context, listen: false).clearCartList();
